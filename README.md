@@ -44,5 +44,5 @@ git add -A && git commit -m "update" && git push  # triggers Render deploy
 
 - **NVDA Agent**: Mean-reversion (RSI≤30 + SMA200 trend) on US.NVDA
 - **AMD Agent**: Bollinger Band (BB lower touch + RSI<40) on US.AMD
-- Both use FUTUINC SIMULATE account (acc_id=4584160)
+- Both use FUTUINC SIMULATE account 
 - Cron schedule: every 5 min, 10PM-5AM MYT, Mon-Fri
