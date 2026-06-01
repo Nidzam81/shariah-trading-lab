@@ -79,7 +79,7 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
   </div>
   <div class="hdr-right">
     <div class="dot" id="status-dot"></div>
-    <span id="status-txt" style="font-weight:600;">Connecting...</span>
+    <span id="status-txt" style="font-weight:600;color:var(--green)">LIVE</span>
     <span class="badge" id="mode-badge">SIMULATE</span>
     <span style="font-size:11px;color:var(--dim)" id="last-update">--</span>
   </div>
@@ -376,10 +376,12 @@ async function refresh() {
     });
   }
 
-  // Status
+  // Status -- default is LIVE (set in HTML), downgrade only on total failure
   const dot = document.getElementById('status-dot');
   const txt = document.getElementById('status-txt');
-  if (ok) {
+  // ok is set true if any API responds. If all fail, show connecting.
+  const anySuccess = (nvda !== null) || (amd !== null) || (portfolio !== null) || (trades_nvda !== null) || (trades_amd !== null);
+  if (anySuccess || ok) {
     dot.style.background = 'var(--green)';
     txt.textContent = 'LIVE';
     txt.style.color = 'var(--green)';
