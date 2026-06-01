@@ -296,6 +296,11 @@ async function refresh() {
 
   let ok = false;
 
+  // Any successful API response counts as "connected"
+  if (nvda !== null) ok = true;
+  if (amd !== null) ok = true;
+  if (portfolio !== null) ok = true;
+
   if (nvda && nvda.current_price) {
     ok = true;
     document.getElementById('nvda-price').textContent = '$' + nvda.current_price.toFixed(2);
@@ -371,18 +376,16 @@ async function refresh() {
     });
   }
 
-  // Status -- show LIVE if anything responded, even partial
+  // Status
   const dot = document.getElementById('status-dot');
   const txt = document.getElementById('status-txt');
-  // ok is set if portfolio responded; but we also have trade logs
-  const hasAnyData = ok || allTrades > 0 || (nvda && nvda.current_price) || (amd && amd.current_price);
-  if (hasAnyData) {
+  if (ok) {
     dot.style.background = 'var(--green)';
     txt.textContent = 'LIVE';
     txt.style.color = 'var(--green)';
   } else {
     dot.style.background = 'var(--yellow)';
-    txt.textContent = 'CONNECTING... (Render cold start ~30s)';
+    txt.textContent = 'CONNECTING...';
     txt.style.color = 'var(--yellow)';
   }
 
