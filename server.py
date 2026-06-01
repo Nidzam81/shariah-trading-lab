@@ -19,13 +19,17 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
+# Use the directory where this script lives (works on both local and Render)
+SCRIPT_DIR = Path(__file__).parent
+DASHBOARD_HTML = SCRIPT_DIR / "index.html"
+
+# Local Windows paths (only used when running locally)
 HOME = Path(os.path.expanduser("~"))
 HERMES = HOME / "AppData" / "Local" / "hermes"
 NVDA_LOG = HERMES / "nvda_agent" / "trading_log.jsonl"
 NVDA_STATE = HERMES / "nvda_agent" / "state.json"
 AMD_LOG = HERMES / "amd_agent" / "trading_log.jsonl"
 AMD_STATE = HERMES / "amd_agent" / "state.json"
-DASHBOARD_HTML = HERMES / "dashboard" / "index.html"
 
 MOOMOO_PYTHON = r"C:\ProgramData\chocolatey\bin\python3.13"
 MOOMOO_SCRIPTS = str(HERMES / "skills" / "moomooapi" / "scripts")
