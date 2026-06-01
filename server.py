@@ -33,7 +33,25 @@ MOOMOO_SCRIPTS = str(HERMES / "skills" / "moomooapi" / "scripts")
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
 def read_jsonl(path, max_lines=50):
-    """Read last N lines of a JSONL file."""
+    """Read last N lines of a JSONL file. Also accepts a URL to fetch from GitHub."""
+    # If it's a URL, fetch it
+    if str(path).startswith("http"):
+        try:
+            req = urllib.request.Request(str(path), headers={"User-Agent": "shariah-trading-lab"})
+            resp = urllib.request.urlopen(req, timeout=10)
+            lines = resp.read().decode("utf-8").splitlines()
+            results = []
+            for line in lines[-max_lines:]:
+                line = line.strip()
+                if line:
+                    try:
+                        results.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        pass
+            return results
+        except Exception:
+            return []
+    # Local file
     p = Path(path)
     if not p.exists():
         return []
@@ -228,10 +246,19 @@ def portfolio():
 
 @app.get("/api/trades/{agent}")
 def recent_trades(agent: str):
-    log_file = NVDA_LOG if agent == "nvda" else AMD_LOG
-    logs = read_jsonl(log_file, max_lines=100)
-    trade_logs = [l for l in logs if l.get("type") in ("order_filled", "buy_signal", "exit_signal")]
-    return JSONResponse({"trades": trade_logs[-30:]})
+    """Fetch trade logs from GitHub repo."""
+    raw_url = f"https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main/logs/{agent}_trades.json"
+    try:
+        req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
+        resp = urllib.request.urlopen(req, timeout=10)
+        data = json.loads(resp.read())
+        return JSONResponse(data)
+    except Exception as e:
+        # Fallback to local
+        log_file = NVDA_LOG if agent == "nvda" else AMD_LOG
+        logs = read_jsonl(log_file, max_lines=100)
+        trade_logs = [l for l in logs if l.get("type") in ("order_filled", "buy_signal", "exit_signal")]
+        return JSONResponse({"trades": trade_logs[-30:]})
 
 
 @app.get("/", response_class=HTMLResponse)
