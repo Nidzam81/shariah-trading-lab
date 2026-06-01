@@ -299,23 +299,29 @@ async function refresh() {
   if (nvda && nvda.current_price) {
     ok = true;
     document.getElementById('nvda-price').textContent = '$' + nvda.current_price.toFixed(2);
-    const chg = nvda.rsi14;
     document.getElementById('nvda-rsi').textContent = nvda.rsi14 ? nvda.rsi14.toFixed(1) : '--';
     updateBar('nvda-rsi-bar', nvda.rsi14 || 0, true);
     document.getElementById('nvda-sma').textContent = nvda.sma200 ? '$' + nvda.sma200.toFixed(2) : '--';
     document.getElementById('nvda-trend').textContent = nvda.trend || '--';
     document.getElementById('nvda-trend').style.color = nvda.trend === 'BULL' ? 'var(--green)' : nvda.trend === 'BEAR' ? 'var(--red)' : 'var(--dim)';
-    if (nvda.position_open) {
-      document.getElementById('nvda-status').textContent = 'HOLDING';
-      document.getElementById('nvda-status').className = 'astat hold';
-    }
-    // chg display
     if (nvda.sma200) {
       const pct = ((nvda.current_price / nvda.sma200 - 1) * 100).toFixed(2);
       const el = document.getElementById('nvda-chg');
       el.textContent = (pct >= 0 ? '+' : '') + pct + '% vs SMA';
       el.className = 'chg ' + (pct >= 0 ? 'up' : 'down');
     }
+    if (nvda.position_open) {
+      document.getElementById('nvda-status').textContent = 'HOLDING';
+      document.getElementById('nvda-status').className = 'astat hold';
+    }
+  } else {
+    // Render can't reach moomoo -- show last known or placeholder
+    document.getElementById('nvda-price').textContent = 'NVDA';
+    document.getElementById('nvda-rsi').textContent = 'Live data requires local OpenD';
+    document.getElementById('nvda-sma').textContent = '---';
+    document.getElementById('nvda-trend').textContent = 'N/A (server)';
+    document.getElementById('nvda-status').textContent = 'LIVE (local)';
+    document.getElementById('nvda-status').className = 'astat live';
   }
 
   if (amd && amd.current_price) {
@@ -332,12 +338,13 @@ async function refresh() {
       document.getElementById('amd-status').textContent = 'HOLDING';
       document.getElementById('amd-status').className = 'astat hold';
     }
-    if (amd.bb_lower) {
-      const pct = ((amd.current_price / amd.bb_lower - 1) * 100).toFixed(2);
-      const el = document.getElementById('amd-chg');
-      el.textContent = (pct >= 0 ? '+' : '') + pct + '% from BB';
-      el.className = 'chg ' + (pct >= 0 ? 'up' : 'down');
-    }
+  } else {
+    document.getElementById('amd-price').textContent = 'AMD';
+    document.getElementById('amd-rsi').textContent = 'Live data requires local OpenD';
+    document.getElementById('amd-bb').textContent = '---';
+    document.getElementById('amd-signal').textContent = 'N/A (server)';
+    document.getElementById('amd-status').textContent = 'LIVE (local)';
+    document.getElementById('amd-status').className = 'astat live';
   }
 
   if (portfolio) {
@@ -350,33 +357,33 @@ async function refresh() {
   const allTrades = ((trades_nvda?.trades?.length)||0) + ((trades_amd?.trades?.length)||0);
   document.getElementById('stat-trades').textContent = allTrades;
 
-  // Add log entries
-  if (nvda?.recent_logs) {
-    nvda.recent_logs.slice(-3).forEach(l => {
-      const t = l.type || '';
-      const type = t.includes('buy') ? 'buy' : t.includes('TP') ? 'tp' : t.includes('SL') ? 'sl' : 'info';
-      addLog(`[NVDA] ${l.msg || t}`, type);
+  // Add log entries from trade logs
+  if (trades_nvda?.trades) {
+    trades_nvda.trades.slice(-3).forEach(l => {
+      const type = l.type === 'buy_filled' ? 'buy' : l.reason === 'TP' ? 'tp' : 'sl';
+      addLog(`[NVDA] ${l.side} ${l.reason || 'BUY'} @ $${l.price} (${l.pnl >= 0 ? '+' : ''}$${l.pnl})`, type);
     });
   }
-  if (amd?.recent_logs) {
-    amd.recent_logs.slice(-3).forEach(l => {
-      const t = l.type || '';
-      const type = t.includes('buy') ? 'buy' : t.includes('TP') ? 'tp' : t.includes('SL') ? 'sl' : 'info';
-      addLog(`[AMD] ${l.msg || t}`, type);
+  if (trades_amd?.trades) {
+    trades_amd.trades.slice(-3).forEach(l => {
+      const type = l.type === 'buy_filled' ? 'buy' : l.reason === 'TP' ? 'tp' : 'sl';
+      addLog(`[AMD] ${l.side} ${l.reason || 'BUY'} @ $${l.price} (${l.pnl >= 0 ? '+' : ''}$${l.pnl})`, type);
     });
   }
 
-  // Status
+  // Status -- show LIVE if anything responded, even partial
   const dot = document.getElementById('status-dot');
   const txt = document.getElementById('status-txt');
-  if (ok) {
+  // ok is set if portfolio responded; but we also have trade logs
+  const hasAnyData = ok || allTrades > 0 || (nvda && nvda.current_price) || (amd && amd.current_price);
+  if (hasAnyData) {
     dot.style.background = 'var(--green)';
     txt.textContent = 'LIVE';
     txt.style.color = 'var(--green)';
   } else {
-    dot.style.background = 'var(--red)';
-    txt.textContent = 'OFFLINE';
-    txt.style.color = 'var(--red)';
+    dot.style.background = 'var(--yellow)';
+    txt.textContent = 'CONNECTING... (Render cold start ~30s)';
+    txt.style.color = 'var(--yellow)';
   }
 
   document.getElementById('last-update').textContent = 'Updated: ' + new Date().toLocaleTimeString();
