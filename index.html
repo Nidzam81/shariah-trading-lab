@@ -169,6 +169,14 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
     </div>
   </div>
 
+  <!-- LIVE TRADE LOG -->
+  <div class="card" style="margin-bottom:24px; border-top:3px solid var(--purple);">
+    <div class="card-title"><span class="icon">&#x1F4CB;</span> Live Trade Log <span style="font-size:10px;color:var(--dim);font-weight:400;">(auto-updates from SIMULATE trades)</span></div>
+    <div id="live-trades">
+      <div style="color:var(--dim);font-size:12px;padding:10px;">Waiting for trades...</div>
+    </div>
+  </div>
+
   <!-- BACKTEST -->
   <div class="card" style="margin-bottom:24px;">
     <div class="card-title">📊 Backtest Results (Apr-Jun 2026, 5-min bars, 9 stocks scanned)</div>
@@ -374,9 +382,55 @@ async function refresh() {
   document.getElementById('last-update').textContent = 'Updated: ' + new Date().toLocaleTimeString();
 }
 
+// Fetch live trades from GitHub
+async function loadLiveTrades() {
+  const container = document.getElementById("live-trades");
+  if (!container) return;
+
+  for (const agent of ["nvda", "amd"]) {
+    try {
+      const r = await fetch(`${BASE}/api/trades/${agent}`, {signal: AbortSignal.timeout(8000)});
+      const data = await r.json();
+      const trades = data.trades || [];
+      if (trades.length === 0) continue;
+
+      // Remove placeholder
+      const placeholder = container.querySelector("div");
+      if (placeholder && placeholder.textContent.includes("Waiting")) {
+        container.innerHTML = "";
+      }
+
+      const label = agent.toUpperCase();
+      trades.slice(-5).reverse().forEach(t => {
+        const isBuy = t.side === "BUY";
+        const isTP = t.reason === "TP";
+        const color = isBuy ? "var(--blue)" : isTP ? "var(--green)" : "var(--red)");
+        const icon = isBuy ? "BUY" : isTP ? "TP" : "SL";
+        const d = document.createElement("div");
+        d.style.cssText = "display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)";
+        d.innerHTML = `
+          <div>
+            <strong style="color:${color}">${label} ${icon}</strong>
+            ${t.qty} shares @ $${t.price}
+            ${t.entry_price ? `<br><span style="font-size:11px;color:var(--dim)">Entry: $${t.entry_price}</span>` : ""}
+          </div>
+          <div style="text-align:right;">
+            <strong style="color:${color}">${t.pnl >= 0 ? '+' : ''}$${t.pnl}</strong>
+            <br><span style="font-size:11px;color:var(--dim)">${new Date(t.timestamp).toLocaleTimeString()}</span>
+          </div>
+        `;
+        container.appendChild(d);
+      });
+    } catch (e) {
+      // silent
+    }
+  }
+}
+
 // Initial + interval
 refresh();
-setInterval(refresh, 15000);  // every 15 seconds
+loadLiveTrades();
+setInterval(() => { refresh(); loadLiveTrades(); }, 15000);
 </script>
 </body>
 </html>
