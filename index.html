@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shariah Trading Lab | Live Dashboard</title>
+<style>
+:root{--bg:#0a0e17;--card:#111827;--border:#1e293b;--blue:#3b82f6;--purple:#8b5cf6;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--dim:#64748b;--font:'Segoe UI',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
+h1{font-size:18px;font-weight:700}
+.sub{font-size:11px;color:var(--dim)}
+.hdr-right{display:flex;align-items:center;gap:16px;font-size:12px}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.badge{background:#064e3b;color:var(--green);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.badge.off{background:#451a03;color:var(--yellow)}
+.container{max-width:1360px;margin:0 auto;padding:24px 32px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple));opacity:.5}
+.card-title{font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.stat-val{font-size:24px;font-weight:700}
+.stat-lbl{font-size:11px;color:var(--dim);margin-top:2px}
+.agent-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.agent-name{display:flex;align-items:center;gap:10px}
+.a-icon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff}
+.nvda-icon{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.amd-icon{background:linear-gradient(135deg,#ef4444,#f97316)}
+.ticker{font-size:20px;font-weight:700}
+.fullname{font-size:11px;color:var(--dim)}
+.astat{padding:3px 9px;border-radius:5px;font-size:10px;font-weight:600}
+.live{background:#064e3b;color:var(--green)}
+.wait{background:#451a03;color:var(--yellow)}
+.hold{background:#1e3a5f;color:var(--blue)}
+.price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.price{font-size:30px;font-weight:700}
+.chg{font-size:14px;font-weight:600}
+.up{color:var(--green)}.down{color:var(--red)}
+.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.mbox{background:rgba(255,255,255,0.03);border-radius:7px;padding:8px 12px}
+.ml{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+.mv{font-size:15px;font-weight:700;margin-top:2px}
+.bar{height:3px;border-radius:2px;background:var(--border);margin-top:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px;transition:width .6s}
+.green-fill{background:linear-gradient(90deg,#22c55e,#16a34a)}
+.red-fill{background:linear-gradient(90deg,#ef4444,#dc2626)}
+.tags{margin-bottom:12px}
+.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:10px;font-weight:600;background:rgba(59,130,246,.15);color:var(--blue);margin:2px}
+.desc{font-size:12px;color:var(--dim);line-height:1.7}
+.desc strong{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
+td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.03)}
+tr:hover{background:rgba(255,255,255,.02)}
+.pos{color:var(--green);font-weight:600}
+.neg{color:var(--red);font-weight:600}
+.log{max-height:220px;overflow-y:auto}
+.log::-webkit-scrollbar{width:3px}
+.log::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.ldisp{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.ldisp:last-child{border-bottom:none}
+footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top:1px solid var(--border);margin-top:30px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">SL</div>
+    <div><h1>Shariah Trading Lab</h1><div class="sub">Automated Trading Dashboard</div></div>
+  </div>
+  <div class="hdr-right">
+    <div class="dot" id="status-dot"></div>
+    <span id="status-txt" style="font-weight:600;">Connecting...</span>
+    <span class="badge" id="mode-badge">SIMULATE</span>
+    <span style="font-size:11px;color:var(--dim)" id="last-update">--</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TOP STATS -->
+  <div class="stats" id="top-stats">
+    <div class="card">
+      <div class="stat-val" id="stat-agents">2</div>
+      <div class="stat-lbl">Active Agents</div>
+    </div>
+    <div class="card">
+      <div class="stat-val" id="stat-cash">--</div>
+      <div class="stat-lbl">US Cash</div>
+    </div>
+    <div class="card">
+      <div class="stat-val" id="stat-positions">--</div>
+      <div class="stat-lbl">Open Positions</div>
+    </div>
+    <div class="card">
+      <div class="stat-val" id="stat-trades">--</div>
+      <div class="stat-lbl">Total Trades</div>
+    </div>
+  </div>
+
+  <!-- AGENTS -->
+  <div class="grid-2" style="margin-bottom:24px;">
+
+    <!-- NVDA -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name">
+          <div class="a-icon nvda-icon">NVDA</div>
+          <div><div class="ticker">NVIDIA</div><div class="fullname">NVDA Trading Agent</div></div>
+        </div>
+        <span class="astat live" id="nvda-status">LIVE</span>
+      </div>
+      <div class="price-row">
+        <span class="price" id="nvda-price">--</span>
+        <span class="chg" id="nvda-chg">--</span>
+      </div>
+      <div class="metrics">
+        <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="nvda-rsi">--</div><div class="bar"><div class="bar-fill green-fill" id="nvda-rsi-bar" style="width:0%"></div></div></div>
+        <div class="mbox"><div class="ml">SMA (200)</div><div class="mv" id="nvda-sma">--</div></div>
+        <div class="mbox"><div class="ml">Trend</div><div class="mv" id="nvda-trend">--</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">RSI &le; 30</span><span class="tag">Price &gt; SMA 200</span>
+        <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
+      </div>
+      <div class="desc"><strong>Mean-Reversion:</strong> Buys NVDA dips when RSI drops to 30 or below while price stays above the 200-period SMA on 5-min charts. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares).</div>
+    </div>
+
+    <!-- AMD -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name">
+          <div class="a-icon amd-icon">AMD</div>
+          <div><div class="ticker">AMD</div><div class="fullname">AMD Trading Agent</div></div>
+        </div>
+        <span class="astat live" id="amd-status">LIVE</span>
+      </div>
+      <div class="price-row">
+        <span class="price" id="amd-price">--</span>
+        <span class="chg" id="amd-chg">--</span>
+      </div>
+      <div class="metrics">
+        <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="amd-rsi">--</div><div class="bar"><div class="bar-fill red-fill" id="amd-rsi-bar" style="width:0%"></div></div></div>
+        <div class="mbox"><div class="ml">BB Lower</div><div class="mv" id="amd-bb">--</div></div>
+        <div class="mbox"><div class="ml">Signal</div><div class="mv" id="amd-signal">--</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">BB Lower Touch</span><span class="tag">RSI &lt; 40</span>
+        <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
+      </div>
+      <div class="desc"><strong>Bollinger Band:</strong> Buys AMD when price touches the lower Bollinger Band (20,2) with RSI below 40 -- capturing oversold bounces. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares).</div>
+    </div>
+  </div>
+
+  <!-- LIVE LOG -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title">📋 Live Activity Log</div>
+    <div class="log" id="activity-log" style="max-height:300px;">
+      <div style="color:var(--dim);font-size:12px;padding:10px;">Waiting for live data...</div>
+    </div>
+  </div>
+
+  <!-- BACKTEST -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title">📊 Backtest Results (Apr-Jun 2026, 5-min bars, 9 stocks scanned)</div>
+    <div class="grid-2">
+      <div>
+        <h3 style="color:#22c55e;font-size:14px;margin-bottom:10px;">NVDA -- RSI&le;30 + SMA200</h3>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Trades</td><td>7</td></tr>
+          <tr><td>Win Rate</td><td class="pos">71.4%</td></tr>
+          <tr><td>Profit Factor</td><td class="pos">4.86</td></tr>
+          <tr><td>Total P&L</td><td class="pos">$30.69</td></tr>
+          <tr><td>Avg/Trade</td><td class="pos">$4.38</td></tr>
+          <tr><td>Best</td><td class="pos">+$8.41</td></tr>
+          <tr><td>Worst</td><td class="neg">-$4.45</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 style="color:#ef4444;font-size:14px;margin-bottom:10px;">AMD -- BB Lower + RSI&lt;40</h3>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Trades</td><td>44</td></tr>
+          <tr><td>Win Rate</td><td>43.2%</td></tr>
+          <tr><td>Profit Factor</td><td class="pos">1.52</td></tr>
+          <tr><td>Total P&L</td><td class="pos">$107.54</td></tr>
+          <tr><td>Avg/Trade</td><td class="pos">$2.44</td></tr>
+          <tr><td>Best</td><td class="pos">+$9.04</td></tr>
+          <tr><td>Worst</td><td class="neg">-$4.66</td></tr>
+        </table>
+      </div>
+    </div>
+    <div style="margin-top:16px;padding:12px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:12px;color:var(--dim);line-height:1.7;">
+      <strong style="color:var(--blue);">Method:</strong> 17 strategies tested across 9 Shariah US stocks on 5-min data (Apr-Jun 2026).
+      NVDA selected best with RSI+SMA mean-reversion (PF 4.86). AMD required Bollinger Band approach (PF 1.52, highest absolute return).
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="grid-3" style="margin-bottom:24px;">
+    <div class="card">
+      <div class="card-title">☪ Shariah Rules</div>
+      <ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;">
+        <li>Long only -- no short selling</li>
+        <li>No margin or leverage</li>
+        <li>No interest-based borrowing</li>
+        <li>AAOIFI screened stocks</li>
+        <li>Halal sectors only</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚙ Tech Stack</div>
+      <ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;">
+        <li>Hermes Agent + Cron Scheduler</li>
+        <li>moomoo OpenAPI (FUTUINC)</li>
+        <li>5-min intraday candles</li>
+        <li>Python FastAPI backend</li>
+        <li>SIMULATE account only</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🛡 Risk Controls</div>
+      <ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;">
+        <li>SIMULATE account (no real $)</li>
+        <li>Max 1 position per agent</li>
+        <li>Hard SL at -1% per trade</li>
+        <li>Entry 9:30AM-3:30PM EST</li>
+        <li>Telegram notifications</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Shariah Trading Lab &mdash; Powered by Hermes Agent + moomoo OpenAPI | SIMULATE Mode Only
+  <br><span style="font-size:10px;">API: <span id="api-url">http://localhost:8080</span></span>
+</footer>
+
+<script>
+const BASE = window.location.origin;
+
+async function fetchAPI(path) {
+  try {
+    const r = await fetch(`${BASE}/api${path}`, {signal: AbortSignal.timeout(8000)});
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.json();
+  } catch(e) {
+    console.warn(`API ${path}:`, e.message);
+    return null;
+  }
+}
+
+function updateBar(id, pct, green=true) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    el.className = 'bar-fill ' + (green ? 'green-fill' : 'red-fill');
+  }
+}
+
+function addLog(msg, type='info') {
+  const log = document.getElementById('activity-log');
+  if (!log) return;
+  const colors = {tp:'var(--green)',sl:'var(--red)',buy:'var(--blue)',info:'var(--dim)',sell:'var(--yellow)'};
+  const d = document.createElement('div');
+  d.className = 'ldisp';
+  d.innerHTML = `<span style="color:${colors[type]||colors.info};font-size:11px">${new Date().toLocaleTimeString()}</span><span style="font-size:12px">${msg}</span>`;
+  log.prepend(d);
+  while (log.children.length > 50) log.lastChild.remove();
+}
+
+async function refresh() {
+  const [nvda, amd, portfolio, trades_nvda, trades_amd] = await Promise.all([
+    fetchAPI('/nvda'), fetchAPI('/amd'), fetchAPI('/portfolio'),
+    fetchAPI('/trades/nvda'), fetchAPI('/trades/amd')
+  ]);
+
+  let ok = false;
+
+  if (nvda && nvda.current_price) {
+    ok = true;
+    document.getElementById('nvda-price').textContent = '$' + nvda.current_price.toFixed(2);
+    const chg = nvda.rsi14;
+    document.getElementById('nvda-rsi').textContent = nvda.rsi14 ? nvda.rsi14.toFixed(1) : '--';
+    updateBar('nvda-rsi-bar', nvda.rsi14 || 0, true);
+    document.getElementById('nvda-sma').textContent = nvda.sma200 ? '$' + nvda.sma200.toFixed(2) : '--';
+    document.getElementById('nvda-trend').textContent = nvda.trend || '--';
+    document.getElementById('nvda-trend').style.color = nvda.trend === 'BULL' ? 'var(--green)' : nvda.trend === 'BEAR' ? 'var(--red)' : 'var(--dim)';
+    if (nvda.position_open) {
+      document.getElementById('nvda-status').textContent = 'HOLDING';
+      document.getElementById('nvda-status').className = 'astat hold';
+    }
+    // chg display
+    if (nvda.sma200) {
+      const pct = ((nvda.current_price / nvda.sma200 - 1) * 100).toFixed(2);
+      const el = document.getElementById('nvda-chg');
+      el.textContent = (pct >= 0 ? '+' : '') + pct + '% vs SMA';
+      el.className = 'chg ' + (pct >= 0 ? 'up' : 'down');
+    }
+  }
+
+  if (amd && amd.current_price) {
+    ok = true;
+    document.getElementById('amd-price').textContent = '$' + amd.current_price.toFixed(2);
+    document.getElementById('amd-rsi').textContent = amd.rsi14 ? amd.rsi14.toFixed(1) : '--';
+    updateBar('amd-rsi-bar', amd.rsi14 || 0, false);
+    document.getElementById('amd-bb').textContent = amd.bb_lower ? '$' + amd.bb_lower.toFixed(2) : '--';
+    const sig = (amd.bb_lower && amd.rsi14 && amd.current_low <= amd.bb_lower && amd.rsi14 < 40) ? 'BUY SIGNAL' : 'SCANNING';
+    const sigEl = document.getElementById('amd-signal');
+    sigEl.textContent = sig;
+    sigEl.style.color = sig === 'BUY SIGNAL' ? 'var(--green)' : 'var(--yellow)';
+    if (amd.position_open) {
+      document.getElementById('amd-status').textContent = 'HOLDING';
+      document.getElementById('amd-status').className = 'astat hold';
+    }
+    if (amd.bb_lower) {
+      const pct = ((amd.current_price / amd.bb_lower - 1) * 100).toFixed(2);
+      const el = document.getElementById('amd-chg');
+      el.textContent = (pct >= 0 ? '+' : '') + pct + '% from BB';
+      el.className = 'chg ' + (pct >= 0 ? 'up' : 'down');
+    }
+  }
+
+  if (portfolio) {
+    ok = true;
+    document.getElementById('stat-cash').textContent = '$' + (portfolio.us_cash || portfolio.cash || 0).toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById('stat-positions').textContent = (portfolio.positions || []).length;
+  }
+
+  // Trade counts
+  const allTrades = ((trades_nvda?.trades?.length)||0) + ((trades_amd?.trades?.length)||0);
+  document.getElementById('stat-trades').textContent = allTrades;
+
+  // Add log entries
+  if (nvda?.recent_logs) {
+    nvda.recent_logs.slice(-3).forEach(l => {
+      const t = l.type || '';
+      const type = t.includes('buy') ? 'buy' : t.includes('TP') ? 'tp' : t.includes('SL') ? 'sl' : 'info';
+      addLog(`[NVDA] ${l.msg || t}`, type);
+    });
+  }
+  if (amd?.recent_logs) {
+    amd.recent_logs.slice(-3).forEach(l => {
+      const t = l.type || '';
+      const type = t.includes('buy') ? 'buy' : t.includes('TP') ? 'tp' : t.includes('SL') ? 'sl' : 'info';
+      addLog(`[AMD] ${l.msg || t}`, type);
+    });
+  }
+
+  // Status
+  const dot = document.getElementById('status-dot');
+  const txt = document.getElementById('status-txt');
+  if (ok) {
+    dot.style.background = 'var(--green)';
+    txt.textContent = 'LIVE';
+    txt.style.color = 'var(--green)';
+  } else {
+    dot.style.background = 'var(--red)';
+    txt.textContent = 'OFFLINE';
+    txt.style.color = 'var(--red)';
+  }
+
+  document.getElementById('last-update').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+}
+
+// Initial + interval
+refresh();
+setInterval(refresh, 15000);  // every 15 seconds
+</script>
+</body>
+</html>
