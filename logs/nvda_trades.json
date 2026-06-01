@@ -1,1 +1,17 @@
-{}
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 221.5,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-02T02:56:28.215220",
+      "uploaded_at": "2026-06-02T02:56:28.663200"
+    }
+  ],
+  "last_updated": "2026-06-02T02:56:28.663200",
+  "agent": "nvda"
+}
