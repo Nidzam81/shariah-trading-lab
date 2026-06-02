@@ -394,16 +394,19 @@ async function refresh() {
   document.getElementById('last-update').textContent = 'Updated: ' + new Date().toLocaleTimeString();
 }
 
-// Fetch live trades from GitHub
+// Fetch live trades from Render server
 async function loadLiveTrades() {
   const container = document.getElementById("live-trades");
   if (!container) return;
 
   for (const agent of ["nvda", "amd"]) {
     try {
-      const r = await fetch(`${BASE}/api/trades/${agent}`, {signal: AbortSignal.timeout(8000)});
+      const url = `${BASE}/api/trades/${agent}`;
+      console.log(`[loadLiveTrades] fetching ${url}`);
+      const r = await fetch(url, {signal: AbortSignal.timeout(8000)});
       const data = await r.json();
       const trades = data.trades || [];
+      console.log(`[loadLiveTrades] ${agent}: ${trades.length} trades`, trades);
       if (trades.length === 0) continue;
 
       // Remove placeholder
@@ -416,7 +419,7 @@ async function loadLiveTrades() {
       trades.slice(-5).reverse().forEach(t => {
         const isBuy = t.side === "BUY";
         const isTP = t.reason === "TP";
-        const color = isBuy ? "var(--blue)" : isTP ? "var(--green)" : "var(--red)");
+        const color = isBuy ? "var(--blue)" : isTP ? "var(--green)" : "var(--red)";
         const icon = isBuy ? "BUY" : isTP ? "TP" : "SL";
         const d = document.createElement("div");
         d.style.cssText = "display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)";
@@ -434,7 +437,7 @@ async function loadLiveTrades() {
         container.appendChild(d);
       });
     } catch (e) {
-      // silent
+      console.error(`[loadLiveTrades}] ${agent} error:`, e);
     }
   }
 }
