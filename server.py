@@ -256,13 +256,17 @@ def recent_trades(agent: str):
         req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
         resp = urllib.request.urlopen(req, timeout=10)
         data = json.loads(resp.read())
-        return JSONResponse(data)
-    except Exception as e:
-        # Fallback to local
-        log_file = NVDA_LOG if agent == "nvda" else AMD_LOG
-        logs = read_jsonl(log_file, max_lines=100)
-        trade_logs = [l for l in logs if l.get("type") in ("order_filled", "buy_signal", "exit_signal")]
-        return JSONResponse({"trades": trade_logs[-30:]})
+        trades = data.get("trades", [])
+        if trades:
+            return JSONResponse(data)
+    except Exception:
+        pass
+
+    # Fallback: return empty or local logs
+    log_file = NVDA_LOG if agent == "nvda" else AMD_LOG
+    logs = read_jsonl(log_file, max_lines=100)
+    trade_logs = [l for l in logs if l.get("type") in ("order_filled", "buy_signal", "exit_signal")]
+    return JSONResponse({"trades": trade_logs[-30:]})
 
 
 @app.get("/", response_class=HTMLResponse)
