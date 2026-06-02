@@ -1,1 +1,17 @@
-{}
+{
+  "trades": [
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 510.13,
+      "qty": 2,
+      "reason": "eod_close",
+      "entry_price": 510.36,
+      "pnl": -0.46,
+      "msg": "EOD CLOSE: SOLD 2 AMD @ 510.13 (closed by Shariah EOD bot) PnL=-0.46",
+      "timestamp": "2026-06-02T05:00:34.000000"
+    }
+  ],
+  "last_updated": "2026-06-02T09:14:38.666533",
+  "agent": "amd"
+}
