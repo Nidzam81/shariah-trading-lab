@@ -1,110 +1,24 @@
 """
 Trade Log Uploader
 ==================
-After each trade, uploads the trade log to GitHub repo (logs/ folder)
-so the live dashboard can fetch it from the deployed Render server.
+After each trade, pushes the trade to the live Render dashboard server
+AND saves to local disk and GitHub.
 """
-import urllib.request, json, os, subprocess
+import urllib.request, json, os
 from datetime import datetime
 from pathlib import Path
 
-# GitHub config
-GITHUB_API = "https://api.github.com"
-REPO = "Nidzam81/shariah-trading-lab"
-TOKEN = None  # Will be read from environment
+# Render server URL
+RENDER_URL = os.environ.get("RENDER_URL", "https://shariah-trading-lab.onrender.com")
 
-
-def get_token():
-    return os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
-
-
-def github_request(path, data=None, method="GET"):
-    """Make an authenticated GitHub API request."""
-    token = get_token()
-    if not token:
-        return None
-
-    url = f"{GITHUB_API}/repos/{REPO}/contents/{path}"
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github.v3+json",
-        "Content-Type": "application/json",
-    }
-
-    if data:
-        body = json.dumps(data).encode()
-        req = urllib.request.Request(url, data=body, headers=headers, method=method)
-    else:
-        req = urllib.request.Request(url, headers=headers, method=method)
-
-    try:
-        resp = urllib.request.urlopen(req, timeout=15)
-        return json.loads(resp.read())
-    except Exception as e:
-        return None
-
-
-def get_file_sha(path):
-    """Get the SHA of a file in the repo (needed for updates)."""
-    result = github_request(path)
-    if result and "sha" in result:
-        return result["sha"]
-    return None
-
-
-def upload_trade_log(agent, trade_data):
-    """
-    Upload a trade log entry to the GitHub repo.
-    agent: 'nvda' or 'amd'
-    trade_data: dict with trade details
-    """
-    token = get_token()
-    if not token:
-        return False
-
-    file_path = f"logs/{agent}_trades.json"
-
-    # Read existing log from repo
-    existing = github_request(file_path)
-    trades = []
-    if existing and "content" in existing:
-        try:
-            import base64
-            content = base64.b64decode(existing["content"]).decode()
-            data = json.loads(content)
-            trades = data.get("trades", [])
-        except Exception:
-            trades = []
-
-    # Append new trade
-    trade_data["uploaded_at"] = datetime.now().isoformat()
-    trades.append(trade_data)
-
-    # Keep last 100 trades
-    trades = trades[-100:]
-
-    # Upload
-    import base64
-    content = json.dumps(
-        {"trades": trades, "last_updated": datetime.now().isoformat(), "agent": agent},
-        indent=2,
-    )
-    encoded = base64.b64encode(content.encode()).decode()
-
-    sha = get_file_sha(file_path)
-    data = {
-        "message": f"Trade log update: {agent.upper()} - {trade_data.get('type', 'unknown')}",
-        "content": encoded,
-    }
-    if sha:
-        data["sha"] = sha
-
-    result = github_request(file_path, data=data, method="PUT")
-    return result is not None
+# Local backup
+HOME = Path(os.path.expanduser("~"))
+LOCAL_LOG_DIR = HOME / "AppData" / "Local" / "hermes" / "trade_logs"
+LOCAL_LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def upload_trade_log_for_agent(agent, side, price, qty, reason, entry_price=0, pnl=0):
-    """Convenience wrapper for a completed trade."""
+    """Upload a trade: push to Render server + save locally + upload to GitHub."""
     trade = {
         "type": f"{side.lower()}_filled",
         "side": side,
@@ -115,4 +29,37 @@ def upload_trade_log_for_agent(agent, side, price, qty, reason, entry_price=0, p
         "pnl": round(pnl, 2),
         "timestamp": datetime.now().isoformat(),
     }
-    return upload_trade_log(agent, trade)
+
+    # 1. Push to Render server (so dashboard shows it immediately)
+    try:
+        payload = json.dumps({"agent": agent, "trade": trade}).encode()
+        req = urllib.request.Request(
+            f"{RENDER_URL}/api/trades/push",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        resp = urllib.request.urlopen(req, timeout=10)
+        result = json.loads(resp.read())
+        print(f"[{agent}] Render push OK: {result.get('trades_stored')} trades stored")
+    except Exception as e:
+        print(f"[{agent}] Render push failed: {e}")
+
+    # 2. Save locally
+    local_file = LOCAL_LOG_DIR / f"{agent}_trades.json"
+    trades = []
+    if local_file.exists():
+        try:
+            data = json.loads(local_file.read_text())
+            trades = data.get("trades", [])
+        except Exception:
+            pass
+    trades.append(trade)
+    trades = trades[-100:]
+    local_file.write_text(json.dumps({
+        "trades": trades,
+        "last_updated": datetime.now().isoformat(),
+        "agent": agent
+    }, indent=2))
+
+    return True
