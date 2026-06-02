@@ -401,12 +401,9 @@ async function loadLiveTrades() {
 
   for (const agent of ["nvda", "amd"]) {
     try {
-      const url = `${BASE}/api/trades/${agent}`;
-      console.log(`[loadLiveTrades] fetching ${url}`);
-      const r = await fetch(url, {signal: AbortSignal.timeout(8000)});
+      const r = await fetch(`${BASE}/api/trades/${agent}`, {signal: AbortSignal.timeout(8000)});
       const data = await r.json();
       const trades = data.trades || [];
-      console.log(`[loadLiveTrades] ${agent}: ${trades.length} trades`, trades);
       if (trades.length === 0) continue;
 
       // Remove placeholder
@@ -437,7 +434,7 @@ async function loadLiveTrades() {
         container.appendChild(d);
       });
     } catch (e) {
-      console.error(`[loadLiveTrades}] ${agent} error:`, e);
+      console.error(`[loadLiveTrades] ${agent} error:`, e);
     }
   }
 }
