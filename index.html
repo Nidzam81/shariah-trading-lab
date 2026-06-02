@@ -206,7 +206,7 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
   <!-- BACKTEST -->
   <div class="card" style="margin-bottom:24px;">
     <div class="card-title">📊 Backtest Results (Apr-Jun 2026, 5-min bars, 9 stocks scanned)</div>
-    <div class="grid-2">
+    <div class="grid-3">
       <div>
         <h3 style="color:#22c55e;font-size:14px;margin-bottom:10px;">NVDA -- RSI&le;30 + SMA200</h3>
         <table>
@@ -233,10 +233,22 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
           <tr><td>Worst</td><td class="neg">-$4.66</td></tr>
         </table>
       </div>
+      <div>
+        <h3 style="color:#a3a3a3;font-size:14px;margin-bottom:10px;">AAPL -- RSI&le;30 + SMA200</h3>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Trades</td><td>13</td></tr>
+          <tr><td>Win Rate</td><td class="pos">53.8%</td></tr>
+          <tr><td>Profit Factor</td><td class="pos">2.29</td></tr>
+          <tr><td>Total P&L</td><td class="pos">$44.79</td></tr>
+          <tr><td>Avg/Trade</td><td class="pos">$3.45</td></tr>
+          <tr><td>Best</td><td class="pos">+$11.90</td></tr>
+          <tr><td>Worst</td><td class="neg">-$6.20</td></tr>
+        </table>
+      </div>
     </div>
     <div style="margin-top:16px;padding:12px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:12px;color:var(--dim);line-height:1.7;">
-      <strong style="color:var(--blue);">Method:</strong> 17 strategies tested across 9 Shariah US stocks on 5-min data (Apr-Jun 2026).
-      NVDA selected best with RSI+SMA mean-reversion (PF 4.86). AMD required Bollinger Band approach (PF 1.52, highest absolute return).
+      <strong style="color:var(--blue);">Method:</strong> 17 strategies tested across 9 Shariah US stocks on 5-min data (Apr-Jun 2026). Stock-specific strategy assignment: NVDA and AAPL use RSI+SMA mean-reversion (PF 4.86 and 2.29). AMD requires Bollinger Band approach (PF 1.52). All use 2% TP / 1% SL on 5-min candles.
     </div>
   </div>
 
