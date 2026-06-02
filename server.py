@@ -257,15 +257,18 @@ def recent_trades(agent: str):
         resp = urllib.request.urlopen(req, timeout=10)
         data = json.loads(resp.read())
         trades = data.get("trades", [])
+        print(f"[{agent}] GitHub fetch: {len(trades)} trades")
         if trades:
             return JSONResponse(data)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[{agent}] GitHub fetch error: {e}")
 
-    # Fallback: return empty or local logs
+    # Fallback: local logs
     log_file = NVDA_LOG if agent == "nvda" else AMD_LOG
     logs = read_jsonl(log_file, max_lines=100)
     trade_logs = [l for l in logs if l.get("type") in ("order_filled", "buy_signal", "exit_signal")]
+    print(f"[{agent}] Local fallback: {len(trade_logs)} trades")
+    print(f"[{agent}] Local log file exists: {Path(log_file).exists()}")
     return JSONResponse({"trades": trade_logs[-30:]})
 
 
