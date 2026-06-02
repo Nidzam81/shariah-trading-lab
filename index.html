@@ -33,7 +33,8 @@ h1{font-size:18px;font-weight:700}
 .agent-name{display:flex;align-items:center;gap:10px}
 .a-icon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff}
 .nvda-icon{background:linear-gradient(135deg,#22c55e,#16a34a)}
-.amd-icon{background:linear-gradient(135deg,#ef4444,#f97316)}
+.aapl-icon{background:linear-gradient(135deg,#a3a3a3,#666)}
+.aapl-fill{background:linear-gradient(90deg,#a3a3a3,#666)}
 .ticker{font-size:20px;font-weight:700}
 .fullname{font-size:11px;color:var(--dim)}
 .astat{padding:3px 9px;border-radius:5px;font-size:10px;font-weight:600}
@@ -108,7 +109,7 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
   </div>
 
   <!-- AGENTS -->
-  <div class="grid-2" style="margin-bottom:24px;">
+  <div class="grid-3" style="margin-bottom:24px;">
 
     <!-- NVDA -->
     <div class="card">
@@ -158,6 +159,31 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
         <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
       </div>
       <div class="desc"><strong>Bollinger Band:</strong> Buys AMD when price touches the lower Bollinger Band (20,2) with RSI below 40 -- capturing oversold bounces. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares).</div>
+    </div>
+
+    <!-- AAPL -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name">
+          <div class="a-icon aapl-icon">AAPL</div>
+          <div><div class="ticker">Apple</div><div class="fullname">AAPL Trading Agent</div></div>
+        </div>
+        <span class="astat live" id="aapl-status">LIVE</span>
+      </div>
+      <div class="price-row">
+        <span class="price" id="aapl-price">--</span>
+        <span class="chg" id="aapl-chg">--</span>
+      </div>
+      <div class="metrics">
+        <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="aapl-rsi">--</div><div class="bar"><div class="bar-fill aapl-fill" id="aapl-rsi-bar" style="width:0%"></div></div></div>
+        <div class="mbox"><div class="ml">SMA (200)</div><div class="mv" id="aapl-sma">--</div></div>
+        <div class="mbox"><div class="ml">Trend</div><div class="mv" id="aapl-trend">--</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">RSI &le; 30</span><span class="tag">Price &gt; SMA 200</span>
+        <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
+      </div>
+      <div class="desc"><strong>Mean-Reversion (same as NVDA):</strong> Buys AAPL dips when RSI drops to 30 or below while price stays above the 200-period SMA on 5-min charts. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares). Backtest: 13 trades, 53.8% WR, PF 2.29.</div>
     </div>
   </div>
 
@@ -289,9 +315,9 @@ function addLog(msg, type='info') {
 }
 
 async function refresh() {
-  const [nvda, amd, portfolio, trades_nvda, trades_amd] = await Promise.all([
-    fetchAPI('/nvda'), fetchAPI('/amd'), fetchAPI('/portfolio'),
-    fetchAPI('/trades/nvda'), fetchAPI('/trades/amd')
+  const [nvda, amd, aapl, portfolio, trades_nvda, trades_amd, trades_aapl] = await Promise.all([
+    fetchAPI('/nvda'), fetchAPI('/amd'), fetchAPI('/aapl'), fetchAPI('/portfolio'),
+    fetchAPI('/trades/nvda'), fetchAPI('/trades/amd'), fetchAPI('/trades/aapl')
   ]);
 
   let ok = false;
@@ -299,6 +325,7 @@ async function refresh() {
   // Any successful API response counts as "connected"
   if (nvda !== null) ok = true;
   if (amd !== null) ok = true;
+  if (aapl !== null) ok = true;
   if (portfolio !== null) ok = true;
 
   if (nvda && nvda.current_price) {
@@ -352,6 +379,27 @@ async function refresh() {
     document.getElementById('amd-status').className = 'astat live';
   }
 
+  if (aapl && aapl.current_price) {
+    ok = true;
+    document.getElementById('aapl-price').textContent = '$' + aapl.current_price.toFixed(2);
+    document.getElementById('aapl-rsi').textContent = aapl.rsi14 ? aapl.rsi14.toFixed(1) : '--';
+    updateBar('aapl-rsi-bar', aapl.rsi14 || 0, true);
+    document.getElementById('aapl-sma').textContent = aapl.sma200 ? '$' + aapl.sma200.toFixed(2) : '--';
+    document.getElementById('aapl-trend').textContent = aapl.trend || '--';
+    document.getElementById('aapl-trend').style.color = aapl.trend === 'BULL' ? 'var(--green)' : aapl.trend === 'BEAR' ? 'var(--red)' : 'var(--dim)';
+    if (aapl.position_open) {
+      document.getElementById('aapl-status').textContent = 'HOLDING';
+      document.getElementById('aapl-status').className = 'astat hold';
+    }
+  } else {
+    document.getElementById('aapl-price').textContent = 'AAPL';
+    document.getElementById('aapl-rsi').textContent = 'Live data requires local OpenD';
+    document.getElementById('aapl-sma').textContent = '---';
+    document.getElementById('aapl-trend').textContent = 'N/A (server)';
+    document.getElementById('aapl-status').textContent = 'LIVE (local)';
+    document.getElementById('aapl-status').className = 'astat live';
+  }
+
   if (portfolio) {
     ok = true;
     document.getElementById('stat-cash').textContent = '$' + (portfolio.us_cash || portfolio.cash || 0).toLocaleString(undefined, {maximumFractionDigits: 0});
@@ -359,8 +407,11 @@ async function refresh() {
   }
 
   // Trade counts
-  const allTrades = ((trades_nvda?.trades?.length)||0) + ((trades_amd?.trades?.length)||0);
+  const allTrades = ((trades_nvda?.trades?.length)||0) + ((trades_amd?.trades?.length)||0) + ((trades_aapl?.trades?.length)||0);
   document.getElementById('stat-trades').textContent = allTrades;
+
+  // Update top stats
+  document.getElementById('stat-agents').textContent = "3";
 
   // Add log entries from trade logs
   if (trades_nvda?.trades) {
@@ -380,7 +431,7 @@ async function refresh() {
   const dot = document.getElementById('status-dot');
   const txt = document.getElementById('status-txt');
   // ok is set true if any API responds. If all fail, show connecting.
-  const anySuccess = (nvda !== null) || (amd !== null) || (portfolio !== null) || (trades_nvda !== null) || (trades_amd !== null);
+  const anySuccess = (nvda !== null) || (amd !== null) || (aapl !== null) || (portfolio !== null) || (trades_nvda !== null) || (trades_amd !== null) || (trades_aapl !== null);
   if (anySuccess || ok) {
     dot.style.background = 'var(--green)';
     txt.textContent = 'LIVE';

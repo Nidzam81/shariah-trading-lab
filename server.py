@@ -242,6 +242,13 @@ def amd_data():
     return JSONResponse(compute_indicators_for_agent("US.AMD", AMD_LOG, AMD_STATE))
 
 
+@app.get("/api/aapl")
+def aapl_data():
+    return JSONResponse(compute_indicators_for_agent("US.AAPL", 
+        os.path.join(HERMES, "aapl_agent", "trading_log.jsonl"),
+        os.path.join(HERMES, "aapl_agent", "state.json")))
+
+
 @app.get("/api/portfolio")
 def portfolio():
     data = fetch_portfolio()
