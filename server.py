@@ -248,28 +248,42 @@ def portfolio():
     return JSONResponse(data or {"error": "Failed to fetch portfolio"})
 
 
+@app.post("/api/trades/push")
+def push_trade(data: dict):
+    """Receive a trade push from an agent (called by nvda_agent.py / amd_agent.py)."""
+    agent = data.get("agent", "unknown")
+    trade = data.get("trade", {})
+    print(f"[PUSH] {agent}: {trade.get('side')} {trade.get('reason')} @ ${trade.get('price')}")
+
+    # Save to in-memory store (resets on Render restart, but that's OK -- trades also in GitHub)
+    if agent not in _trade_store:
+        _trade_store[agent] = []
+    _trade_store[agent].append(trade)
+    _trade_store[agent] = _trade_store[agent][-100:]  # keep last 100
+
+    return JSONResponse({"status": "ok", "trades_stored": len(_trade_store[agent])})
+
+
 @app.get("/api/trades/{agent}")
 def recent_trades(agent: str):
-    """Fetch trade logs from GitHub repo."""
+    """Return trades from in-memory store (pushed by agents)."""
+    trades = _trade_store.get(agent, [])
+    if trades:
+        return JSONResponse({"trades": trades})
+
+    # Fallback: try GitHub
     raw_url = f"https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main/logs/{agent}_trades.json"
     try:
         req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
         resp = urllib.request.urlopen(req, timeout=10)
         data = json.loads(resp.read())
         trades = data.get("trades", [])
-        print(f"[{agent}] GitHub fetch: {len(trades)} trades")
         if trades:
             return JSONResponse(data)
     except Exception as e:
         print(f"[{agent}] GitHub fetch error: {e}")
 
-    # Fallback: local logs
-    log_file = NVDA_LOG if agent == "nvda" else AMD_LOG
-    logs = read_jsonl(log_file, max_lines=100)
-    trade_logs = [l for l in logs if l.get("type") in ("order_filled", "buy_signal", "exit_signal")]
-    print(f"[{agent}] Local fallback: {len(trade_logs)} trades")
-    print(f"[{agent}] Local log file exists: {Path(log_file).exists()}")
-    return JSONResponse({"trades": trade_logs[-30:]})
+    return JSONResponse({"trades": []})
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -280,9 +294,37 @@ def dashboard():
     return HTMLResponse("<h1>Dashboard not found.</h1>")
 
 
+# ── In-Memory Trade Store ──────────────────────────────────────────────────────
+
+_trade_store: dict = {}
+
+
+def _seed_trades_from_github():
+    """Load existing trades from GitHub on startup so the dashboard has data immediately."""
+    for agent in ["nvda", "amd"]:
+        raw_url = f"https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main/logs/{agent}_trades.json"
+        try:
+            req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
+            resp = urllib.request.urlopen(req, timeout=10)
+            data = json.loads(resp.read())
+            trades = data.get("trades", [])
+            if trades:
+                _trade_store[agent] = trades[-100:]
+                print(f"[SEED] {agent}: loaded {len(trades)} trades from GitHub")
+        except Exception as e:
+            print(f"[SEED] {agent}: GitHub seed failed ({e}), starting empty")
+
+
+@app.on_event("startup")
+async def startup_seed():
+    _seed_trades_from_github()
+
+
 # ── Entry Point ────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
+    # Also try to seed on startup (non-async context)
+    _seed_trades_from_github()
     print(f"Starting Shariah Trading Lab on port {port}")
     uvicorn.run(app, host="0.0.0.0", port=port)
