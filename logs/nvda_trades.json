@@ -1,28 +1,5 @@
 {
-  "trades": [
-    {
-      "type": "sell_filled",
-      "side": "SELL",
-      "price": 225.93,
-      "qty": 2,
-      "reason": "TP",
-      "entry_price": 221.5,
-      "pnl": 8.86,
-      "timestamp": "2026-06-02T02:56:30.444575",
-      "uploaded_at": "2026-06-02T02:56:30.901355"
-    },
-    {
-      "type": "sell_filled",
-      "side": "SELL",
-      "price": 224.36,
-      "qty": 2,
-      "reason": "eod_close",
-      "entry_price": 222.69,
-      "pnl": 3.34,
-      "msg": "EOD CLOSE: SOLD 2 NVDA @ 224.36 (closed by Shariah EOD bot) PnL=+3.34",
-      "timestamp": "2026-06-02T05:00:34.000000"
-    }
-  ],
-  "last_updated": "2026-06-02T09:14:40.585214",
-  "agent": "nvda"
+  "trades": [],
+  "last_updated": null,
+  "agent": "NVDA"
 }
