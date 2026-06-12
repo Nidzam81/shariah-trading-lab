@@ -206,13 +206,15 @@ def push_trade(data: dict):
 @app.get("/api/trades/{agent}")
 def recent_trades(agent: str):
     agent = agent.lower()
-    trades = _trade_store.get(agent, [])
-    if trades:
-        return JSONResponse({"trades": trades})
-
+    # Always fetch from GitHub as source of truth
     data = fetch_json(f"{GITHUB_BASE}/logs/{agent}_trades.json")
     if data and data.get("trades"):
         return JSONResponse(data)
+
+    # Fallback to in-memory store (from real-time pushes)
+    trades = _trade_store.get(agent, [])
+    if trades:
+        return JSONResponse({"trades": trades})
 
     return JSONResponse({"trades": []})
 

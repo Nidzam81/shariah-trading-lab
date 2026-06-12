@@ -448,8 +448,7 @@ async function fetchAPI(path) {
 }
 
 async function refreshUS() {
-  const results = await Promise.all([...US_AGENTS.map(a => fetchAPI('/' + a)), fetchAPI('/portfolio')]);
-  const portfolio = results[results.length - 1];
+  const results = await Promise.all(US_AGENTS.map(a => fetchAPI('/' + a)));
   US_AGENTS.forEach((a, i) => {
     const data = results[i];
     if (!data) return;
@@ -465,6 +464,13 @@ async function refreshUS() {
       document.getElementById(`${a}-hold-sl`).textContent = data.sl ? '$' + data.sl.toFixed(2) : '—';
       statusEl.textContent = 'HOLDING';
       statusEl.className = 'astat hold';
+    } else if (data.realized_pnl && data.realized_pnl !== 0) {
+      // Show realized PnL when position is closed
+      const rpnl = data.realized_pnl;
+      pnlEl.textContent = (rpnl >= 0 ? '+' : '') + '$' + rpnl.toFixed(2);
+      pnlEl.style.color = rpnl >= 0 ? 'var(--green)' : 'var(--red)';
+      holdInfo.style.display = 'none';
+      if (data.current_price) { statusEl.textContent = 'LIVE'; statusEl.className = 'astat live'; }
     } else {
       pnlEl.textContent = '—';
       pnlEl.style.color = 'var(--dim)';
@@ -472,14 +478,18 @@ async function refreshUS() {
       if (data.current_price) { statusEl.textContent = 'LIVE'; statusEl.className = 'astat live'; }
     }
   });
-  if (portfolio) {
-    document.getElementById('us-stat-positions').textContent = portfolio.position_count || 0;
-    const rpnl = portfolio.total_realized_pnl || 0;
-    document.getElementById('us-stat-pnl').textContent = (rpnl >= 0 ? '+' : '') + '$' + rpnl.toFixed(2);
-  }
-  let totalTrades = 0;
-  US_AGENTS.forEach((a, i) => { totalTrades += (results[i]?.total_trades) || 0; });
-  document.getElementById('us-stat-trades').textContent = totalTrades;
+  // Compute US-only totals from individual agent data
+  let usRealizedPnl = 0, usTotalTrades = 0, usPositions = 0;
+  US_AGENTS.forEach((a, i) => {
+    const d = results[i];
+    if (!d) return;
+    usRealizedPnl += d.realized_pnl || 0;
+    usTotalTrades += d.total_trades || 0;
+    if (d.position_open) usPositions++;
+  });
+  document.getElementById('us-stat-pnl').textContent = (usRealizedPnl >= 0 ? '+' : '') + '$' + usRealizedPnl.toFixed(2);
+  document.getElementById('us-stat-trades').textContent = usTotalTrades;
+  document.getElementById('us-stat-positions').textContent = usPositions;
 }
 
 async function refreshKLSE() {
@@ -500,6 +510,12 @@ async function refreshKLSE() {
         document.getElementById(`${a}-hold-sl`).textContent = data.sl ? 'RM' + data.sl.toFixed(2) : '—';
         statusEl.textContent = 'HOLDING'; statusEl.className = 'astat hold';
         positions++;
+      } else if (data.realized_pnl && data.realized_pnl !== 0) {
+        const rpnl = data.realized_pnl;
+        pnlEl.textContent = (rpnl >= 0 ? '+' : '') + 'RM' + rpnl.toFixed(2);
+        pnlEl.style.color = rpnl >= 0 ? 'var(--green)' : 'var(--red)';
+        holdInfo.style.display = 'none';
+        if (data.current_price) { statusEl.textContent = 'LIVE'; statusEl.className = 'astat live'; }
       } else {
         pnlEl.textContent = '—'; pnlEl.style.color = 'var(--dim)'; holdInfo.style.display = 'none';
         if (data.current_price) { statusEl.textContent = 'LIVE'; statusEl.className = 'astat live'; }
