@@ -1,5 +1,86 @@
 {
-  "trades": [],
-  "last_updated": null,
-  "agent": "NVDA"
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 226.91,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-02T22:55:37.447935"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 224.246,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 226.91,
+      "pnl": -5.33,
+      "timestamp": "2026-06-03T00:25:49.917556"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 223.015,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-03T01:41:09.823441"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 220.04,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 223.015,
+      "pnl": -5.95,
+      "timestamp": "2026-06-03T21:35:24.672287"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 219.205,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-05T03:51:11.677760"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 213.885,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 219.205,
+      "pnl": -10.64,
+      "timestamp": "2026-06-05T21:30:18.548220"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 200.42,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-11T04:30:31.544666"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 204.85,
+      "qty": 2,
+      "reason": "TP",
+      "entry_price": 200.42,
+      "pnl": 8.86,
+      "timestamp": "2026-06-12T03:30:54.643083"
+    }
+  ],
+  "last_updated": "2026-06-12T03:30:55.601261",
+  "agent": "nvda"
 }
