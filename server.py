@@ -14,7 +14,7 @@ API Endpoints:
 Deploy to Render.com free tier.
 Auto-deploys from GitHub on push.
 """
-import os, json, subprocess, http.server
+import os, json, subprocess, http.server, urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -308,7 +308,11 @@ _trade_store: dict = {}
 
 def _seed_trades_from_github():
     """Load existing trades from GitHub on startup so the dashboard has data immediately."""
-    for agent in ["nvda", "amd"]:
+    agents = [
+        "nvda", "amd", "aapl", "tsla", "orcl", "avgo", "fcx", "amzn",
+        "unisem", "gamuda", "ioi", "mrdiy", "qlr"
+    ]
+    for agent in agents:
         raw_url = f"https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main/logs/{agent}_trades.json"
         try:
             req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
