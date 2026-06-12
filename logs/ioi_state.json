@@ -1,0 +1,23 @@
+{
+  "agent": "ioi",
+  "position_open": true,
+  "entry_price": 4.19,
+  "qty": 100,
+  "order_id": "SIMULATE",
+  "entry_time": "2026-06-12T10:31:01.134950",
+  "last_updated": "2026-06-12T15:05:34.845906",
+  "latest_entry": {
+    "position_open": true,
+    "price": 4.2,
+    "rsi14": null,
+    "sma200": null,
+    "trend": null,
+    "reason": "exit_check",
+    "entry_price": 4.19,
+    "qty": 100,
+    "tp": 4.2738,
+    "sl": 4.1481
+  },
+  "latest_exit": {},
+  "exits": []
+}
