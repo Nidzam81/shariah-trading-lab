@@ -1,0 +1,26 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 313.47,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-09T00:05:34.114545"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 308.498,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 313.47,
+      "pnl": -9.94,
+      "timestamp": "2026-06-09T01:45:48.249792"
+    }
+  ],
+  "last_updated": "2026-06-09T01:45:48.940967",
+  "agent": "aapl"
+}
