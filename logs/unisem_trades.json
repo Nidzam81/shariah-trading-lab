@@ -1,0 +1,26 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 4.66,
+      "qty": 100,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-12T10:31:02.955384"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 4.59,
+      "qty": 100,
+      "reason": "SL",
+      "entry_price": 4.66,
+      "pnl": -7.0,
+      "timestamp": "2026-06-12T15:05:44.111868"
+    }
+  ],
+  "last_updated": "2026-06-12T15:05:45.315781",
+  "agent": "unisem"
+}
