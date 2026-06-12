@@ -1,0 +1,36 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 4.26,
+      "qty": 100,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-11T12:00:31.645448"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 4.19,
+      "qty": 100,
+      "reason": "SL",
+      "entry_price": 4.26,
+      "pnl": -7.0,
+      "timestamp": "2026-06-12T10:00:39.518379"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 4.19,
+      "qty": 100,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-12T10:31:03.299824"
+    }
+  ],
+  "last_updated": "2026-06-12T10:31:04.064332",
+  "agent": "ioi"
+}
