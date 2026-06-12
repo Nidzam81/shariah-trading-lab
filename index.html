@@ -3,71 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shariah Trading Lab | Live Dashboard</title>
+<title>Shariah Trading Lab | Live Dashboard v3.3</title>
 <style>
-:root{--bg:#0a0e17;--card:#111827;--border:#1e293b;--blue:#3b82f6;--purple:#8b5cf6;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--dim:#64748b;--font:'Segoe UI',system-ui,sans-serif}
+:root{--bg:#0a0e17;--card:#111827;--border:#1e293b;--blue:#3b82f6;--purple:#8b5cf6;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--orange:#f97316;--cyan:#06b6d4;--text:#e2e8f0;--dim:#64748b;--font:'Segoe UI',system-ui,sans-serif}
+.light{--bg:#f1f5f9;--card:#ffffff;--border:#e2e8f0;--blue:#2563eb;--purple:#7c3aed;--green:#059669;--red:#dc2626;--yellow:#d97706;--orange:#ea580c;--cyan:#0891b2;--text:#1e293b;--dim:#64748b}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh}
-header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;transition:background .3s,color .3s}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:background .3s}
+.light header{background:linear-gradient(135deg,#ffffff,#f8fafc);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
-h1{font-size:18px;font-weight:700}
-.sub{font-size:11px;color:var(--dim)}
-.hdr-right{display:flex;align-items:center;gap:16px;font-size:12px}
+h1{font-size:18px;font-weight:700}.sub{font-size:11px;color:var(--dim)}
+.hdr-right{display:flex;align-items:center;gap:12px;font-size:12px}
 .dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .badge{background:#064e3b;color:var(--green);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600}
 .badge.off{background:#451a03;color:var(--yellow)}
-.container{max-width:1360px;margin:0 auto;padding:24px 32px}
+.light .badge{background:#d1fae5;color:#065f46}
+.light .badge.off{background:#fef3c7;color:#92400e}
+.tabs{display:flex;gap:4px;margin-left:20px}
+.tab-btn{background:var(--card);border:1px solid var(--border);color:var(--dim);padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .3s}
+.tab-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tab-btn:hover:not(.active){color:var(--text);border-color:var(--blue)}
+.container{max-width:1600px;margin:0 auto;padding:24px 32px}
+.tab-content{display:none}
+.tab-content.active{display:block}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.grid-8{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1200px){.grid-8{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.container{padding:12px 14px}.stats{grid-template-columns:1fr 1fr;gap:6px}.card{padding:14px}.price{font-size:22px}header{padding:12px 14px}.hdr-right{gap:8px;font-size:11px}.stat-val{font-size:18px}.grid-2,.grid-3,.grid-4,.grid-8{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple));opacity:.5}
 .card-title{font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
 .stat-val{font-size:24px;font-weight:700}
 .stat-lbl{font-size:11px;color:var(--dim);margin-top:2px}
 .agent-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .agent-name{display:flex;align-items:center;gap:10px}
-.a-icon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff}
+.a-icon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff}
 .nvda-icon{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.amd-icon{background:linear-gradient(135deg,#ef4444,#dc2626)}
 .aapl-icon{background:linear-gradient(135deg,#a3a3a3,#666)}
-.aapl-fill{background:linear-gradient(90deg,#a3a3a3,#666)}
-.ticker{font-size:20px;font-weight:700}
-.fullname{font-size:11px;color:var(--dim)}
+.tsla-icon{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.orcl-icon{background:linear-gradient(135deg,#f97316,#ea580c)}
+.avgo-icon{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}
+.fcx-icon{background:linear-gradient(135deg,#eab308,#ca8a04)}
+.amzn-icon{background:linear-gradient(135deg,#06b6d4,#0891b2)}
+.unisem-icon{background:linear-gradient(135deg,#7c3aed,#6d28d9)}
+.gamuda-icon{background:linear-gradient(135deg,#2563eb,#1d4ed8)}
+.ioi-icon{background:linear-gradient(135deg,#059669,#047857)}
+.qlr-icon{background:linear-gradient(135deg,#d97706,#b45309)}
+.mrdiy-icon{background:linear-gradient(135deg,#dc2626,#b91c1c)}
+.ticker{font-size:18px;font-weight:700}
+.fullname{font-size:10px;color:var(--dim)}
 .astat{padding:3px 9px;border-radius:5px;font-size:10px;font-weight:600}
-.live{background:#064e3b;color:var(--green)}
-.wait{background:#451a03;color:var(--yellow)}
-.hold{background:#1e3a5f;color:var(--blue)}
-.price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
-.price{font-size:30px;font-weight:700}
-.chg{font-size:14px;font-weight:600}
-.up{color:var(--green)}.down{color:var(--red)}
-.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
-.mbox{background:rgba(255,255,255,0.03);border-radius:7px;padding:8px 12px}
-.ml{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
-.mv{font-size:15px;font-weight:700;margin-top:2px}
-.bar{height:3px;border-radius:2px;background:var(--border);margin-top:6px;overflow:hidden}
-.bar-fill{height:100%;border-radius:2px;transition:width .6s}
-.green-fill{background:linear-gradient(90deg,#22c55e,#16a34a)}
-.red-fill{background:linear-gradient(90deg,#ef4444,#dc2626)}
-.tags{margin-bottom:12px}
-.tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:10px;font-weight:600;background:rgba(59,130,246,.15);color:var(--blue);margin:2px}
-.desc{font-size:12px;color:var(--dim);line-height:1.7}
+.live{background:#064e3b;color:var(--green)}.wait{background:#451a03;color:var(--yellow)}.hold{background:#1e3a5f;color:var(--blue)}
+.pnl-display{font-size:28px;font-weight:700;margin:8px 0}
+.pnl-label{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+.row-info{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;padding:8px;background:rgba(255,255,255,0.02);border-radius:6px}
+.row-info .lbl{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+.row-info .val{font-size:13px;font-weight:700;margin-top:2px}
+.tags{margin-bottom:10px}
+.tag{display:inline-block;padding:2px 7px;border-radius:5px;font-size:9px;font-weight:600;background:rgba(59,130,246,.15);color:var(--blue);margin:2px}
+.desc{font-size:11px;color:var(--dim);line-height:1.6}
 .desc strong{color:var(--text)}
 table{width:100%;border-collapse:collapse;font-size:12px}
 th{text-align:left;padding:7px 10px;color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
 td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.03)}
 tr:hover{background:rgba(255,255,255,.02)}
-.pos{color:var(--green);font-weight:600}
-.neg{color:var(--red);font-weight:600}
-.log{max-height:220px;overflow-y:auto}
-.log::-webkit-scrollbar{width:3px}
-.log::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-.ldisp{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03)}
-.ldisp:last-child{border-bottom:none}
+.pos{color:var(--green);font-weight:600}.neg{color:var(--red);font-weight:600}
+.trade-log-lg{max-height:500px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;padding:4px 0;background:rgba(255,255,255,0.01)}
+.trade-log-lg::-webkit-scrollbar{width:3px}
+.trade-log-lg::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.btc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1200px){.btc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.btc-grid{grid-template-columns:1fr}}
+.btc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px}
+.btc-card h4{font-size:13px;margin-bottom:8px}
+.btc-card table{font-size:11px}
+.btc-card th,.btc-card td{padding:5px 8px}
 footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top:1px solid var(--border);margin-top:30px}
 </style>
 </head>
@@ -76,491 +92,578 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
 <header>
   <div class="logo">
     <div class="logo-icon">SL</div>
-    <div><h1>Shariah Trading Lab</h1><div class="sub">Automated Trading Dashboard</div></div>
+    <div><h1>Shariah Trading Lab</h1><div class="sub">Automated Trading Dashboard &mdash; 30-Min Timeframe</div></div>
+  </div>
+  <div style="display:flex;align-items:center;">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('us')" id="tab-us">US Stocks</button>
+      <button class="tab-btn" onclick="switchTab('klse')" id="tab-klse">KLSE (Malaysia)</button>
+    </div>
   </div>
   <div class="hdr-right">
     <div class="dot" id="status-dot"></div>
     <span id="status-txt" style="font-weight:600;color:var(--green)">LIVE</span>
     <span class="badge" id="mode-badge">SIMULATE</span>
+    <button id="theme-toggle" onclick="toggleTheme()" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;">Light</button>
     <span style="font-size:11px;color:var(--dim)" id="last-update">--</span>
   </div>
 </header>
 
+<!-- ==================== US TAB ==================== -->
+<div class="tab-content active" id="content-us">
 <div class="container">
-
-  <!-- TOP STATS -->
-  <div class="stats" id="top-stats">
-    <div class="card">
-      <div class="stat-val" id="stat-agents">2</div>
-      <div class="stat-lbl">Active Agents</div>
-    </div>
-    <div class="card">
-      <div class="stat-val" id="stat-cash">--</div>
-      <div class="stat-lbl">US Cash</div>
-    </div>
-    <div class="card">
-      <div class="stat-val" id="stat-positions">--</div>
-      <div class="stat-lbl">Open Positions</div>
-    </div>
-    <div class="card">
-      <div class="stat-val" id="stat-trades">--</div>
-      <div class="stat-lbl">Total Trades</div>
-    </div>
+  <div class="stats" id="us-stats">
+    <div class="card"><div class="stat-val" id="us-stat-agents">8</div><div class="stat-lbl">Active Agents</div></div>
+    <div class="card"><div class="stat-val" id="us-stat-cash">--</div><div class="stat-lbl">US Cash</div></div>
+    <div class="card"><div class="stat-val" id="us-stat-positions">--</div><div class="stat-lbl">Open Positions</div></div>
+    <div class="card"><div class="stat-val" id="us-stat-trades">--</div><div class="stat-lbl">Total Trades</div></div>
+    <div class="card"><div class="stat-val" id="us-stat-pnl">--</div><div class="stat-lbl">Realized PnL ($)</div></div>
   </div>
 
-  <!-- AGENTS -->
-  <div class="grid-3" style="margin-bottom:24px;">
-
+  <div class="grid-8" style="margin-bottom:24px;">
     <!-- NVDA -->
     <div class="card">
       <div class="agent-header">
-        <div class="agent-name">
-          <div class="a-icon nvda-icon">NVDA</div>
-          <div><div class="ticker">NVIDIA</div><div class="fullname">NVDA Trading Agent</div></div>
-        </div>
+        <div class="agent-name"><div class="a-icon nvda-icon">NVDA</div><div><div class="ticker">NVIDIA</div><div class="fullname">NVDA Agent</div></div></div>
         <span class="astat live" id="nvda-status">LIVE</span>
       </div>
-      <div class="price-row">
-        <span class="price" id="nvda-price">--</span>
-        <span class="chg" id="nvda-chg">--</span>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="nvda-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="nvda-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="nvda-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="nvda-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="nvda-hold-sl" style="color:var(--red)">&mdash;</div></div>
       </div>
-      <div class="metrics">
-        <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="nvda-rsi">--</div><div class="bar"><div class="bar-fill green-fill" id="nvda-rsi-bar" style="width:0%"></div></div></div>
-        <div class="mbox"><div class="ml">SMA (200)</div><div class="mv" id="nvda-sma">--</div></div>
-        <div class="mbox"><div class="ml">Trend</div><div class="mv" id="nvda-trend">--</div></div>
-      </div>
-      <div class="tags">
-        <span class="tag">RSI &le; 30</span><span class="tag">Price &gt; SMA 200</span>
-        <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
-      </div>
-      <div class="desc"><strong>Mean-Reversion:</strong> Buys NVDA dips when RSI drops to 30 or below while price stays above the 200-period SMA on 5-min charts. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares).</div>
+      <div class="tags" style="margin-top:10px"><span class="tag">BB Tight</span><span class="tag">RSI &lt; 35</span><span class="tag">TP +2%</span><span class="tag">SL -1%</span></div>
+      <div class="desc"><strong>BB Tight + RSI:</strong> Buys on tight BB squeeze with RSI below 35. 30-min candles.</div>
     </div>
-
     <!-- AMD -->
     <div class="card">
       <div class="agent-header">
-        <div class="agent-name">
-          <div class="a-icon amd-icon">AMD</div>
-          <div><div class="ticker">AMD</div><div class="fullname">AMD Trading Agent</div></div>
-        </div>
+        <div class="agent-name"><div class="a-icon amd-icon">AMD</div><div><div class="ticker">AMD</div><div class="fullname">AMD Agent</div></div></div>
         <span class="astat live" id="amd-status">LIVE</span>
       </div>
-      <div class="price-row">
-        <span class="price" id="amd-price">--</span>
-        <span class="chg" id="amd-chg">--</span>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="amd-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="amd-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="amd-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="amd-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="amd-hold-sl" style="color:var(--red)">&mdash;</div></div>
       </div>
-      <div class="metrics">
-        <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="amd-rsi">--</div><div class="bar"><div class="bar-fill red-fill" id="amd-rsi-bar" style="width:0%"></div></div></div>
-        <div class="mbox"><div class="ml">BB Lower</div><div class="mv" id="amd-bb">--</div></div>
-        <div class="mbox"><div class="ml">Signal</div><div class="mv" id="amd-signal">--</div></div>
-      </div>
-      <div class="tags">
-        <span class="tag">BB Lower Touch</span><span class="tag">RSI &lt; 40</span>
-        <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
-      </div>
-      <div class="desc"><strong>Bollinger Band:</strong> Buys AMD when price touches the lower Bollinger Band (20,2) with RSI below 40 -- capturing oversold bounces. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares).</div>
+      <div class="tags" style="margin-top:10px"><span class="tag">BB Lower</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +1.5%</span><span class="tag">SL -1%</span></div>
+      <div class="desc"><strong>BB + RSI:</strong> Buys AMD when price touches lower BB with RSI below 40. 30-min candles.</div>
     </div>
-
     <!-- AAPL -->
     <div class="card">
       <div class="agent-header">
-        <div class="agent-name">
-          <div class="a-icon aapl-icon">AAPL</div>
-          <div><div class="ticker">Apple</div><div class="fullname">AAPL Trading Agent</div></div>
-        </div>
+        <div class="agent-name"><div class="a-icon aapl-icon">AAPL</div><div><div class="ticker">Apple</div><div class="fullname">AAPL Agent</div></div></div>
         <span class="astat live" id="aapl-status">LIVE</span>
       </div>
-      <div class="price-row">
-        <span class="price" id="aapl-price">--</span>
-        <span class="chg" id="aapl-chg">--</span>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="aapl-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="aapl-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="aapl-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="aapl-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="aapl-hold-sl" style="color:var(--red)">&mdash;</div></div>
       </div>
-      <div class="metrics">
-        <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="aapl-rsi">--</div><div class="bar"><div class="bar-fill aapl-fill" id="aapl-rsi-bar" style="width:0%"></div></div></div>
-        <div class="mbox"><div class="ml">SMA (200)</div><div class="mv" id="aapl-sma">--</div></div>
-        <div class="mbox"><div class="ml">Trend</div><div class="mv" id="aapl-trend">--</div></div>
+      <div class="tags" style="margin-top:10px"><span class="tag">RSI &le; 35</span><span class="tag">SMA 200</span><span class="tag">TP +3%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>RSI + SMA200:</strong> Buys AAPL dips when RSI &le; 35 and price above SMA 200. 30-min candles.</div>
+    </div>
+    <!-- TSLA -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon tsla-icon">TSLA</div><div><div class="ticker">Tesla</div><div class="fullname">TSLA Agent</div></div></div>
+        <span class="astat live" id="tsla-status">LIVE</span>
       </div>
-      <div class="tags">
-        <span class="tag">RSI &le; 30</span><span class="tag">Price &gt; SMA 200</span>
-        <span class="tag">TP +2%</span><span class="tag">SL -1%</span>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="tsla-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="tsla-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="tsla-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="tsla-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="tsla-hold-sl" style="color:var(--red)">&mdash;</div></div>
       </div>
-      <div class="desc"><strong>Mean-Reversion (same as NVDA):</strong> Buys AAPL dips when RSI drops to 30 or below while price stays above the 200-period SMA on 5-min charts. Next candle entry. TP at +2%, hard SL at -1%. Max 1 open position (2 shares). Backtest: 13 trades, 53.8% WR, PF 2.29.</div>
+      <div class="tags" style="margin-top:10px"><span class="tag">EMA 9/21 Cross</span><span class="tag">RSI Filter</span><span class="tag">TP +1.5%</span><span class="tag">SL -1%</span></div>
+      <div class="desc"><strong>EMA Cross + RSI:</strong> Buys on EMA 9/21 bullish crossover with RSI confirmation. 30-min candles.</div>
+    </div>
+    <!-- ORCL -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon orcl-icon">ORCL</div><div><div class="ticker">Oracle</div><div class="fullname">ORCL Agent</div></div></div>
+        <span class="astat live" id="orcl-status">LIVE</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="orcl-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="orcl-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="orcl-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="orcl-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="orcl-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">BB Lower</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2.5%</span><span class="tag">SL -1.2%</span></div>
+      <div class="desc"><strong>BB + RSI:</strong> Buys ORCL on lower BB touch with RSI below 40. 30-min candles.</div>
+    </div>
+    <!-- AVGO -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon avgo-icon">AVGO</div><div><div class="ticker">Broadcom</div><div class="fullname">AVGO Agent</div></div></div>
+        <span class="astat live" id="avgo-status">LIVE</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="avgo-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="avgo-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="avgo-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="avgo-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="avgo-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">BB Tight</span><span class="tag">RSI &lt; 35</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>BB Tight + RSI:</strong> Buys on tight BB squeeze with RSI below 35. 30-min candles.</div>
+    </div>
+    <!-- FCX -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon fcx-icon">FCX</div><div><div class="ticker">Freeport</div><div class="fullname">FCX Agent</div></div></div>
+        <span class="astat live" id="fcx-status">LIVE</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="fcx-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="fcx-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="fcx-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="fcx-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="fcx-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">RSI &le; 30</span><span class="tag">SMA 200</span><span class="tag">TP +1.5%</span><span class="tag">SL -1%</span></div>
+      <div class="desc"><strong>RSI + SMA200:</strong> Buys FCX deep dips when RSI &le; 30 and price above SMA 200. 30-min candles.</div>
+    </div>
+    <!-- AMZN -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon amzn-icon">AMZN</div><div><div class="ticker">Amazon</div><div class="fullname">AMZN Agent</div></div></div>
+        <span class="astat live" id="amzn-status">LIVE</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="amzn-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="amzn-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="amzn-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="amzn-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="amzn-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">RSI &le; 30</span><span class="tag">SMA 200</span><span class="tag">TP +1.5%</span><span class="tag">SL -1%</span></div>
+      <div class="desc"><strong>RSI + SMA200:</strong> Buys AMZN deep dips when RSI &le; 30 and price above SMA 200. 30-min candles.</div>
     </div>
   </div>
 
-  <!-- LIVE LOG -->
-  <div class="card" style="margin-bottom:24px;">
-    <div class="card-title">📋 Live Activity Log</div>
-    <div class="log" id="activity-log" style="max-height:300px;">
-      <div style="color:var(--dim);font-size:12px;padding:10px;">Waiting for live data...</div>
-    </div>
-  </div>
-
-  <!-- LIVE TRADE LOG -->
+  <!-- US LIVE TRADE LOG -->
   <div class="card" style="margin-bottom:24px; border-top:3px solid var(--purple);">
-    <div class="card-title">Live Trade Log <span style="font-size:10px;color:var(--dim);font-weight:400;">(consolidated -- one row per trade pair)</span></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Agent</th>
-          <th>Status</th>
-          <th>Buy Time</th>
-          <th>Qty</th>
-          <th>Buy Price</th>
-          <th>Entry</th>
-          <th>PnL</th>
-        </tr>
-      </thead>
-      <tbody id="live-trade-body">
-        <tr><td colspan="7" style="text-align:center;color:var(--dim);padding:20px;">Waiting for trades...</td></tr>
-      </tbody>
-    </table>
+    <div class="card-title">US Live Trade Log</div>
+    <div id="us-trade-summary" style="display:none;margin-bottom:12px;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;color:var(--dim)">Total P&amp;L</span>
+        <span id="us-ts-total-pnl" style="font-size:18px;font-weight:700;">--</span>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:6px;font-size:11px;color:var(--dim);">
+        <span>Trades: <strong id="us-ts-trades" style="color:var(--text)">0</strong></span>
+        <span>TP: <strong id="us-ts-tp" style="color:var(--green)">0</strong></span>
+        <span>SL: <strong id="us-ts-sl" style="color:var(--red)">0</strong></span>
+      </div>
+    </div>
+    <div id="us-live-trades" class="trade-log-lg"><div style="color:var(--dim);font-size:12px;padding:10px;">Waiting for trades...</div></div>
   </div>
 
-  <!-- BACKTEST -->
+  <!-- US BACKTEST -->
   <div class="card" style="margin-bottom:24px;">
-    <div class="card-title">📊 Backtest Results (Apr-Jun 2026, 5-min bars, 9 stocks scanned)</div>
-    <div class="grid-3">
-      <div>
-        <h3 style="color:#22c55e;font-size:14px;margin-bottom:10px;">NVDA -- RSI&le;30 + SMA200</h3>
-        <table>
-          <tr><th>Metric</th><th>Value</th></tr>
-          <tr><td>Trades</td><td>7</td></tr>
-          <tr><td>Win Rate</td><td class="pos">71.4%</td></tr>
-          <tr><td>Profit Factor</td><td class="pos">4.86</td></tr>
-          <tr><td>Total P&L</td><td class="pos">$30.69</td></tr>
-          <tr><td>Avg/Trade</td><td class="pos">$4.38</td></tr>
-          <tr><td>Best</td><td class="pos">+$8.41</td></tr>
-          <tr><td>Worst</td><td class="neg">-$4.45</td></tr>
-        </table>
-      </div>
-      <div>
-        <h3 style="color:#ef4444;font-size:14px;margin-bottom:10px;">AMD -- BB Lower + RSI&lt;40</h3>
-        <table>
-          <tr><th>Metric</th><th>Value</th></tr>
-          <tr><td>Trades</td><td>44</td></tr>
-          <tr><td>Win Rate</td><td>43.2%</td></tr>
-          <tr><td>Profit Factor</td><td class="pos">1.52</td></tr>
-          <tr><td>Total P&L</td><td class="pos">$107.54</td></tr>
-          <tr><td>Avg/Trade</td><td class="pos">$2.44</td></tr>
-          <tr><td>Best</td><td class="pos">+$9.04</td></tr>
-          <tr><td>Worst</td><td class="neg">-$4.66</td></tr>
-        </table>
-      </div>
-      <div>
-        <h3 style="color:#a3a3a3;font-size:14px;margin-bottom:10px;">AAPL -- RSI&le;30 + SMA200</h3>
-        <table>
-          <tr><th>Metric</th><th>Value</th></tr>
-          <tr><td>Trades</td><td>13</td></tr>
-          <tr><td>Win Rate</td><td class="pos">53.8%</td></tr>
-          <tr><td>Profit Factor</td><td class="pos">2.29</td></tr>
-          <tr><td>Total P&L</td><td class="pos">$44.79</td></tr>
-          <tr><td>Avg/Trade</td><td class="pos">$3.45</td></tr>
-          <tr><td>Best</td><td class="pos">+$11.90</td></tr>
-          <tr><td>Worst</td><td class="neg">-$6.20</td></tr>
-        </table>
-      </div>
+    <div class="card-title">&#x1F4CA; US Backtest Results (30-min Timeframe)</div>
+    <div class="btc-grid">
+      <div class="btc-card"><h4 style="color:#22c55e;">NVDA &mdash; BB_TIGHT + 2.0TP/1.0SL</h4><table><tr><td>Trades</td><td>19</td></tr><tr><td>Win Rate</td><td class="pos">36.8%</td></tr><tr><td>Profit Factor</td><td class="pos">1.27</td></tr><tr><td>Total P&L</td><td class="pos">$17.89</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#ef4444;">AMD &mdash; BB_RSI_40 + 1.5TP/1.0SL</h4><table><tr><td>Trades</td><td>23</td></tr><tr><td>Win Rate</td><td class="pos">60.9%</td></tr><tr><td>Profit Factor</td><td class="pos">2.34</td></tr><tr><td>Total P&L</td><td class="pos">$175.86</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#a3a3a3;">AAPL &mdash; RSI_SMA_35 + 3.0TP/1.5SL</h4><table><tr><td>Trades</td><td>5</td></tr><tr><td>Win Rate</td><td class="pos">80.0%</td></tr><tr><td>Profit Factor</td><td class="pos">8.03</td></tr><tr><td>Total P&L</td><td class="pos">$72.21</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#3b82f6;">TSLA &mdash; EMA_CROSS + 1.5TP/1.0SL</h4><table><tr><td>Trades</td><td>1</td></tr><tr><td>Win Rate</td><td class="pos">100%</td></tr><tr><td>Profit Factor</td><td class="pos">&#x221E;</td></tr><tr><td>Total P&L</td><td class="pos">$17.79</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#f97316;">ORCL &mdash; BB_RSI_40 + 2.5TP/1.2SL</h4><table><tr><td>Trades</td><td>18</td></tr><tr><td>Win Rate</td><td>44.4%</td></tr><tr><td>Profit Factor</td><td class="pos">1.39</td></tr><tr><td>Total P&L</td><td class="pos">$27.32</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#8b5cf6;">AVGO &mdash; BB_TIGHT + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>18</td></tr><tr><td>Win Rate</td><td class="pos">72.2%</td></tr><tr><td>Profit Factor</td><td class="pos">3.52</td></tr><tr><td>Total P&L</td><td class="pos">$196.20</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#eab308;">FCX &mdash; RSI_SMA + 1.5TP/1.0SL</h4><table><tr><td>Trades</td><td>10</td></tr><tr><td>Win Rate</td><td>50.0%</td></tr><tr><td>Profit Factor</td><td class="pos">1.49</td></tr><tr><td>Total P&L</td><td class="pos">$4.30</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#06b6d4;">AMZN &mdash; RSI_SMA + 1.5TP/1.0SL</h4><table><tr><td>Trades</td><td>6</td></tr><tr><td>Win Rate</td><td class="pos">83.3%</td></tr><tr><td>Profit Factor</td><td class="pos">4.05</td></tr><tr><td>Total P&L</td><td class="pos">$36.53</td></tr></table></div>
     </div>
-    <div style="margin-top:16px;padding:12px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:12px;color:var(--dim);line-height:1.7;">
-      <strong style="color:var(--blue);">Method:</strong> 17 strategies tested across 9 Shariah US stocks on 5-min data (Apr-Jun 2026). Stock-specific strategy assignment: NVDA and AAPL use RSI+SMA mean-reversion (PF 4.86 and 2.29). AMD requires Bollinger Band approach (PF 1.52). All use 2% TP / 1% SL on 5-min candles.
+  </div>
+</div>
+</div>
+
+<!-- ==================== KLSE TAB ==================== -->
+<div class="tab-content" id="content-klse">
+<div class="container">
+  <div class="stats" id="klse-stats">
+    <div class="card"><div class="stat-val" id="klse-stat-agents">5</div><div class="stat-lbl">Active Agents</div></div>
+    <div class="card"><div class="stat-val" id="klse-stat-cash">--</div><div class="stat-lbl">MYR Cash</div></div>
+    <div class="card"><div class="stat-val" id="klse-stat-positions">--</div><div class="stat-lbl">Open Positions</div></div>
+    <div class="card"><div class="stat-val" id="klse-stat-trades">--</div><div class="stat-lbl">Total Trades</div></div>
+    <div class="card"><div class="stat-val" id="klse-stat-pnl">--</div><div class="stat-lbl">Realized PnL (RM)</div></div>
+  </div>
+
+  <div class="grid-8" style="margin-bottom:24px;">
+    <!-- UNISEM -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon unisem-icon">UNS</div><div><div class="ticker">Unisem</div><div class="fullname">5005.KL | Semiconductor</div></div></div>
+        <span class="astat wait" id="unisem-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="unisem-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="unisem-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="unisem-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="unisem-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="unisem-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">BB Lower</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>BB + RSI:</strong> Buys when price touches lower BB with RSI below 40. Backtest: 9tr, 88.9% WR.</div>
+    </div>
+    <!-- GAMUDA -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon gamuda-icon">GAM</div><div><div class="ticker">Gamuda</div><div class="fullname">5398.KL | Construction</div></div></div>
+        <span class="astat wait" id="gamuda-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="gamuda-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="gamuda-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="gamuda-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="gamuda-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="gamuda-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">Vol Breakout &gt;2x</span><span class="tag">Price &gt; SMA20</span><span class="tag">TP +2.5%</span><span class="tag">SL -1.2%</span></div>
+      <div class="desc"><strong>Volume Breakout:</strong> Buys on volume spikes &gt;2x average with price above SMA20. Backtest: PF 14.0.</div>
+    </div>
+    <!-- IOI -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon ioi-icon">IOI</div><div><div class="ticker">IOI Corp</div><div class="fullname">1961.KL | Plantation</div></div></div>
+        <span class="astat wait" id="ioi-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="ioi-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="ioi-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="ioi-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="ioi-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="ioi-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">RSI &le; 30</span><span class="tag">SMA 200</span><span class="tag">TP +2%</span><span class="tag">SL -1%</span></div>
+      <div class="desc"><strong>RSI + SMA200:</strong> Buys dips when RSI &le; 30 and price above SMA 200. Backtest: PF 5.2.</div>
+    </div>
+    <!-- QL RESOURCES -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon qlr-icon">QL</div><div><div class="ticker">QL Resources</div><div class="fullname">7084.KL | Agriculture</div></div></div>
+        <span class="astat wait" id="qlr-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="qlr-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="qlr-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="qlr-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="qlr-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="qlr-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">Bullish Engulfing</span><span class="tag">RSI &lt; 40</span><span class="tag">Vol &gt; 1.5x</span><span class="tag">TP +1.5%</span></div>
+      <div class="desc"><strong>Candlestick+Volume:</strong> Buys on bullish engulfing with RSI &lt; 40 and volume confirmation. Backtest: 100% WR.</div>
+    </div>
+    <!-- MR DIY -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon mrdiy-icon">DIY</div><div><div class="ticker">MR DIY</div><div class="fullname">5296.KL | Retail</div></div></div>
+        <span class="astat wait" id="mrdiy-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="mrdiy-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="mrdiy-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="mrdiy-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="mrdiy-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="mrdiy-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">Morning Star</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>Morning Star:</strong> Buys on 3-candle morning star reversal with RSI confirmation. Backtest: 100% WR.</div>
     </div>
   </div>
 
-  <!-- ARCHITECTURE -->
+  <!-- KLSE LIVE TRADE LOG -->
+  <div class="card" style="margin-bottom:24px; border-top:3px solid #059669;">
+    <div class="card-title">KLSE Live Trade Log</div>
+    <div id="klse-trade-summary" style="display:none;margin-bottom:12px;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;color:var(--dim)">Total P&amp;L</span>
+        <span id="klse-ts-total-pnl" style="font-size:18px;font-weight:700;">--</span>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:6px;font-size:11px;color:var(--dim);">
+        <span>Trades: <strong id="klse-ts-trades" style="color:var(--text)">0</strong></span>
+        <span>TP: <strong id="klse-ts-tp" style="color:var(--green)">0</strong></span>
+        <span>SL: <strong id="klse-ts-sl" style="color:var(--red)">0</strong></span>
+      </div>
+    </div>
+    <div id="klse-live-trades" class="trade-log-lg"><div style="color:var(--dim);font-size:12px;padding:10px;">KLSE agents start at 9:00 AM MYT. Waiting...</div></div>
+  </div>
+
+  <!-- KLSE BACKTEST -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title">&#x1F4CA; KLSE Backtest Results (30-min Timeframe)</div>
+    <div class="btc-grid">
+      <div class="btc-card"><h4 style="color:#8b5cf6;">Unisem &mdash; BB_RSI + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>9</td></tr><tr><td>Win Rate</td><td class="pos">88.9%</td></tr><tr><td>Profit Factor</td><td class="pos">99.99</td></tr><tr><td>Total P&L</td><td class="pos">RM119</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#3b82f6;">Gamuda &mdash; Vol Break + 2.5TP/1.2SL</h4><table><tr><td>Trades</td><td>2</td></tr><tr><td>Win Rate</td><td class="pos">50.0%</td></tr><tr><td>Profit Factor</td><td class="pos">14.0</td></tr><tr><td>Total P&L</td><td class="pos">RM13</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#059669;">IOI Corp &mdash; RSI_SMA + 2.0TP/1.0SL</h4><table><tr><td>Trades</td><td>3</td></tr><tr><td>Win Rate</td><td class="pos">66.7%</td></tr><tr><td>Profit Factor</td><td class="pos">5.2</td></tr><tr><td>Total P&L</td><td class="pos">RM21</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#d97706;">QL Res &mdash; Engulfing + 1.5TP/1.0SL</h4><table><tr><td>Trades</td><td>3</td></tr><tr><td>Win Rate</td><td class="pos">100%</td></tr><tr><td>Profit Factor</td><td class="pos">99.99</td></tr><tr><td>Total P&L</td><td class="pos">RM18</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#dc2626;">MR DIY &mdash; M.Star + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>2</td></tr><tr><td>Win Rate</td><td class="pos">100%</td></tr><tr><td>Profit Factor</td><td class="pos">99.99</td></tr><tr><td>Total P&L</td><td class="pos">RM10</td></tr></table></div>
+    </div>
+  </div>
+
+  <!-- KLSE INFO -->
   <div class="grid-3" style="margin-bottom:24px;">
-    <div class="card">
-      <div class="card-title">☪ Shariah Rules</div>
-      <ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;">
-        <li>Long only -- no short selling</li>
-        <li>No margin or leverage</li>
-        <li>No interest-based borrowing</li>
-        <li>AAOIFI screened stocks</li>
-        <li>Halal sectors only</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">⚙ Tech Stack</div>
-      <ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;">
-        <li>Hermes Agent + Cron Scheduler</li>
-        <li>moomoo OpenAPI (FUTUINC)</li>
-        <li>5-min intraday candles</li>
-        <li>Python FastAPI backend</li>
-        <li>SIMULATE account only</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">🛡 Risk Controls</div>
-      <ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;">
-        <li>SIMULATE account (no real $)</li>
-        <li>Max 1 position per agent</li>
-        <li>Hard SL at -1% per trade</li>
-        <li>Entry 9:30AM-3:30PM EST</li>
-        <li>Telegram notifications</li>
-      </ul>
-    </div>
+    <div class="card"><div class="card-title">Shariah Rules</div><ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;"><li>Long only -- no short selling</li><li>No margin or leverage</li><li>SC Malaysia Shariah-compliant list</li><li>Excludes: banks, insurance, gaming</li><li>Halal sectors only</li></ul></div>
+    <div class="card"><div class="card-title">Tech Stack</div><ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;"><li>Hermes Agent + Cron Scheduler</li><li>moomoo OpenD (FUTUMY)</li><li>30-min intraday candles</li><li>SIMULATE mode (no real orders)</li><li>GitHub log upload</li></ul></div>
+    <div class="card"><div class="card-title">Risk Controls</div><ul style="font-size:12px;color:var(--dim);line-height:1.8;padding-left:14px;"><li>SIMULATE mode active</li><li>Max 1 position per agent</li><li>Hard SL per trade</li><li>Trading 9AM-5PM MYT only</li><li>100 shares (1 lot) per trade</li></ul></div>
   </div>
-
+</div>
 </div>
 
 <footer>
-  Shariah Trading Lab &mdash; Powered by Hermes Agent + moomoo OpenAPI | SIMULATE Mode Only
-  <br><span style="font-size:10px;">API: <span id="api-url">http://localhost:8080</span></span>
+  Shariah Trading Lab &mdash; US + KLSE | Powered by Hermes Agent + moomoo OpenAPI | SIMULATE Mode
 </footer>
 
 <script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('content-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (tab === 'us') { refreshUS(); loadUSLiveTrades(); }
+  else { refreshKLSE(); loadKLSLiveTrades(); }
+}
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  document.getElementById('theme-toggle').textContent = isLight ? 'Dark' : 'Light';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+if (localStorage.getItem('theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-toggle').textContent = 'Dark'; }
+
+const US_AGENTS = ['nvda','amd','aapl','tsla','orcl','avgo','fcx','amzn'];
+const KLSE_AGENTS = ['unisem','gamuda','ioi','qlr','mrdiy'];
 const BASE = window.location.origin;
 
 async function fetchAPI(path) {
-  try {
-    const r = await fetch(`${BASE}/api${path}`, {signal: AbortSignal.timeout(8000)});
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return await r.json();
-  } catch(e) {
-    console.warn(`API ${path}:`, e.message);
-    return null;
-  }
+  try { const r = await fetch(`${BASE}/api${path}`, {signal: AbortSignal.timeout(8000)}); return r.ok ? await r.json() : null; }
+  catch(e) { return null; }
 }
 
-function updateBar(id, pct, green=true) {
-  const el = document.getElementById(id);
-  if (el) {
-    el.style.width = Math.min(100, Math.max(0, pct)) + '%';
-    el.className = 'bar-fill ' + (green ? 'green-fill' : 'red-fill');
-  }
-}
-
-function addLog(msg, type='info') {
-  const log = document.getElementById('activity-log');
-  if (!log) return;
-  const colors = {tp:'var(--green)',sl:'var(--red)',buy:'var(--blue)',info:'var(--dim)',sell:'var(--yellow)'};
-  const d = document.createElement('div');
-  d.className = 'ldisp';
-  d.innerHTML = `<span style="color:${colors[type]||colors.info};font-size:11px">${new Date().toLocaleTimeString()}</span><span style="font-size:12px">${msg}</span>`;
-  log.prepend(d);
-  while (log.children.length > 50) log.lastChild.remove();
-}
-
-async function refresh() {
-  const [nvda, amd, aapl, portfolio, trades_nvda, trades_amd, trades_aapl] = await Promise.all([
-    fetchAPI('/nvda'), fetchAPI('/amd'), fetchAPI('/aapl'), fetchAPI('/portfolio'),
-    fetchAPI('/trades/nvda'), fetchAPI('/trades/amd'), fetchAPI('/trades/aapl')
-  ]);
-
-  let ok = false;
-
-  // Any successful API response counts as "connected"
-  if (nvda !== null) ok = true;
-  if (amd !== null) ok = true;
-  if (aapl !== null) ok = true;
-  if (portfolio !== null) ok = true;
-
-  if (nvda && nvda.current_price) {
-    ok = true;
-    document.getElementById('nvda-price').textContent = '$' + nvda.current_price.toFixed(2);
-    document.getElementById('nvda-rsi').textContent = nvda.rsi14 ? nvda.rsi14.toFixed(1) : '--';
-    updateBar('nvda-rsi-bar', nvda.rsi14 || 0, true);
-    document.getElementById('nvda-sma').textContent = nvda.sma200 ? '$' + nvda.sma200.toFixed(2) : '--';
-    document.getElementById('nvda-trend').textContent = nvda.trend || '--';
-    document.getElementById('nvda-trend').style.color = nvda.trend === 'BULL' ? 'var(--green)' : nvda.trend === 'BEAR' ? 'var(--red)' : 'var(--dim)';
-    if (nvda.sma200) {
-      const pct = ((nvda.current_price / nvda.sma200 - 1) * 100).toFixed(2);
-      const el = document.getElementById('nvda-chg');
-      el.textContent = (pct >= 0 ? '+' : '') + pct + '% vs SMA';
-      el.className = 'chg ' + (pct >= 0 ? 'up' : 'down');
+async function refreshUS() {
+  const results = await Promise.all([...US_AGENTS.map(a => fetchAPI('/' + a)), fetchAPI('/portfolio')]);
+  const portfolio = results[results.length - 1];
+  US_AGENTS.forEach((a, i) => {
+    const data = results[i];
+    if (!data) return;
+    const pnlEl = document.getElementById(`${a}-pnl`);
+    const holdInfo = document.getElementById(`${a}-hold-info`);
+    const statusEl = document.getElementById(`${a}-status`);
+    if (data.position_open && data.live_pnl !== null) {
+      pnlEl.textContent = (data.live_pnl >= 0 ? '+' : '') + '$' + data.live_pnl.toFixed(2);
+      pnlEl.style.color = data.live_pnl >= 0 ? 'var(--green)' : 'var(--red)';
+      holdInfo.style.display = 'grid';
+      document.getElementById(`${a}-hold-entry`).textContent = '$' + (data.entry_price || 0).toFixed(2);
+      document.getElementById(`${a}-hold-tp`).textContent = data.tp ? '$' + data.tp.toFixed(2) : '—';
+      document.getElementById(`${a}-hold-sl`).textContent = data.sl ? '$' + data.sl.toFixed(2) : '—';
+      statusEl.textContent = 'HOLDING';
+      statusEl.className = 'astat hold';
+    } else {
+      pnlEl.textContent = '—';
+      pnlEl.style.color = 'var(--dim)';
+      holdInfo.style.display = 'none';
+      if (data.current_price) { statusEl.textContent = 'LIVE'; statusEl.className = 'astat live'; }
     }
-    if (nvda.position_open) {
-      document.getElementById('nvda-status').textContent = 'HOLDING';
-      document.getElementById('nvda-status').className = 'astat hold';
-    }
-  } else {
-    // Render can't reach moomoo -- show last known or placeholder
-    document.getElementById('nvda-price').textContent = 'NVDA';
-    document.getElementById('nvda-rsi').textContent = 'Live data requires local OpenD';
-    document.getElementById('nvda-sma').textContent = '---';
-    document.getElementById('nvda-trend').textContent = 'N/A (server)';
-    document.getElementById('nvda-status').textContent = 'LIVE (local)';
-    document.getElementById('nvda-status').className = 'astat live';
-  }
-
-  if (amd && amd.current_price) {
-    ok = true;
-    document.getElementById('amd-price').textContent = '$' + amd.current_price.toFixed(2);
-    document.getElementById('amd-rsi').textContent = amd.rsi14 ? amd.rsi14.toFixed(1) : '--';
-    updateBar('amd-rsi-bar', amd.rsi14 || 0, false);
-    document.getElementById('amd-bb').textContent = amd.bb_lower ? '$' + amd.bb_lower.toFixed(2) : '--';
-    const sig = (amd.bb_lower && amd.rsi14 && amd.current_low <= amd.bb_lower && amd.rsi14 < 40) ? 'BUY SIGNAL' : 'SCANNING';
-    const sigEl = document.getElementById('amd-signal');
-    sigEl.textContent = sig;
-    sigEl.style.color = sig === 'BUY SIGNAL' ? 'var(--green)' : 'var(--yellow)';
-    if (amd.position_open) {
-      document.getElementById('amd-status').textContent = 'HOLDING';
-      document.getElementById('amd-status').className = 'astat hold';
-    }
-  } else {
-    document.getElementById('amd-price').textContent = 'AMD';
-    document.getElementById('amd-rsi').textContent = 'Live data requires local OpenD';
-    document.getElementById('amd-bb').textContent = '---';
-    document.getElementById('amd-signal').textContent = 'N/A (server)';
-    document.getElementById('amd-status').textContent = 'LIVE (local)';
-    document.getElementById('amd-status').className = 'astat live';
-  }
-
-  if (aapl && aapl.current_price) {
-    ok = true;
-    document.getElementById('aapl-price').textContent = '$' + aapl.current_price.toFixed(2);
-    document.getElementById('aapl-rsi').textContent = aapl.rsi14 ? aapl.rsi14.toFixed(1) : '--';
-    updateBar('aapl-rsi-bar', aapl.rsi14 || 0, true);
-    document.getElementById('aapl-sma').textContent = aapl.sma200 ? '$' + aapl.sma200.toFixed(2) : '--';
-    document.getElementById('aapl-trend').textContent = aapl.trend || '--';
-    document.getElementById('aapl-trend').style.color = aapl.trend === 'BULL' ? 'var(--green)' : aapl.trend === 'BEAR' ? 'var(--red)' : 'var(--dim)';
-    if (aapl.position_open) {
-      document.getElementById('aapl-status').textContent = 'HOLDING';
-      document.getElementById('aapl-status').className = 'astat hold';
-    }
-  } else {
-    document.getElementById('aapl-price').textContent = 'AAPL';
-    document.getElementById('aapl-rsi').textContent = 'Live data requires local OpenD';
-    document.getElementById('aapl-sma').textContent = '---';
-    document.getElementById('aapl-trend').textContent = 'N/A (server)';
-    document.getElementById('aapl-status').textContent = 'LIVE (local)';
-    document.getElementById('aapl-status').className = 'astat live';
-  }
-
+  });
   if (portfolio) {
-    ok = true;
-    document.getElementById('stat-cash').textContent = '$' + (portfolio.us_cash || portfolio.cash || 0).toLocaleString(undefined, {maximumFractionDigits: 0});
-    document.getElementById('stat-positions').textContent = (portfolio.positions || []).length;
+    document.getElementById('us-stat-positions').textContent = portfolio.position_count || 0;
+    const rpnl = portfolio.total_realized_pnl || 0;
+    document.getElementById('us-stat-pnl').textContent = (rpnl >= 0 ? '+' : '') + '$' + rpnl.toFixed(2);
   }
-
-  // Trade counts
-  const allTrades = ((trades_nvda?.trades?.length)||0) + ((trades_amd?.trades?.length)||0) + ((trades_aapl?.trades?.length)||0);
-  document.getElementById('stat-trades').textContent = allTrades;
-
-  // Update top stats
-  document.getElementById('stat-agents').textContent = "3";
-
-  // Add log entries from trade logs
-  if (trades_nvda?.trades) {
-    trades_nvda.trades.slice(-3).forEach(l => {
-      const type = l.type === 'buy_filled' ? 'buy' : l.reason === 'TP' ? 'tp' : 'sl';
-      addLog(`[NVDA] ${l.side} ${l.reason || 'BUY'} @ $${l.price} (${l.pnl >= 0 ? '+' : ''}$${l.pnl})`, type);
-    });
-  }
-  if (trades_amd?.trades) {
-    trades_amd.trades.slice(-3).forEach(l => {
-      const type = l.type === 'buy_filled' ? 'buy' : l.reason === 'TP' ? 'tp' : 'sl';
-      addLog(`[AMD] ${l.side} ${l.reason || 'BUY'} @ $${l.price} (${l.pnl >= 0 ? '+' : ''}$${l.pnl})`, type);
-    });
-  }
-
-  // Status -- default is LIVE (set in HTML), downgrade only on total failure
-  const dot = document.getElementById('status-dot');
-  const txt = document.getElementById('status-txt');
-  // ok is set true if any API responds. If all fail, show connecting.
-  const anySuccess = (nvda !== null) || (amd !== null) || (aapl !== null) || (portfolio !== null) || (trades_nvda !== null) || (trades_amd !== null) || (trades_aapl !== null);
-  if (anySuccess || ok) {
-    dot.style.background = 'var(--green)';
-    txt.textContent = 'LIVE';
-    txt.style.color = 'var(--green)';
-  } else {
-    dot.style.background = 'var(--yellow)';
-    txt.textContent = 'CONNECTING...';
-    txt.style.color = 'var(--yellow)';
-  }
-
-  document.getElementById('last-update').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+  let totalTrades = 0;
+  US_AGENTS.forEach((a, i) => { totalTrades += (results[i]?.total_trades) || 0; });
+  document.getElementById('us-stat-trades').textContent = totalTrades;
 }
 
-// Fetch live trades from Render server and render consolidated table
-async function loadLiveTrades() {
-  const tbody = document.getElementById("live-trade-body");
-  if (!tbody) return;
-
-  // US + KLSE agents
-  const agents = ["nvda", "amd", "aapl", "tsla", "orcl", "avgo", "fcx", "amzn", "unisem", "gamuda", "ioi", "qlr", "mrdiy"];
-  const allPairs = [];
-
-  for (const agent of agents) {
+async function refreshKLSE() {
+  let totalTrades = 0, totalPnl = 0, positions = 0;
+  for (const a of KLSE_AGENTS) {
     try {
-      const r = await fetch(`${BASE}/api/trades/${agent}`, {signal: AbortSignal.timeout(8000)});
-      const data = await r.json();
-      const trades = data.trades || [];
-      if (trades.length === 0) continue;
+      const data = await fetchAPI('/' + a);
+      if (!data) continue;
+      const pnlEl = document.getElementById(`${a}-pnl`);
+      const holdInfo = document.getElementById(`${a}-hold-info`);
+      const statusEl = document.getElementById(`${a}-status`);
+      if (data.position_open && data.live_pnl !== null) {
+        pnlEl.textContent = (data.live_pnl >= 0 ? '+' : '') + 'RM' + data.live_pnl.toFixed(2);
+        pnlEl.style.color = data.live_pnl >= 0 ? 'var(--green)' : 'var(--red)';
+        holdInfo.style.display = 'grid';
+        document.getElementById(`${a}-hold-entry`).textContent = 'RM' + (data.entry_price || 0).toFixed(2);
+        document.getElementById(`${a}-hold-tp`).textContent = data.tp ? 'RM' + data.tp.toFixed(2) : '—';
+        document.getElementById(`${a}-hold-sl`).textContent = data.sl ? 'RM' + data.sl.toFixed(2) : '—';
+        statusEl.textContent = 'HOLDING'; statusEl.className = 'astat hold';
+        positions++;
+      } else {
+        pnlEl.textContent = '—'; pnlEl.style.color = 'var(--dim)'; holdInfo.style.display = 'none';
+        if (data.current_price) { statusEl.textContent = 'LIVE'; statusEl.className = 'astat live'; }
+      }
+      totalTrades += data.total_trades || 0;
+      totalPnl += data.realized_pnl || 0;
+    } catch(e) {}
+  }
+  document.getElementById('klse-stat-trades').textContent = totalTrades;
+  document.getElementById('klse-stat-pnl').textContent = 'RM' + totalPnl.toFixed(2);
+  document.getElementById('klse-stat-positions').textContent = positions;
+}
 
+async function loadUSLiveTrades() {
+  const container = document.getElementById('us-live-trades');
+  const summary = document.getElementById('us-trade-summary');
+  if (!container) return;
+  let allPairs = [], totalPnl = 0, totalTp = 0, totalSl = 0;
+  for (const a of US_AGENTS) {
+    try {
+      const data = await fetchAPI('/trades/' + a);
+      if (!data || !data.trades) continue;
+      const trades = data.trades;
       // Pair buy+sell into consolidated rows
       let openBuy = null;
       for (const t of trades) {
-        if (t.side === "BUY" && t.reason === "ENTRY") {
+        if (t.side === 'BUY' && t.reason === 'ENTRY') {
           openBuy = t;
-        } else if (t.side === "SELL" && openBuy) {
-          // Closed pair
-          const status = t.reason === "TP" ? "TP" : "SL";
-          const buyPrice = openBuy.price;
-          const sellPrice = t.price;
+        } else if (t.side === 'SELL' && openBuy) {
+          const status = t.reason === 'TP' ? 'TP' : 'SL';
+          totalPnl += t.pnl || 0;
+          if (status === 'TP') totalTp++; else totalSl++;
           allPairs.push({
-            agent: agent.toUpperCase(),
+            agent: a.toUpperCase(),
             status: status,
             buyTime: openBuy.timestamp,
             qty: t.qty || openBuy.qty,
-            buyPrice: buyPrice,
-            sellPrice: sellPrice,
-            entry: t.entry_price || buyPrice,
+            price: openBuy.price,
+            entry: t.entry_price || openBuy.price,
             pnl: t.pnl || 0,
-            timestamp: t.timestamp, // for sorting
+            ts: t.timestamp,
           });
           openBuy = null;
         }
       }
-      // Open position (buy without sell)
+      // Open position (buy without matching sell)
       if (openBuy) {
         allPairs.push({
-          agent: agent.toUpperCase(),
-          status: "BUY",
+          agent: a.toUpperCase(),
+          status: 'BUY',
           buyTime: openBuy.timestamp,
           qty: openBuy.qty,
-          buyPrice: openBuy.price,
-          sellPrice: null,
+          price: openBuy.price,
           entry: 0,
           pnl: 0,
-          timestamp: openBuy.timestamp,
+          ts: openBuy.timestamp,
         });
       }
-    } catch (e) {
-      // skip agents that fail
-    }
+    } catch(e) {}
   }
-
-  if (allPairs.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--dim);padding:20px;">Waiting for trades...</td></tr>';
-    return;
-  }
-
-  // Sort newest first
-  allPairs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
-  tbody.innerHTML = allPairs.map(p => {
-    const statusColor = p.status === "TP" ? "var(--green)" : p.status === "SL" ? "var(--red)" : "var(--blue)";
-    const statusLabel = p.status === "TP" ? "TP" : p.status === "SL" ? "SL" : "BUY";
-    const pnlColor = p.pnl > 0 ? "var(--green)" : p.pnl < 0 ? "var(--red)" : "var(--dim)";
-    const pnlStr = p.status === "BUY" ? "--" : (p.pnl >= 0 ? "+" : "") + "$" + p.pnl.toFixed(2);
-    const buyTimeStr = new Date(p.buyTime).toLocaleString();
-    const entryStr = p.entry > 0 ? "$" + p.entry.toFixed(2) : "--";
-
-    return `<tr>
-      <td style="font-weight:600;">${p.agent}</td>
-      <td style="font-weight:600;color:${statusColor}">${statusLabel}</td>
-      <td style="font-size:11px;color:var(--dim)">${buyTimeStr}</td>
-      <td>${p.qty}</td>
-      <td>$${p.buyPrice.toFixed(2)}</td>
-      <td>${entryStr}</td>
-      <td style="font-weight:600;color:${pnlColor}">${pnlStr}</td>
-    </tr>`;
-  }).join("");
+  if (allPairs.length === 0) { container.innerHTML = '<div style="color:var(--dim);font-size:12px;padding:10px;">Waiting for trades...</div>'; if(summary) summary.style.display='none'; return; }
+  summary.style.display = 'block';
+  const pnlEl = document.getElementById('us-ts-total-pnl');
+  pnlEl.textContent = (totalPnl >= 0 ? '+' : '') + '$' + totalPnl.toFixed(2);
+  pnlEl.style.color = totalPnl >= 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('us-ts-trades').textContent = allPairs.length;
+  document.getElementById('us-ts-tp').textContent = totalTp;
+  document.getElementById('us-ts-sl').textContent = totalSl;
+  container.innerHTML = '';
+  allPairs.sort((a,b) => new Date(b.ts) - new Date(a.ts));
+  const tbl = document.createElement('table');
+  tbl.style.cssText = 'width:100%;border-collapse:collapse;font-size:12px;';
+  tbl.innerHTML = '<thead><tr><th style="text-align:left;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Agent</th><th style="text-align:left;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Status</th><th style="text-align:left;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Buy Time</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Qty</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Price</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Entry</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">PnL</th></tr></thead><tbody></tbody>';
+  const tbody = tbl.querySelector('tbody');
+  allPairs.slice(0, 200).forEach(p => {
+    const sColor = p.status === 'TP' ? 'var(--green)' : p.status === 'SL' ? 'var(--red)' : 'var(--blue)';
+    const pnlColor = p.pnl > 0 ? 'var(--green)' : p.pnl < 0 ? 'var(--red)' : 'var(--dim)';
+    const pnlStr = p.status === 'BUY' ? '—' : (p.pnl >= 0 ? '+' : '') + '$' + p.pnl.toFixed(2);
+    const row = document.createElement('tr');
+    row.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.03);';
+    row.innerHTML = '<td style="padding:5px 8px;font-weight:700;">' + p.agent + '</td><td style="padding:5px 8px;font-weight:700;color:' + sColor + ';">' + p.status + '</td><td style="padding:5px 8px;color:var(--dim);font-size:10px;">' + new Date(p.buyTime).toLocaleString('en-US', {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'}) + '</td><td style="padding:5px 8px;text-align:right;">' + p.qty + '</td><td style="padding:5px 8px;text-align:right;">$' + p.price.toFixed(2) + '</td><td style="padding:5px 8px;text-align:right;color:var(--dim);">' + (p.entry > 0 ? '$'+p.entry.toFixed(2) : '—') + '</td><td style="padding:5px 8px;text-align:right;font-weight:600;color:' + pnlColor + ';">' + pnlStr + '</td>';
+    tbody.appendChild(row);
+  });
+  container.appendChild(tbl);
 }
 
-// Initial + interval
-refresh();
-loadLiveTrades();
-setInterval(() => { refresh(); loadLiveTrades(); }, 15000);
+async function loadKLSLiveTrades() {
+  const container = document.getElementById('klse-live-trades');
+  const summary = document.getElementById('klse-trade-summary');
+  if (!container) return;
+  let allPairs = [], totalPnl = 0, totalTp = 0, totalSl = 0;
+  for (const a of KLSE_AGENTS) {
+    try {
+      const data = await fetchAPI('/trades/' + a);
+      if (!data || !data.trades) continue;
+      const trades = data.trades;
+      let openBuy = null;
+      for (const t of trades) {
+        if (t.side === 'BUY' && t.reason === 'ENTRY') {
+          openBuy = t;
+        } else if (t.side === 'SELL' && openBuy) {
+          const status = t.reason === 'TP' ? 'TP' : 'SL';
+          totalPnl += t.pnl || 0;
+          if (status === 'TP') totalTp++; else totalSl++;
+          allPairs.push({
+            agent: a.toUpperCase(),
+            status: status,
+            buyTime: openBuy.timestamp,
+            qty: t.qty || openBuy.qty,
+            price: openBuy.price,
+            entry: t.entry_price || openBuy.price,
+            pnl: t.pnl || 0,
+            ts: t.timestamp,
+          });
+          openBuy = null;
+        }
+      }
+      if (openBuy) {
+        allPairs.push({
+          agent: a.toUpperCase(),
+          status: 'BUY',
+          buyTime: openBuy.timestamp,
+          qty: openBuy.qty,
+          price: openBuy.price,
+          entry: 0,
+          pnl: 0,
+          ts: openBuy.timestamp,
+        });
+      }
+    } catch(e) {}
+  }
+  if (allPairs.length === 0) { container.innerHTML = '<div style="color:var(--dim);font-size:12px;padding:10px;">KLSE agents start at 9:00 AM MYT. Waiting...</div>'; if(summary) summary.style.display='none'; return; }
+  summary.style.display = 'block';
+  const pnlEl = document.getElementById('klse-ts-total-pnl');
+  pnlEl.textContent = (totalPnl >= 0 ? '+' : '') + 'RM' + totalPnl.toFixed(2);
+  pnlEl.style.color = totalPnl >= 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('klse-ts-trades').textContent = allPairs.length;
+  document.getElementById('klse-ts-tp').textContent = totalTp;
+  document.getElementById('klse-ts-sl').textContent = totalSl;
+  container.innerHTML = '';
+  allPairs.sort((a,b) => new Date(b.ts) - new Date(a.ts));
+  const tbl = document.createElement('table');
+  tbl.style.cssText = 'width:100%;border-collapse:collapse;font-size:12px;';
+  tbl.innerHTML = '<thead><tr><th style="text-align:left;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Agent</th><th style="text-align:left;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Status</th><th style="text-align:left;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Buy Time</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Qty</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Price</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">Entry</th><th style="text-align:right;padding:6px 8px;color:var(--dim);font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border)">PnL</th></tr></thead><tbody></tbody>';
+  const tbody = tbl.querySelector('tbody');
+  allPairs.slice(0, 200).forEach(p => {
+    const sColor = p.status === 'TP' ? 'var(--green)' : p.status === 'SL' ? 'var(--red)' : 'var(--blue)';
+    const pnlColor = p.pnl > 0 ? 'var(--green)' : p.pnl < 0 ? 'var(--red)' : 'var(--dim)';
+    const pnlStr = p.status === 'BUY' ? '—' : (p.pnl >= 0 ? '+' : '') + 'RM' + p.pnl.toFixed(2);
+    const row = document.createElement('tr');
+    row.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.03);';
+    row.innerHTML = '<td style="padding:5px 8px;font-weight:700;">' + p.agent + '</td><td style="padding:5px 8px;font-weight:700;color:' + sColor + ';">' + p.status + '</td><td style="padding:5px 8px;color:var(--dim);font-size:10px;">' + new Date(p.buyTime).toLocaleString('en-US', {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'}) + '</td><td style="padding:5px 8px;text-align:right;">' + p.qty + '</td><td style="padding:5px 8px;text-align:right;">RM' + p.price.toFixed(2) + '</td><td style="padding:5px 8px;text-align:right;color:var(--dim);">' + (p.entry > 0 ? 'RM'+p.entry.toFixed(2) : '—') + '</td><td style="padding:5px 8px;text-align:right;font-weight:600;color:' + pnlColor + ';">' + pnlStr + '</td>';
+    tbody.appendChild(row);
+  });
+  container.appendChild(tbl);
+}
+
+refreshUS();
+loadUSLiveTrades();
+setInterval(() => {
+  const activeTab = document.querySelector('.tab-btn.active').id.replace('tab-', '');
+  if (activeTab === 'us') { refreshUS(); loadUSLiveTrades(); }
+  else { refreshKLSE(); loadKLSLiveTrades(); }
+}, 15000);
 </script>
 </body>
 </html>
