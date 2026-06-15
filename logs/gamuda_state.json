@@ -5,10 +5,10 @@
   "qty": 0,
   "order_id": null,
   "entry_time": null,
-  "last_updated": "2026-06-15T16:00:17.856296",
+  "last_updated": "2026-06-15T17:00:04.174059",
   "latest_entry": {
     "position_open": false,
-    "price": 4.29,
+    "price": 4.33,
     "rsi14": null,
     "sma20": null,
     "vol_ratio": null,
