@@ -117,3 +117,18 @@
 {"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T05:00:13.477346"}
 {"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T05:30:23.849468"}
 {"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T06:00:33.245289"}
+{"type": "order_filled", "side": "BUY", "price": 379.83, "qty": 2, "order_id": "3067535", "msg": "BUY 2 AVGO @ 379.83 order=3067535 TP=387.43 SL=374.13", "ts": "2026-06-16T23:30:13.696956"}
+{"type": "position_monitor", "entry": 379.83, "current": 379.89, "tp": 387.4266, "sl": 374.1325, "pnl_pct": 0.02, "ts": "2026-06-17T00:00:35.901026"}
+{"type": "position_monitor", "entry": 379.83, "current": 378.74, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.29, "ts": "2026-06-17T00:30:20.475052"}
+{"type": "position_monitor", "entry": 379.83, "current": 379.42, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.11, "ts": "2026-06-17T01:00:38.711460"}
+{"type": "position_monitor", "entry": 379.83, "current": 379.12, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.19, "ts": "2026-06-17T01:31:07.216224"}
+{"type": "position_monitor", "entry": 379.83, "current": 379.72, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.03, "ts": "2026-06-17T02:00:26.609164"}
+{"type": "position_monitor", "entry": 379.83, "current": 381.09, "tp": 387.4266, "sl": 374.1325, "pnl_pct": 0.33, "ts": "2026-06-17T02:30:43.690354"}
+{"type": "position_monitor", "entry": 379.83, "current": 380.36, "tp": 387.4266, "sl": 374.1325, "pnl_pct": 0.14, "ts": "2026-06-17T03:00:03.544419"}
+{"type": "position_monitor", "entry": 379.83, "current": 379.7, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.03, "ts": "2026-06-17T03:30:20.796773"}
+{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T04:00:40.572530"}
+{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T04:30:02.233093"}
+{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T05:00:13.477346"}
+{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T05:30:23.849468"}
+{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T06:00:33.245289"}
+{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T06:30:43.453387"}
