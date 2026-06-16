@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 379.83,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-16T23:30:15.761996"
+    }
+  ],
+  "last_updated": "2026-06-16T23:30:16.284069",
+  "agent": "avgo"
+}
