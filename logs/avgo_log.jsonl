@@ -1,0 +1,2 @@
+{"type": "buy_signal", "rsi": 17.56, "bb_lower": 380.89254721607546, "low": 379.815, "price": 379.83, "msg": "AVGO BUY! Low=379.81 <= BB_lower=380.89 RSI=17.56 < 35", "ts": "2026-06-16T23:30:12.347857"}
+{"type": "order_filled", "side": "BUY", "price": 379.83, "qty": 2, "order_id": "3067535", "msg": "BUY 2 AVGO @ 379.83 order=3067535 TP=387.43 SL=374.13", "ts": "2026-06-16T23:30:13.696956"}
