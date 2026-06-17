@@ -9,8 +9,18 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-06-16T23:30:15.761996"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 392.61,
+      "qty": 2,
+      "reason": "TP",
+      "entry_price": 379.83,
+      "pnl": 25.56,
+      "timestamp": "2026-06-17T22:00:33.617585"
     }
   ],
-  "last_updated": "2026-06-16T23:30:16.284069",
+  "last_updated": "2026-06-17T22:00:44.096762",
   "agent": "avgo"
 }
