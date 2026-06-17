@@ -89,8 +89,18 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-06-17T04:00:48.375017"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 204.59,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 207.41,
+      "pnl": -5.64,
+      "timestamp": "2026-06-18T03:30:50.547555"
     }
   ],
-  "last_updated": "2026-06-17T04:00:48.970598",
+  "last_updated": "2026-06-18T03:31:01.110943",
   "agent": "nvda"
 }
