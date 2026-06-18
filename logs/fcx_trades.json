@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 68.64,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-18T23:31:00.082597"
+    }
+  ],
+  "last_updated": "2026-06-18T23:31:10.736096",
+  "agent": "fcx"
+}
