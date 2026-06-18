@@ -39,8 +39,18 @@
       "entry_price": 185.48,
       "pnl": -8.58,
       "timestamp": "2026-06-18T21:30:30.069857"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 180.7,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-18T22:01:11.936213"
     }
   ],
-  "last_updated": "2026-06-18T21:30:40.795551",
+  "last_updated": "2026-06-18T22:01:22.486636",
   "agent": "orcl"
 }
