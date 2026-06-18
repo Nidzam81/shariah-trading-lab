@@ -3,3 +3,12 @@
 {"type": "buy_signal", "rsi": 24.68, "price": 68.64, "msg": "FCX BUY! RSI=24.68 <= 30 price=68.64", "ts": "2026-06-18T23:30:54.691565"}
 {"type": "order_filled", "side": "BUY", "price": 68.64, "qty": 2, "order_id": "3072393", "msg": "BUY 2 FCX @ 68.64 order=3072393 TP=69.67 SL=67.95", "ts": "2026-06-18T23:30:56.452782"}
 {"type": "position_monitor", "entry": 68.64, "current": 68.37, "tp": 69.6696, "sl": 67.9536, "pnl_pct": -0.39, "ts": "2026-06-19T00:00:32.244539"}
+{"type": "buy_signal", "rsi": 24.68, "price": 68.64, "msg": "FCX BUY! RSI=24.68 <= 30 price=68.64", "ts": "2026-06-18T23:30:54.691565"}
+{"type": "order_filled", "side": "BUY", "price": 68.64, "qty": 2, "order_id": "3072393", "msg": "BUY 2 FCX @ 68.64 order=3072393 TP=69.67 SL=67.95", "ts": "2026-06-18T23:30:56.452782"}
+{"type": "position_monitor", "entry": 68.64, "current": 68.37, "tp": 69.6696, "sl": 67.9536, "pnl_pct": -0.39, "ts": "2026-06-19T00:00:32.244539"}
+{"type": "position_monitor", "entry": 68.64, "current": 68.195, "tp": 69.6696, "sl": 67.9536, "pnl_pct": -0.65, "ts": "2026-06-19T00:30:56.713627"}
+{"type": "buy_signal", "rsi": 24.68, "price": 68.64, "msg": "FCX BUY! RSI=24.68 <= 30 price=68.64", "ts": "2026-06-18T23:30:54.691565"}
+{"type": "order_filled", "side": "BUY", "price": 68.64, "qty": 2, "order_id": "3072393", "msg": "BUY 2 FCX @ 68.64 order=3072393 TP=69.67 SL=67.95", "ts": "2026-06-18T23:30:56.452782"}
+{"type": "position_monitor", "entry": 68.64, "current": 68.37, "tp": 69.6696, "sl": 67.9536, "pnl_pct": -0.39, "ts": "2026-06-19T00:00:32.244539"}
+{"type": "position_monitor", "entry": 68.64, "current": 68.195, "tp": 69.6696, "sl": 67.9536, "pnl_pct": -0.65, "ts": "2026-06-19T00:30:56.713627"}
+{"type": "position_monitor", "entry": 68.64, "current": 68.11, "tp": 69.6696, "sl": 67.9536, "pnl_pct": -0.77, "ts": "2026-06-19T01:00:25.190278"}
