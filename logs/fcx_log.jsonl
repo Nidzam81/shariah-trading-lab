@@ -1,0 +1,2 @@
+{"type": "buy_signal", "rsi": 24.68, "price": 68.64, "msg": "FCX BUY! RSI=24.68 <= 30 price=68.64", "ts": "2026-06-18T23:30:54.691565"}
+{"type": "order_filled", "side": "BUY", "price": 68.64, "qty": 2, "order_id": "3072393", "msg": "BUY 2 FCX @ 68.64 order=3072393 TP=69.67 SL=67.95", "ts": "2026-06-18T23:30:56.452782"}
