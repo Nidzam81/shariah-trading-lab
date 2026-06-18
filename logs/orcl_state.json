@@ -1,21 +1,21 @@
 {
   "agent": "orcl",
-  "position_open": true,
-  "entry_price": 180.7,
-  "qty": 2,
-  "order_id": "3072006",
-  "entry_time": "2026-06-18T22:01:09.714675",
-  "last_updated": "2026-06-19T00:30:56.785211",
+  "position_open": false,
+  "entry_price": 0.0,
+  "qty": 0,
+  "order_id": null,
+  "entry_time": null,
+  "last_updated": "2026-06-19T01:00:32.819864",
   "latest_entry": {
-    "position_open": true,
-    "price": 184.86,
+    "position_open": false,
+    "price": 185.44,
     "rsi14": null,
     "bb_lower": null,
     "reason": "exit_check",
-    "entry_price": 180.7,
-    "qty": 2,
-    "tp": 185.2175,
-    "sl": 178.5316
+    "entry_price": 0.0,
+    "qty": 0,
+    "tp": null,
+    "sl": null
   },
   "latest_exit": {},
   "exits": []
