@@ -1,8 +1,8 @@
-{"type": "position_monitor", "entry": 204.65, "current": 204.65, "tp": 208.743, "sl": 202.6035, "pnl_pct": 0.0, "msg": "Holding NVDA: entry=204.65 current=204.65 TP=208.74 SL=202.60 PnL=0.0%", "ts": "2026-06-18T09:01:04.498292"}
-{"type": "position_monitor", "entry": 204.65, "current": 204.65, "tp": 208.743, "sl": 202.6035, "pnl_pct": 0.0, "msg": "Holding NVDA: entry=204.65 current=204.65 TP=208.74 SL=202.60 PnL=0.0%", "ts": "2026-06-18T09:30:35.020685"}
 {"type": "position_monitor", "entry": 204.65, "current": 204.65, "tp": 208.743, "sl": 202.6035, "pnl_pct": 0.0, "msg": "Holding NVDA: entry=204.65 current=204.65 TP=208.74 SL=202.60 PnL=0.0%", "ts": "2026-06-18T21:00:55.615197"}
 {"type": "position_monitor", "entry": 204.65, "current": 207.9, "tp": 208.743, "sl": 202.6035, "pnl_pct": 1.59, "msg": "Holding NVDA: entry=204.65 current=207.9 TP=208.74 SL=202.60 PnL=1.59%", "ts": "2026-06-18T21:30:25.789398"}
 {"type": "position_monitor", "entry": 204.65, "current": 207.75, "tp": 208.743, "sl": 202.6035, "pnl_pct": 1.51, "msg": "Holding NVDA: entry=204.65 current=207.75 TP=208.74 SL=202.60 PnL=1.51%", "ts": "2026-06-18T22:01:00.535871"}
+{"type": "exit_signal", "reason": "TP", "entry": 204.65, "current": 208.87, "msg": "NVDA TP hit! Entry=204.65 -> 208.87 (+2.06%)", "ts": "2026-06-18T22:30:44.629092"}
+{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3072138", "ts": "2026-06-18T22:30:46.141556"}
 {"type": "position_monitor", "entry": 204.65, "current": 204.65, "tp": 208.743, "sl": 202.6035, "pnl_pct": 0.0, "msg": "Holding NVDA: entry=204.65 current=204.65 TP=208.74 SL=202.60 PnL=0.0%", "ts": "2026-06-18T05:00:30.952514"}
 {"type": "position_monitor", "entry": 204.65, "current": 204.65, "tp": 208.743, "sl": 202.6035, "pnl_pct": 0.0, "msg": "Holding NVDA: entry=204.65 current=204.65 TP=208.74 SL=202.60 PnL=0.0%", "ts": "2026-06-18T05:30:40.859485"}
 {"type": "position_monitor", "entry": 204.65, "current": 204.65, "tp": 208.743, "sl": 202.6035, "pnl_pct": 0.0, "msg": "Holding NVDA: entry=204.65 current=204.65 TP=208.74 SL=202.60 PnL=0.0%", "ts": "2026-06-18T06:00:50.966525"}
