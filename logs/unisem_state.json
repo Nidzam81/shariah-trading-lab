@@ -1,21 +1,21 @@
 {
   "agent": "unisem",
-  "position_open": true,
-  "entry_price": 4.7,
-  "qty": 100,
-  "order_id": "SIMULATE",
-  "entry_time": "2026-06-18T10:01:01.407752",
-  "last_updated": "2026-06-18T12:00:21.112903",
+  "position_open": false,
+  "entry_price": 0.0,
+  "qty": 0,
+  "order_id": null,
+  "entry_time": null,
+  "last_updated": "2026-06-18T12:30:59.762550",
   "latest_entry": {
-    "position_open": true,
-    "price": 4.63,
+    "position_open": false,
+    "price": 4.62,
     "rsi14": null,
     "bb_lower": null,
     "reason": "exit_check",
-    "entry_price": 4.7,
-    "qty": 100,
-    "tp": 4.794,
-    "sl": 4.6295
+    "entry_price": 0.0,
+    "qty": 0,
+    "tp": null,
+    "sl": null
   },
   "latest_exit": {},
   "exits": []
