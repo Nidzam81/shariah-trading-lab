@@ -69,8 +69,18 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-06-22T23:36:42.823491"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 174.95,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 178.14,
+      "pnl": -6.38,
+      "timestamp": "2026-06-23T00:30:36.374310"
     }
   ],
-  "last_updated": "2026-06-22T23:36:52.905442",
+  "last_updated": "2026-06-23T00:30:46.538881",
   "agent": "orcl"
 }
