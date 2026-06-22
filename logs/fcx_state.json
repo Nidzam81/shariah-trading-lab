@@ -5,10 +5,10 @@
   "qty": 2,
   "order_id": "3072393",
   "entry_time": "2026-06-18T23:30:56.448773",
-  "last_updated": "2026-06-22T09:00:09.809192",
+  "last_updated": "2026-06-23T01:00:36.156260",
   "latest_entry": {
     "position_open": true,
-    "price": 68.68,
+    "price": 69.485,
     "rsi14": null,
     "sma200": null,
     "trend": null,
