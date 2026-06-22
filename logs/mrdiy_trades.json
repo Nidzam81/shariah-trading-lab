@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 1.65,
+      "qty": 100,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-22T09:00:25.731666"
+    }
+  ],
+  "last_updated": "2026-06-22T09:00:36.062920",
+  "agent": "mrdiy"
+}
