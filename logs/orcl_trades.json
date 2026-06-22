@@ -49,8 +49,28 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-06-18T22:01:11.936213"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 185.44,
+      "qty": 2,
+      "reason": "TP",
+      "entry_price": 180.7,
+      "pnl": 9.48,
+      "timestamp": "2026-06-19T01:00:29.429138"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 178.14,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-22T23:36:42.823491"
     }
   ],
-  "last_updated": "2026-06-18T22:01:22.486636",
+  "last_updated": "2026-06-22T23:36:52.905442",
   "agent": "orcl"
 }
