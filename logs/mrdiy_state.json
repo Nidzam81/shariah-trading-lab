@@ -5,10 +5,10 @@
   "qty": 100,
   "order_id": "SIMULATE",
   "entry_time": "2026-06-22T09:00:23.603109",
-  "last_updated": "2026-06-22T09:30:53.780603",
+  "last_updated": "2026-06-22T12:00:08.995928",
   "latest_entry": {
     "position_open": true,
-    "price": 1.65,
+    "price": 1.66,
     "rsi14": null,
     "reason": "exit_check",
     "entry_price": 1.65,
