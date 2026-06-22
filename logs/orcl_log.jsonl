@@ -1,13 +1,3 @@
-{"type": "position_monitor", "entry": 180.7, "current": 181.71, "tp": 185.2175, "sl": 178.5316, "pnl_pct": 0.56, "msg": "Holding ORCL: entry=180.70 current=181.71 TP=185.22 SL=178.53 PnL=0.56%", "ts": "2026-06-18T22:30:44.659892"}
-{"type": "position_monitor", "entry": 180.7, "current": 184.32, "tp": 185.2175, "sl": 178.5316, "pnl_pct": 2.0, "msg": "Holding ORCL: entry=180.70 current=184.32 TP=185.22 SL=178.53 PnL=2.0%", "ts": "2026-06-18T23:00:20.709668"}
-{"type": "position_monitor", "entry": 180.7, "current": 184.43, "tp": 185.2175, "sl": 178.5316, "pnl_pct": 2.06, "msg": "Holding ORCL: entry=180.70 current=184.43 TP=185.22 SL=178.53 PnL=2.06%", "ts": "2026-06-18T23:30:49.692038"}
-{"type": "position_monitor", "entry": 180.7, "current": 185.08, "tp": 185.2175, "sl": 178.5316, "pnl_pct": 2.42, "msg": "Holding ORCL: entry=180.70 current=185.08 TP=185.22 SL=178.53 PnL=2.42%", "ts": "2026-06-19T00:00:32.244539"}
-{"type": "position_monitor", "entry": 180.7, "current": 184.86, "tp": 185.2175, "sl": 178.5316, "pnl_pct": 2.3, "msg": "Holding ORCL: entry=180.70 current=184.86 TP=185.22 SL=178.53 PnL=2.3%", "ts": "2026-06-19T00:30:56.676750"}
-{"type": "exit_signal", "reason": "TP", "entry": 180.7, "current": 185.44, "msg": "ORCL TP hit! Entry=180.70 -> 185.44 (+2.62%)", "ts": "2026-06-19T01:00:25.186277"}
-{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3072795", "ts": "2026-06-19T01:00:26.640625"}
-{"type": "position_monitor", "entry": 185.48, "current": 183.53, "tp": 190.117, "sl": 183.2542, "pnl_pct": -1.05, "msg": "Holding ORCL: entry=185.48 current=183.53 TP=190.12 SL=183.25 PnL=-1.05%", "ts": "2026-06-18T08:30:49.143576"}
-{"type": "position_monitor", "entry": 185.48, "current": 183.53, "tp": 190.117, "sl": 183.2542, "pnl_pct": -1.05, "msg": "Holding ORCL: entry=185.48 current=183.53 TP=190.12 SL=183.25 PnL=-1.05%", "ts": "2026-06-18T09:01:04.486010"}
-{"type": "position_monitor", "entry": 185.48, "current": 183.53, "tp": 190.117, "sl": 183.2542, "pnl_pct": -1.05, "msg": "Holding ORCL: entry=185.48 current=183.53 TP=190.12 SL=183.25 PnL=-1.05%", "ts": "2026-06-18T09:30:35.027953"}
 {"type": "position_monitor", "entry": 185.48, "current": 183.53, "tp": 190.117, "sl": 183.2542, "pnl_pct": -1.05, "msg": "Holding ORCL: entry=185.48 current=183.53 TP=190.12 SL=183.25 PnL=-1.05%", "ts": "2026-06-18T21:00:55.628742"}
 {"type": "exit_signal", "reason": "SL", "entry": 185.48, "current": 181.19, "msg": "ORCL SL hit! Entry=185.48 -> 181.19 (-2.31%)", "ts": "2026-06-18T21:30:25.759071"}
 {"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3071779", "ts": "2026-06-18T21:30:27.353788"}
@@ -163,6 +153,16 @@
 {"type": "buy_signal", "rsi": 24.08, "bb_lower": 178.18873895590494, "low": 177.9114, "price": 178.14, "msg": "ORCL BUY! Low=177.91 <= BB_lower=178.19 RSI=24.08 < 40 price=178.14", "ts": "2026-06-22T23:36:39.191074"}
 {"type": "order_filled", "side": "BUY", "price": 178.14, "qty": 2, "order_id": "3076762", "msg": "BUY 2 ORCL @ 178.14 order=3076762 TP=182.59 SL=176.00", "ts": "2026-06-22T23:36:40.498208"}
 {"type": "position_monitor", "entry": 178.14, "current": 176.89, "tp": 182.5935, "sl": 176.0023, "pnl_pct": -0.7, "msg": "Holding ORCL: entry=178.14 current=176.89 TP=182.59 SL=176.00 PnL=-0.7%", "ts": "2026-06-23T00:00:32.021314"}
+{"type": "buy_signal", "rsi": 24.08, "bb_lower": 178.18873895590494, "low": 177.9114, "price": 178.14, "msg": "ORCL BUY! Low=177.91 <= BB_lower=178.19 RSI=24.08 < 40 price=178.14", "ts": "2026-06-22T23:36:39.191074"}
+{"type": "order_filled", "side": "BUY", "price": 178.14, "qty": 2, "order_id": "3076762", "msg": "BUY 2 ORCL @ 178.14 order=3076762 TP=182.59 SL=176.00", "ts": "2026-06-22T23:36:40.498208"}
+{"type": "position_monitor", "entry": 178.14, "current": 176.89, "tp": 182.5935, "sl": 176.0023, "pnl_pct": -0.7, "msg": "Holding ORCL: entry=178.14 current=176.89 TP=182.59 SL=176.00 PnL=-0.7%", "ts": "2026-06-23T00:00:32.021314"}
+{"type": "exit_signal", "reason": "SL", "entry": 178.14, "current": 174.95, "msg": "ORCL SL hit! Entry=178.14 -> 174.95 (-1.79%)", "ts": "2026-06-23T00:30:33.629075"}
+{"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3077066", "ts": "2026-06-23T00:30:34.979415"}
+{"type": "buy_signal", "rsi": 24.08, "bb_lower": 178.18873895590494, "low": 177.9114, "price": 178.14, "msg": "ORCL BUY! Low=177.91 <= BB_lower=178.19 RSI=24.08 < 40 price=178.14", "ts": "2026-06-22T23:36:39.191074"}
+{"type": "order_filled", "side": "BUY", "price": 178.14, "qty": 2, "order_id": "3076762", "msg": "BUY 2 ORCL @ 178.14 order=3076762 TP=182.59 SL=176.00", "ts": "2026-06-22T23:36:40.498208"}
+{"type": "position_monitor", "entry": 178.14, "current": 176.89, "tp": 182.5935, "sl": 176.0023, "pnl_pct": -0.7, "msg": "Holding ORCL: entry=178.14 current=176.89 TP=182.59 SL=176.00 PnL=-0.7%", "ts": "2026-06-23T00:00:32.021314"}
+{"type": "exit_signal", "reason": "SL", "entry": 178.14, "current": 174.95, "msg": "ORCL SL hit! Entry=178.14 -> 174.95 (-1.79%)", "ts": "2026-06-23T00:30:33.629075"}
+{"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3077066", "ts": "2026-06-23T00:30:34.979415"}
 {"type": "buy_signal", "rsi": 24.08, "bb_lower": 178.18873895590494, "low": 177.9114, "price": 178.14, "msg": "ORCL BUY! Low=177.91 <= BB_lower=178.19 RSI=24.08 < 40 price=178.14", "ts": "2026-06-22T23:36:39.191074"}
 {"type": "order_filled", "side": "BUY", "price": 178.14, "qty": 2, "order_id": "3076762", "msg": "BUY 2 ORCL @ 178.14 order=3076762 TP=182.59 SL=176.00", "ts": "2026-06-22T23:36:40.498208"}
 {"type": "position_monitor", "entry": 178.14, "current": 176.89, "tp": 182.5935, "sl": 176.0023, "pnl_pct": -0.7, "msg": "Holding ORCL: entry=178.14 current=176.89 TP=182.59 SL=176.00 PnL=-0.7%", "ts": "2026-06-23T00:00:32.021314"}
