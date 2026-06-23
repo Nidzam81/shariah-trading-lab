@@ -179,8 +179,28 @@
       "entry_price": 453.245,
       "pnl": 17.39,
       "timestamp": "2026-06-11T21:30:11.362149"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 508.91,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-23T21:30:13.293802"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 523.5155,
+      "qty": 2,
+      "reason": "TP",
+      "entry_price": 508.91,
+      "pnl": 29.21,
+      "timestamp": "2026-06-23T22:00:05.511294"
     }
   ],
-  "last_updated": "2026-06-11T21:30:21.933140",
+  "last_updated": "2026-06-23T22:00:05.863667",
   "agent": "amd"
 }
