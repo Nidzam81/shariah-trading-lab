@@ -1,9 +1,3 @@
-{"type": "exit_signal", "reason": "TP", "entry": 379.83, "current": 392.61, "msg": "AVGO TP! Entry=379.83 -> 392.61 (+3.36%)", "ts": "2026-06-17T22:00:29.594985"}
-{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3069183", "ts": "2026-06-17T22:00:30.971460"}
-{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T04:30:02.233093"}
-{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T05:00:13.477346"}
-{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T05:30:23.849468"}
-{"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T06:00:33.245289"}
 {"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T06:30:43.453387"}
 {"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T07:00:52.764729"}
 {"type": "position_monitor", "entry": 379.83, "current": 376.71, "tp": 387.4266, "sl": 374.1325, "pnl_pct": -0.82, "ts": "2026-06-17T07:30:02.769885"}
@@ -198,3 +192,9 @@
 {"type": "order_filled", "side": "BUY", "price": 378.6677, "qty": 2, "order_id": "3078734", "msg": "BUY 2 AVGO @ 378.67 order=3078734 TP=386.24 SL=372.99", "ts": "2026-06-23T21:30:09.796720"}
 {"type": "exit_signal", "reason": "TP", "entry": 378.6677, "current": 389.08, "msg": "AVGO TP! Entry=378.67 -> 389.08 (+2.75%)", "ts": "2026-06-23T22:00:02.640919"}
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3078947", "ts": "2026-06-23T22:00:04.271487"}
+{"type": "buy_signal", "rsi": 8.83, "bb_lower": 387.8504726269986, "low": 376.6637, "price": 378.6677, "msg": "AVGO BUY! Low=376.66 <= BB_lower=387.85 RSI=8.83 < 35", "ts": "2026-06-23T21:30:08.236965"}
+{"type": "order_filled", "side": "BUY", "price": 378.6677, "qty": 2, "order_id": "3078734", "msg": "BUY 2 AVGO @ 378.67 order=3078734 TP=386.24 SL=372.99", "ts": "2026-06-23T21:30:09.796720"}
+{"type": "exit_signal", "reason": "TP", "entry": 378.6677, "current": 389.08, "msg": "AVGO TP! Entry=378.67 -> 389.08 (+2.75%)", "ts": "2026-06-23T22:00:02.640919"}
+{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3078947", "ts": "2026-06-23T22:00:04.271487"}
+{"type": "buy_signal", "rsi": 19.73, "bb_lower": 387.4956933706004, "low": 386.54, "price": 386.54, "msg": "AVGO BUY! Low=386.54 <= BB_lower=387.50 RSI=19.73 < 35", "ts": "2026-06-23T22:30:09.133733"}
+{"type": "order_filled", "side": "BUY", "price": 386.54, "qty": 2, "order_id": "3079158", "msg": "BUY 2 AVGO @ 386.54 order=3079158 TP=394.27 SL=380.74", "ts": "2026-06-23T22:30:10.688588"}
