@@ -1,7 +1,3 @@
-{"type": "position_monitor", "entry": 453.245, "current": 452.4, "tp": 460.0437, "sl": 448.7126, "pnl_pct": -0.19, "msg": "Holding AMD: entry=453.25 current=452.4 TP=460.04 SL=448.71 PnL=-0.19%", "ts": "2026-06-11T08:00:19.491710"}
-{"type": "position_monitor", "entry": 453.245, "current": 452.4, "tp": 460.0437, "sl": 448.7126, "pnl_pct": -0.19, "msg": "Holding AMD: entry=453.25 current=452.4 TP=460.04 SL=448.71 PnL=-0.19%", "ts": "2026-06-11T08:30:30.303612"}
-{"type": "position_monitor", "entry": 453.245, "current": 452.4, "tp": 460.0437, "sl": 448.7126, "pnl_pct": -0.19, "msg": "Holding AMD: entry=453.25 current=452.4 TP=460.04 SL=448.71 PnL=-0.19%", "ts": "2026-06-11T09:00:40.821899"}
-{"type": "position_monitor", "entry": 453.245, "current": 452.4, "tp": 460.0437, "sl": 448.7126, "pnl_pct": -0.19, "msg": "Holding AMD: entry=453.25 current=452.4 TP=460.04 SL=448.71 PnL=-0.19%", "ts": "2026-06-11T09:30:58.939792"}
 {"type": "position_monitor", "entry": 453.245, "current": 452.4, "tp": 460.0437, "sl": 448.7126, "pnl_pct": -0.19, "msg": "Holding AMD: entry=453.25 current=452.4 TP=460.04 SL=448.71 PnL=-0.19%", "ts": "2026-06-11T21:00:37.811310"}
 {"type": "exit_signal", "reason": "TP", "entry": 453.245, "current": 461.94, "msg": "AMD TP hit! Entry=453.25 -> 461.94 (+1.92%)", "ts": "2026-06-11T21:30:06.921332"}
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3056796", "ts": "2026-06-11T21:30:08.473086"}
@@ -106,6 +102,10 @@
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3056796", "ts": "2026-06-11T21:30:08.473086"}
 {"type": "buy_signal", "rsi": 36.28, "bb_lower": 520.5655858113442, "low": 508.0, "price": 508.91, "msg": "AMD BUY! Low=508.00 <= BB_lower=520.57 RSI=36.28 < 40 price=508.91", "ts": "2026-06-23T21:30:07.911503"}
 {"type": "order_filled", "side": "BUY", "price": 508.91, "qty": 2, "order_id": "3078733", "msg": "BUY 2 AMD @ 508.91 order=3078733 TP=516.54 SL=503.82", "ts": "2026-06-23T21:30:09.660534"}
+{"type": "buy_signal", "rsi": 36.28, "bb_lower": 520.5655858113442, "low": 508.0, "price": 508.91, "msg": "AMD BUY! Low=508.00 <= BB_lower=520.57 RSI=36.28 < 40 price=508.91", "ts": "2026-06-23T21:30:07.911503"}
+{"type": "order_filled", "side": "BUY", "price": 508.91, "qty": 2, "order_id": "3078733", "msg": "BUY 2 AMD @ 508.91 order=3078733 TP=516.54 SL=503.82", "ts": "2026-06-23T21:30:09.660534"}
+{"type": "exit_signal", "reason": "TP", "entry": 508.91, "current": 523.5155, "msg": "AMD TP hit! Entry=508.91 -> 523.52 (+2.87%)", "ts": "2026-06-23T22:00:02.587745"}
+{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "3078946", "ts": "2026-06-23T22:00:04.094333"}
 {"type": "buy_signal", "rsi": 36.28, "bb_lower": 520.5655858113442, "low": 508.0, "price": 508.91, "msg": "AMD BUY! Low=508.00 <= BB_lower=520.57 RSI=36.28 < 40 price=508.91", "ts": "2026-06-23T21:30:07.911503"}
 {"type": "order_filled", "side": "BUY", "price": 508.91, "qty": 2, "order_id": "3078733", "msg": "BUY 2 AMD @ 508.91 order=3078733 TP=516.54 SL=503.82", "ts": "2026-06-23T21:30:09.660534"}
 {"type": "exit_signal", "reason": "TP", "entry": 508.91, "current": 523.5155, "msg": "AMD TP hit! Entry=508.91 -> 523.52 (+2.87%)", "ts": "2026-06-23T22:00:02.587745"}
