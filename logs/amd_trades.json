@@ -199,8 +199,18 @@
       "entry_price": 508.91,
       "pnl": 29.21,
       "timestamp": "2026-06-23T22:00:05.511294"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 509.245,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-25T01:30:31.827030"
     }
   ],
-  "last_updated": "2026-06-23T22:00:05.863667",
+  "last_updated": "2026-06-25T01:30:41.918087",
   "agent": "amd"
 }
