@@ -119,8 +119,38 @@
       "entry_price": 204.65,
       "pnl": 8.44,
       "timestamp": "2026-06-18T22:30:48.806690"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 202.112,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-23T21:30:13.290777"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 200.04,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 202.112,
+      "pnl": -4.14,
+      "timestamp": "2026-06-24T04:00:25.201907"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 199.13,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-25T01:00:23.857260"
     }
   ],
-  "last_updated": "2026-06-18T22:30:59.606163",
+  "last_updated": "2026-06-25T01:00:24.130770",
   "agent": "nvda"
 }
