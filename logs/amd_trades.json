@@ -209,8 +209,18 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-06-25T01:30:31.827030"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 519.74,
+      "qty": 2,
+      "reason": "TP",
+      "entry_price": 509.245,
+      "pnl": 20.99,
+      "timestamp": "2026-06-25T04:00:26.051352"
     }
   ],
-  "last_updated": "2026-06-25T01:30:41.918087",
+  "last_updated": "2026-06-25T04:00:36.172373",
   "agent": "amd"
 }
