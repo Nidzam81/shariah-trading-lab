@@ -183,8 +183,6 @@
 {"type": "position_monitor", "entry": 202.112, "current": 201.3, "tp": 206.1542, "sl": 200.0909, "pnl_pct": -0.4, "msg": "Holding NVDA: entry=202.11 current=201.3 TP=206.15 SL=200.09 PnL=-0.4%", "ts": "2026-06-24T03:30:20.887358"}
 {"type": "exit_signal", "reason": "SL", "entry": 202.112, "current": 200.04, "msg": "NVDA SL hit! Entry=202.11 -> 200.04 (-1.03%)", "ts": "2026-06-24T04:00:22.387155"}
 {"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3080206", "ts": "2026-06-24T04:00:23.787032"}
-{"type": "order_filled", "side": "BUY", "price": 202.112, "qty": 2, "order_id": "3078735", "msg": "BUY 2 NVDA @ 202.11 order=3078735 TP=206.15 SL=200.09", "ts": "2026-06-23T21:30:10.003618"}
-{"type": "position_monitor", "entry": 202.112, "current": 203.365, "tp": 206.1542, "sl": 200.0909, "pnl_pct": 0.62, "msg": "Holding NVDA: entry=202.11 current=203.365 TP=206.15 SL=200.09 PnL=0.62%", "ts": "2026-06-23T22:00:02.518047"}
 {"type": "position_monitor", "entry": 202.112, "current": 203.06, "tp": 206.1542, "sl": 200.0909, "pnl_pct": 0.47, "msg": "Holding NVDA: entry=202.11 current=203.06 TP=206.15 SL=200.09 PnL=0.47%", "ts": "2026-06-23T22:30:04.266119"}
 {"type": "position_monitor", "entry": 202.112, "current": 202.23, "tp": 206.1542, "sl": 200.0909, "pnl_pct": 0.06, "msg": "Holding NVDA: entry=202.11 current=202.23 TP=206.15 SL=200.09 PnL=0.06%", "ts": "2026-06-23T23:00:05.982126"}
 {"type": "position_monitor", "entry": 202.112, "current": 200.71, "tp": 206.1542, "sl": 200.0909, "pnl_pct": -0.69, "msg": "Holding NVDA: entry=202.11 current=200.71 TP=206.15 SL=200.09 PnL=-0.69%", "ts": "2026-06-23T23:30:07.737819"}
@@ -198,3 +196,5 @@
 {"type": "position_monitor", "entry": 202.112, "current": 201.3, "tp": 206.1542, "sl": 200.0909, "pnl_pct": -0.4, "msg": "Holding NVDA: entry=202.11 current=201.3 TP=206.15 SL=200.09 PnL=-0.4%", "ts": "2026-06-24T03:30:20.887358"}
 {"type": "exit_signal", "reason": "SL", "entry": 202.112, "current": 200.04, "msg": "NVDA SL hit! Entry=202.11 -> 200.04 (-1.03%)", "ts": "2026-06-24T04:00:22.387155"}
 {"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3080206", "ts": "2026-06-24T04:00:23.787032"}
+{"type": "buy_signal", "rsi": 29.73, "bb_lower": 199.52966796572127, "low": 199.121, "price": 199.13, "msg": "NVDA BUY! Low=199.12 <= BB_lower=199.53 RSI=29.73 < 35 price=199.13", "ts": "2026-06-25T01:00:21.158989"}
+{"type": "order_filled", "side": "BUY", "price": 199.13, "qty": 2, "order_id": "3082021", "msg": "BUY 2 NVDA @ 199.13 order=3082021 TP=203.11 SL=197.14", "ts": "2026-06-25T01:00:22.776861"}
