@@ -1,18 +1,3 @@
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T06:30:32.205745"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T07:00:34.027497"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T07:30:35.578248"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T08:00:37.394769"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T08:30:39.130434"}
-{"type": "position_monitor", "entry": 380.69, "current": 379.79, "tp": 388.3038, "sl": 374.9796, "pnl_pct": -0.24, "ts": "2026-06-25T02:00:19.484866"}
-{"type": "position_monitor", "entry": 380.69, "current": 381.6, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.24, "ts": "2026-06-25T02:30:21.248802"}
-{"type": "position_monitor", "entry": 380.69, "current": 377.96, "tp": 388.3038, "sl": 374.9796, "pnl_pct": -0.72, "ts": "2026-06-25T03:00:22.706797"}
-{"type": "position_monitor", "entry": 380.69, "current": 378.57, "tp": 388.3038, "sl": 374.9796, "pnl_pct": -0.56, "ts": "2026-06-25T03:30:21.492476"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T04:00:23.223622"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T04:30:24.980781"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T05:00:26.775694"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T05:30:28.678631"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T06:00:30.548744"}
-{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T06:30:32.205745"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T07:00:34.027497"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T07:30:35.578248"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T08:00:37.394769"}
@@ -63,6 +48,21 @@
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T09:30:47.566121"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T21:00:49.372541"}
 {"type": "position_monitor", "entry": 380.69, "current": 384.12, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.9, "ts": "2026-06-25T21:30:46.737335"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T04:30:24.980781"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T05:00:26.775694"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T05:30:28.678631"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T06:00:30.548744"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T06:30:32.205745"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T07:00:34.027497"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T07:30:35.578248"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T08:00:37.394769"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T08:30:39.130434"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T09:00:41.537742"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T09:30:47.566121"}
+{"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T21:00:49.372541"}
+{"type": "position_monitor", "entry": 380.69, "current": 384.12, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.9, "ts": "2026-06-25T21:30:46.737335"}
+{"type": "exit_signal", "reason": "SL", "entry": 380.69, "current": 373.68, "msg": "AVGO SL! Entry=380.69 -> 373.68 (-1.84%)", "ts": "2026-06-25T22:00:48.258001"}
+{"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3083458", "ts": "2026-06-25T22:00:49.826984"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T04:30:24.980781"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T05:00:26.775694"}
 {"type": "position_monitor", "entry": 380.69, "current": 382.07, "tp": 388.3038, "sl": 374.9796, "pnl_pct": 0.36, "ts": "2026-06-25T05:30:28.678631"}
