@@ -1,8 +1,8 @@
-{"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T08:30:39.088561"}
-{"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T09:00:41.508194"}
 {"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T09:30:47.544123"}
 {"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T21:00:49.373539"}
 {"type": "position_monitor", "entry": 199.13, "current": 200.61, "tp": 203.1126, "sl": 197.1387, "pnl_pct": 0.74, "msg": "Holding NVDA: entry=199.13 current=200.61 TP=203.11 SL=197.14 PnL=0.74%", "ts": "2026-06-25T21:30:46.629759"}
+{"type": "exit_signal", "reason": "SL", "entry": 199.13, "current": 192.9342, "msg": "NVDA SL hit! Entry=199.13 -> 192.93 (-3.11%)", "ts": "2026-06-25T22:00:48.228504"}
+{"type": "order_filled", "side": "SELL", "reason": "SL", "order_id": "3083459", "ts": "2026-06-25T22:00:50.145320"}
 {"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T04:30:24.987039"}
 {"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T05:00:26.753897"}
 {"type": "position_monitor", "entry": 199.13, "current": 199.0, "tp": 203.1126, "sl": 197.1387, "pnl_pct": -0.07, "msg": "Holding NVDA: entry=199.13 current=199.0 TP=203.11 SL=197.14 PnL=-0.07%", "ts": "2026-06-25T05:30:28.699888"}
