@@ -5,10 +5,10 @@
   "qty": 2,
   "order_id": "3079569",
   "entry_time": "2026-06-24T00:00:16.902263",
-  "last_updated": "2026-06-25T00:00:12.456567",
+  "last_updated": "2026-06-25T08:30:39.290797",
   "latest_entry": {
     "position_open": true,
-    "price": 384.155,
+    "price": 382.07,
     "rsi14": null,
     "bb_lower": null,
     "reason": "exit_check",
