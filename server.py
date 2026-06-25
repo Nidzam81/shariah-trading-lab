@@ -232,11 +232,31 @@ _trade_store: dict = {}
 
 
 def _seed_trades_from_github():
+<<<<<<< HEAD
     for agent in ALL_AGENTS:
         data = fetch_json(f"{GITHUB_BASE}/logs/{agent}_trades.json")
         if data and data.get("trades"):
             _trade_store[agent] = data["trades"][-100:]
             print(f"[SEED] {agent}: {len(data['trades'])} trades from GitHub")
+=======
+    """Load existing trades from GitHub on startup so the dashboard has data immediately."""
+    agents = [
+        "nvda", "amd", "aapl", "tsla", "orcl", "avgo", "fcx", "amzn",
+        "unisem", "gamuda", "ioi", "mrdiy", "qlr", "ctos", "axiata", "spsetia", "dayang", "ijm"
+    ]
+    for agent in agents:
+        raw_url = f"https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main/logs/{agent}_trades.json"
+        try:
+            req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
+            resp = urllib.request.urlopen(req, timeout=10)
+            data = json.loads(resp.read())
+            trades = data.get("trades", [])
+            if trades:
+                _trade_store[agent] = trades[-100:]
+                print(f"[SEED] {agent}: loaded {len(trades)} trades from GitHub")
+        except Exception as e:
+            print(f"[SEED] {agent}: GitHub seed failed ({e}), starting empty")
+>>>>>>> cadf0d8 (v3.6: Add 5 new KLSE agents (CTOS, Axiata, SP Setia, Dayang, IJM) to dashboard + server)
 
 
 @app.on_event("startup")
