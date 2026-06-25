@@ -59,8 +59,28 @@
       "entry_price": 386.54,
       "pnl": -14.23,
       "timestamp": "2026-06-23T23:30:10.638304"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 380.69,
+      "qty": 2,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-24T00:00:17.966106"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 373.68,
+      "qty": 2,
+      "reason": "SL",
+      "entry_price": 380.69,
+      "pnl": -14.02,
+      "timestamp": "2026-06-25T22:00:51.627362"
     }
   ],
-  "last_updated": "2026-06-23T23:30:10.976027",
+  "last_updated": "2026-06-25T22:00:51.946229",
   "agent": "avgo"
 }
