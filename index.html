@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shariah Trading Lab | Live Dashboard v3.3</title>
+<title>Shariah Trading Lab | Live Dashboard v3.6</title>
 <style>
 :root{--bg:#0a0e17;--card:#111827;--border:#1e293b;--blue:#3b82f6;--purple:#8b5cf6;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--orange:#f97316;--cyan:#06b6d4;--text:#e2e8f0;--dim:#64748b;--font:'Segoe UI',system-ui,sans-serif}
 .light{--bg:#f1f5f9;--card:#ffffff;--border:#e2e8f0;--blue:#2563eb;--purple:#7c3aed;--green:#059669;--red:#dc2626;--yellow:#d97706;--orange:#ea580c;--cyan:#0891b2;--text:#1e293b;--dim:#64748b}
@@ -57,10 +57,10 @@ h1{font-size:18px;font-weight:700}.sub{font-size:11px;color:var(--dim)}
 .qlr-icon{background:linear-gradient(135deg,#d97706,#b45309)}
 .mrdiy-icon{background:linear-gradient(135deg,#dc2626,#b91c1c)}
 .ctos-icon{background:linear-gradient(135deg,#0ea5e9,#0284c7)}
-.axiata-icon{background:linear-gradient(135deg,#f97316,#ea580c)}
+.axiata-icon{background:linear-gradient(135deg,#f43f5e,#e11d48)}
 .spsetia-icon{background:linear-gradient(135deg,#14b8a6,#0d9488)}
-.dayang-icon{background:linear-gradient(135deg,#6366f1,#4f46e5)}
-.ijm-icon{background:linear-gradient(135deg,#84cc16,#65a30d)}
+.dayang-icon{background:linear-gradient(135deg,#a855f7,#9333ea)}
+.ijm-icon{background:linear-gradient(135deg,#64748b,#475569)}
 .ticker{font-size:18px;font-weight:700}
 .fullname{font-size:10px;color:var(--dim)}
 .astat{padding:3px 9px;border-radius:5px;font-size:10px;font-weight:600}
@@ -382,135 +382,89 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
       <div class="tags" style="margin-top:10px"><span class="tag">Morning Star</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
       <div class="desc"><strong>Morning Star:</strong> Buys on 3-candle morning star reversal with RSI confirmation. Backtest: 100% WR.</div>
     </div>
+    <!-- CTOS DIGITAL -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon ctos-icon">CTS</div><div><div class="ticker">CTOS Digital</div><div class="fullname">5285.KL | Technology</div></div></div>
+        <span class="astat wait" id="ctos-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="ctos-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="ctos-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="ctos-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="ctos-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="ctos-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">RSI &le; 35</span><span class="tag">SMA 200</span><span class="tag">TP +2.5%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>RSI + SMA200:</strong> Buys dips when RSI &le; 35 and price above SMA 200. Backtest: TBD.</div>
+    </div>
+    <!-- AXIATA -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon axiata-icon">AXI</div><div><div class="ticker">Axiata</div><div class="fullname">6888.KL | Telecom</div></div></div>
+        <span class="astat wait" id="axiata-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="axiata-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="axiata-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="axiata-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="axiata-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="axiata-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">BB Lower</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>BB + RSI:</strong> Buys when price touches lower BB with RSI below 40. Backtest: TBD.</div>
+    </div>
+    <!-- SP SETIA -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon spsetia-icon">SPS</div><div><div class="ticker">SP Setia</div><div class="fullname">5225.KL | Property</div></div></div>
+        <span class="astat wait" id="spsetia-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="spsetia-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="spsetia-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="spsetia-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="spsetia-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="spsetia-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">Morning Star</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
+      <div class="desc"><strong>Morning Star:</strong> Buys on morning star reversal with RSI &lt; 40. Backtest: TBD.</div>
+    </div>
+    <!-- DAYANG ENTERPRISE -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon dayang-icon">DYG</div><div><div class="ticker">Dayang Ent</div><div class="fullname">5246.KL | Energy</div></div></div>
+        <span class="astat wait" id="dayang-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="dayang-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="dayang-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="dayang-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="dayang-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="dayang-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">Vol Breakout &gt;1.5x</span><span class="tag">Price &gt; SMA20</span><span class="tag">RSI &lt; 50</span><span class="tag">TP +2.5%</span></div>
+      <div class="desc"><strong>Volume Breakout:</strong> Buys on vol &gt;1.5x avg with price &gt; SMA20 and RSI &lt; 50. Backtest: TBD.</div>
+    </div>
+    <!-- IJM CORP -->
+    <div class="card">
+      <div class="agent-header">
+        <div class="agent-name"><div class="a-icon ijm-icon">IJM</div><div><div class="ticker">IJM Corp</div><div class="fullname">3336.KL | Construction</div></div></div>
+        <span class="astat wait" id="ijm-status">WAITING</span>
+      </div>
+      <div class="pnl-label">Unrealized P&amp;L</div>
+      <div class="pnl-display" id="ijm-pnl" style="color:var(--dim)">&mdash;</div>
+      <div id="ijm-hold-info" class="row-info" style="display:none">
+        <div><div class="lbl">Entry</div><div class="val" id="ijm-hold-entry" style="color:var(--blue)">&mdash;</div></div>
+        <div><div class="lbl">TP</div><div class="val" id="ijm-hold-tp" style="color:var(--green)">&mdash;</div></div>
+        <div><div class="lbl">SL</div><div class="val" id="ijm-hold-sl" style="color:var(--red)">&mdash;</div></div>
+      </div>
+      <div class="tags" style="margin-top:10px"><span class="tag">Bullish Engulfing</span><span class="tag">RSI &lt; 40</span><span class="tag">Vol &gt; 1.5x</span><span class="tag">TP +2%</span></div>
+      <div class="desc"><strong>Engulfing + Volume:</strong> Buys on bullish engulfing with RSI &lt; 40 and volume confirmation. Backtest: TBD.</div>
+    </div>
   </div>
 
-      <!-- CTOS Digital -->
-      <div class="card">
-        <div class="agent-header">
-          <div class="agent-name">
-            <div class="a-icon ctos-icon">CTO</div>
-            <div><div class="ticker">CTOS Digital</div><div class="fullname">5285.KL | Tech/Fintech</div></div>
-          </div>
-          <span class="astat wait" id="ctos-status">WAITING</span>
-        </div>
-        <div class="price-row"><span class="price" id="ctos-price">--</span><span class="chg" id="ctos-chg">--</span></div>
-        <div class="metrics">
-          <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="ctos-rsi">--</div><div class="bar"><div class="bar-fill green-fill" id="ctos-rsi-bar" style="width:0%"></div></div></div>
-          <div class="mbox"><div class="ml">SMA (200)</div><div class="mv" id="ctos-sma">--</div></div>
-          <div class="mbox"><div class="ml">Vol Ratio</div><div class="mv" id="ctos-vol">--</div></div>
-        </div>
-        <div class="tags"><span class="tag">RSI &le; 35</span><span class="tag">Price &gt; SMA 200</span><span class="tag">Vol &gt; 1.2x</span><span class="tag">TP +2.5%</span><span class="tag">SL -1.5%</span></div>
-        <div class="desc"><strong>RSI+SMA200:</strong> Buys when RSI oversolds below 35, price above long-term SMA200, with volume confirmation. Tech/fintech momentum.</div>
-        <div id="ctos-hold-info" class="row-info" style="display:none">
-          <div><div class="lbl">Entry</div><div class="val" id="ctos-hold-entry" style="color:var(--blue)">&mdash;</div></div>
-          <div><div class="lbl">TP</div><div class="val" id="ctos-hold-tp" style="color:var(--green)">&mdash;</div></div>
-          <div><div class="lbl">SL</div><div class="val" id="ctos-hold-sl" style="color:var(--red)">&mdash;</div></div>
-        </div>
-        <div class="pnl-display" id="ctos-pnl" style="color:var(--dim)">&mdash;</div>
-      </div>
-
-      <!-- AXIATA -->
-      <div class="card">
-        <div class="agent-header">
-          <div class="agent-name">
-            <div class="a-icon axiata-icon">AXI</div>
-            <div><div class="ticker">Axiata</div><div class="fullname">6888.KL | Telecom</div></div>
-          </div>
-          <span class="astat wait" id="axiata-status">WAITING</span>
-        </div>
-        <div class="price-row"><span class="price" id="axiata-price">--</span><span class="chg" id="axiata-chg">--</span></div>
-        <div class="metrics">
-          <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="axiata-rsi">--</div><div class="bar"><div class="bar-fill green-fill" id="axiata-rsi-bar" style="width:0%"></div></div></div>
-          <div class="mbox"><div class="ml">BB Lower</div><div class="mv" id="axiata-bb">--</div></div>
-          <div class="mbox"><div class="ml">Signal</div><div class="mv" id="axiata-signal">--</div></div>
-        </div>
-        <div class="tags"><span class="tag">BB Lower Touch</span><span class="tag">RSI &lt; 40</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
-        <div class="desc"><strong>BB+RSI:</strong> Buys when price touches lower Bollinger Band with RSI below 40. Defensive large-cap telecom.</div>
-        <div id="axiata-hold-info" class="row-info" style="display:none">
-          <div><div class="lbl">Entry</div><div class="val" id="axiata-hold-entry" style="color:var(--blue)">&mdash;</div></div>
-          <div><div class="lbl">TP</div><div class="val" id="axiata-hold-tp" style="color:var(--green)">&mdash;</div></div>
-          <div><div class="lbl">SL</div><div class="val" id="axiata-hold-sl" style="color:var(--red)">&mdash;</div></div>
-        </div>
-        <div class="pnl-display" id="axiata-pnl" style="color:var(--dim)">&mdash;</div>
-      </div>
-
-      <!-- SP SETIA -->
-      <div class="card">
-        <div class="agent-header">
-          <div class="agent-name">
-            <div class="a-icon spsetia-icon">SPS</div>
-            <div><div class="ticker">SP Setia</div><div class="fullname">5225.KL | Property</div></div>
-          </div>
-          <span class="astat wait" id="spsetia-status">WAITING</span>
-        </div>
-        <div class="price-row"><span class="price" id="spsetia-price">--</span><span class="chg" id="spsetia-chg">--</span></div>
-        <div class="metrics">
-          <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="spsetia-rsi">--</div><div class="bar"><div class="bar-fill green-fill" id="spsetia-rsi-bar" style="width:0%"></div></div></div>
-          <div class="mbox"><div class="ml">Pattern</div><div class="mv" id="spsetia-pattern">--</div></div>
-          <div class="mbox"><div class="ml">Vol Ratio</div><div class="mv" id="spsetia-vol">--</div></div>
-        </div>
-        <div class="tags"><span class="tag">Morning Star</span><span class="tag">RSI &lt; 40</span><span class="tag">Vol &gt; 1.2x</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
-        <div class="desc"><strong>Morning Star:</strong> Buys on 3-candle morning star reversal with RSI confirmation. Property sector play.</div>
-        <div id="spsetia-hold-info" class="row-info" style="display:none">
-          <div><div class="lbl">Entry</div><div class="val" id="spsetia-hold-entry" style="color:var(--blue)">&mdash;</div></div>
-          <div><div class="lbl">TP</div><div class="val" id="spsetia-hold-tp" style="color:var(--green)">&mdash;</div></div>
-          <div><div class="lbl">SL</div><div class="val" id="spsetia-hold-sl" style="color:var(--red)">&mdash;</div></div>
-        </div>
-        <div class="pnl-display" id="spsetia-pnl" style="color:var(--dim)">&mdash;</div>
-      </div>
-
-      <!-- DAYANG ENTERPRISE -->
-      <div class="card">
-        <div class="agent-header">
-          <div class="agent-name">
-            <div class="a-icon dayang-icon">DYG</div>
-            <div><div class="ticker">Dayang Enterprise</div><div class="fullname">5246.KL | O&amp;G Services</div></div>
-          </div>
-          <span class="astat wait" id="dayang-status">WAITING</span>
-        </div>
-        <div class="price-row"><span class="price" id="dayang-price">--</span><span class="chg" id="dayang-chg">--</span></div>
-        <div class="metrics">
-          <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="dayang-rsi">--</div><div class="bar"><div class="bar-fill blue-fill" id="dayang-rsi-bar" style="width:0%"></div></div></div>
-          <div class="mbox"><div class="ml">SMA (20)</div><div class="mv" id="dayang-sma">--</div></div>
-          <div class="mbox"><div class="ml">Vol Ratio</div><div class="mv" id="dayang-vol">--</div></div>
-        </div>
-        <div class="tags"><span class="tag">Vol Breakout &gt;1.5x</span><span class="tag">Price &gt; SMA20</span><span class="tag">RSI &lt; 50</span><span class="tag">TP +2.5%</span><span class="tag">SL -1.5%</span></div>
-        <div class="desc"><strong>Volume Breakout:</strong> Buys on volume spikes above 1.5x average with price above SMA20. O&amp;G services sector.</div>
-        <div id="dayang-hold-info" class="row-info" style="display:none">
-          <div><div class="lbl">Entry</div><div class="val" id="dayang-hold-entry" style="color:var(--blue)">&mdash;</div></div>
-          <div><div class="lbl">TP</div><div class="val" id="dayang-hold-tp" style="color:var(--green)">&mdash;</div></div>
-          <div><div class="lbl">SL</div><div class="val" id="dayang-hold-sl" style="color:var(--red)">&mdash;</div></div>
-        </div>
-        <div class="pnl-display" id="dayang-pnl" style="color:var(--dim)">&mdash;</div>
-      </div>
-
-      <!-- IJM CORP -->
-      <div class="card">
-        <div class="agent-header">
-          <div class="agent-name">
-            <div class="a-icon ijm-icon">IJM</div>
-            <div><div class="ticker">IJM Corp</div><div class="fullname">3336.KL | Construction</div></div>
-          </div>
-          <span class="astat wait" id="ijm-status">WAITING</span>
-        </div>
-        <div class="price-row"><span class="price" id="ijm-price">--</span><span class="chg" id="ijm-chg">--</span></div>
-        <div class="metrics">
-          <div class="mbox"><div class="ml">RSI (14)</div><div class="mv" id="ijm-rsi">--</div><div class="bar"><div class="bar-fill green-fill" id="ijm-rsi-bar" style="width:0%"></div></div></div>
-          <div class="mbox"><div class="ml">Pattern</div><div class="mv" id="ijm-pattern">--</div></div>
-          <div class="mbox"><div class="ml">Vol Ratio</div><div class="mv" id="ijm-vol">--</div></div>
-        </div>
-        <div class="tags"><span class="tag">Bullish Engulfing</span><span class="tag">RSI &lt; 40</span><span class="tag">Vol &gt; 1.5x</span><span class="tag">TP +2%</span><span class="tag">SL -1.5%</span></div>
-        <div class="desc"><strong>Engulfing+RSI:</strong> Buys on bullish engulfing candle pattern with RSI below 40 and volume confirmation. Large-cap construction.</div>
-        <div id="ijm-hold-info" class="row-info" style="display:none">
-          <div><div class="lbl">Entry</div><div class="val" id="ijm-hold-entry" style="color:var(--blue)">&mdash;</div></div>
-          <div><div class="lbl">TP</div><div class="val" id="ijm-hold-tp" style="color:var(--green)">&mdash;</div></div>
-          <div><div class="lbl">SL</div><div class="val" id="ijm-hold-sl" style="color:var(--red)">&mdash;</div></div>
-        </div>
-        <div class="pnl-display" id="ijm-pnl" style="color:var(--dim)">&mdash;</div>
-      </div>
-
-
-    <!-- KLSE LIVE TRADE LOG -->
+  <!-- KLSE LIVE TRADE LOG -->
   <div class="card" style="margin-bottom:24px; border-top:3px solid #059669;">
     <div class="card-title">KLSE Live Trade Log</div>
     <div id="klse-trade-summary" style="display:none;margin-bottom:12px;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px;">
@@ -536,11 +490,11 @@ footer{text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top
       <div class="btc-card"><h4 style="color:#059669;">IOI Corp &mdash; RSI_SMA + 2.0TP/1.0SL</h4><table><tr><td>Trades</td><td>3</td></tr><tr><td>Win Rate</td><td class="pos">66.7%</td></tr><tr><td>Profit Factor</td><td class="pos">5.2</td></tr><tr><td>Total P&L</td><td class="pos">RM21</td></tr></table></div>
       <div class="btc-card"><h4 style="color:#d97706;">QL Res &mdash; Engulfing + 1.5TP/1.0SL</h4><table><tr><td>Trades</td><td>3</td></tr><tr><td>Win Rate</td><td class="pos">100%</td></tr><tr><td>Profit Factor</td><td class="pos">99.99</td></tr><tr><td>Total P&L</td><td class="pos">RM18</td></tr></table></div>
       <div class="btc-card"><h4 style="color:#dc2626;">MR DIY &mdash; M.Star + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>2</td></tr><tr><td>Win Rate</td><td class="pos">100%</td></tr><tr><td>Profit Factor</td><td class="pos">99.99</td></tr><tr><td>Total P&L</td><td class="pos">RM10</td></tr></table></div>
-      <div class="btc-card"><h4 style="color:#0ea5e9;">CTOS Digital &mdash; RSI+SMA200 + 2.5TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td class="dim">--</td></tr><tr><td>Profit Factor</td><td class="dim">--</td></tr><tr><td>Total P&L</td><td class="dim">--</td></tr></table></div>
-      <div class="btc-card"><h4 style="color:#f97316;">Axiata &mdash; BB+RSI + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td class="dim">--</td></tr><tr><td>Profit Factor</td><td class="dim">--</td></tr><tr><td>Total P&L</td><td class="dim">--</td></tr></table></div>
-      <div class="btc-card"><h4 style="color:#14b8a6;">SP Setia &mdash; M.Star + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td class="dim">--</td></tr><tr><td>Profit Factor</td><td class="dim">--</td></tr><tr><td>Total P&L</td><td class="dim">--</td></tr></table></div>
-      <div class="btc-card"><h4 style="color:#6366f1;">Dayang &mdash; Vol Break + 2.5TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td class="dim">--</td></tr><tr><td>Profit Factor</td><td class="dim">--</td></tr><tr><td>Total P&L</td><td class="dim">--</td></tr></table></div>
-      <div class="btc-card"><h4 style="color:#84cc16;">IJM Corp &mdash; Engulfing + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td class="dim">--</td></tr><tr><td>Profit Factor</td><td class="dim">--</td></tr><tr><td>Total P&L</td><td class="dim">--</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#0ea5e9;">CTOS Dig &mdash; RSI_SMA + 2.5TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td>--</td></tr><tr><td>Profit Factor</td><td>--</td></tr><tr><td>Total P&L</td><td>--</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#f43f5e;">Axiata &mdash; BB_RSI + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td>--</td></tr><tr><td>Profit Factor</td><td>--</td></tr><tr><td>Total P&L</td><td>--</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#14b8a6;">SP Setia &mdash; M.Star + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td>--</td></tr><tr><td>Profit Factor</td><td>--</td></tr><tr><td>Total P&L</td><td>--</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#a855f7;">Dayang &mdash; VolBreak + 2.5TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td>--</td></tr><tr><td>Profit Factor</td><td>--</td></tr><tr><td>Total P&L</td><td>--</td></tr></table></div>
+      <div class="btc-card"><h4 style="color:#64748b;">IJM Corp &mdash; Engulf + 2.0TP/1.5SL</h4><table><tr><td>Trades</td><td>TBD</td></tr><tr><td>Win Rate</td><td>--</td></tr><tr><td>Profit Factor</td><td>--</td></tr><tr><td>Total P&L</td><td>--</td></tr></table></div>
     </div>
   </div>
 
@@ -658,23 +612,6 @@ async function refreshKLSE() {
       }
       totalTrades += data.total_trades || 0;
       totalPnl += data.realized_pnl || 0;
-      // Update indicator metrics
-      const rsiEl = document.getElementById(a + '-rsi');
-      const smaEl = document.getElementById(a + '-sma');
-      const bbEl = document.getElementById(a + '-bb');
-      const volEl = document.getElementById(a + '-vol');
-      const patEl = document.getElementById(a + '-pattern');
-      const sigEl = document.getElementById(a + '-signal');
-      if (data.latest_entry) {
-        const le = data.latest_entry;
-        if (rsiEl && le.rsi14 != null) { rsiEl.textContent = le.rsi14.toFixed(1); }
-        if (smaEl && le.sma200 != null) { smaEl.textContent = 'RM' + le.sma200.toFixed(2); }
-        if (bbEl && le.bb_lower != null) { bbEl.textContent = 'RM' + le.bb_lower.toFixed(2); }
-        if (volEl && le.vol_ratio != null) { volEl.textContent = le.vol_ratio.toFixed(1) + 'x'; }
-        if (patEl && le.morning_star != null) { patEl.textContent = le.morning_star ? 'YES' : 'NO'; }
-        if (patEl && le.engulfing != null) { patEl.textContent = le.engulfing ? 'YES' : 'NO'; }
-        if (sigEl && le.trend != null) { sigEl.textContent = le.trend; }
-      }
     } catch(e) {}
   }
   document.getElementById('klse-stat-trades').textContent = totalTrades;
