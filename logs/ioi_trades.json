@@ -39,8 +39,18 @@
       "entry_price": 4.19,
       "pnl": 9.0,
       "timestamp": "2026-06-19T10:00:39.800293"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 4.22,
+      "qty": 100,
+      "reason": "ENTRY",
+      "entry_price": 0,
+      "pnl": 0,
+      "timestamp": "2026-06-26T09:30:55.062782"
     }
   ],
-  "last_updated": "2026-06-19T10:00:40.532334",
+  "last_updated": "2026-06-26T09:30:55.346326",
   "agent": "ioi"
 }
