@@ -1,14 +1,14 @@
 """
-Shariah Trading Lab -- Live Backend Server v3.0
+Shariah Trading Lab -- Live Backend Server v3.6
 ================================================
 FastAPI server reads agent state/log files from GitHub and serves live dashboard data.
-Supports 8 US agents + 5 KLSE agents.
+Supports 8 US agents + 10 KLSE agents.
 
 Data flow:
   Agent (Windows) -> uploads state+logs to GitHub after every run
-                  -> pushes trades to Render POST (real-time)
+                    -> pushes trades to Render POST (real-time)
   Render server   -> reads from GitHub logs/ (source of truth for indicators/positions)
-                  -> reads from in-memory store (real-time trades)
+                    -> reads from in-memory store (real-time trades)
   Dashboard       -> fetches from Render API every 15s
 
 API:
@@ -20,14 +20,7 @@ API:
   GET /                    -- Dashboard HTML
 
 US Agents: nvda, amd, aapl, tsla, orcl, avgo, fcx, amzn
-KLSE Agents: unisem, gamuda, ioi, qlr, mrdiy
-  GET /api/avgo            -- AVGO agent data
-  GET /api/fcx             -- FCX agent data
-  GET /api/amzn            -- AMZN agent data
-  GET /api/portfolio       -- Portfolio summary from agent states
-  GET /api/trades/{agent}  -- Recent trades
-  POST /api/trades/push    -- Receive trade push from agent
-  GET /                    -- Dashboard HTML
+KLSE Agents: unisem, gamuda, ioi, qlr, mrdiy, ctos, axiata, spsetia, dayang, ijm
 """
 import os, json, urllib.request
 from datetime import datetime
@@ -39,7 +32,7 @@ DASHBOARD_HTML = SCRIPT_DIR / "index.html"
 GITHUB_BASE = "https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main"
 
 ALL_AGENTS = ["nvda", "amd", "aapl", "tsla", "orcl", "avgo", "fcx", "amzn",
-              "unisem", "gamuda", "ioi", "qlr", "mrdiy"]
+              "unisem", "gamuda", "ioi", "mrdiy", "qlr", "ctos", "axiata", "spsetia", "dayang", "ijm"]
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -168,7 +161,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-app = FastAPI(title="Shariah Trading Lab", version="3.0")
+app = FastAPI(title="Shariah Trading Lab", version="3.6")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
@@ -232,31 +225,12 @@ _trade_store: dict = {}
 
 
 def _seed_trades_from_github():
-<<<<<<< HEAD
+    """Load existing trades from GitHub on startup so the dashboard has data immediately."""
     for agent in ALL_AGENTS:
         data = fetch_json(f"{GITHUB_BASE}/logs/{agent}_trades.json")
         if data and data.get("trades"):
             _trade_store[agent] = data["trades"][-100:]
             print(f"[SEED] {agent}: {len(data['trades'])} trades from GitHub")
-=======
-    """Load existing trades from GitHub on startup so the dashboard has data immediately."""
-    agents = [
-        "nvda", "amd", "aapl", "tsla", "orcl", "avgo", "fcx", "amzn",
-        "unisem", "gamuda", "ioi", "mrdiy", "qlr", "ctos", "axiata", "spsetia", "dayang", "ijm"
-    ]
-    for agent in agents:
-        raw_url = f"https://raw.githubusercontent.com/Nidzam81/shariah-trading-lab/main/logs/{agent}_trades.json"
-        try:
-            req = urllib.request.Request(raw_url, headers={"User-Agent": "shariah-trading-lab"})
-            resp = urllib.request.urlopen(req, timeout=10)
-            data = json.loads(resp.read())
-            trades = data.get("trades", [])
-            if trades:
-                _trade_store[agent] = trades[-100:]
-                print(f"[SEED] {agent}: loaded {len(trades)} trades from GitHub")
-        except Exception as e:
-            print(f"[SEED] {agent}: GitHub seed failed ({e}), starting empty")
->>>>>>> cadf0d8 (v3.6: Add 5 new KLSE agents (CTOS, Axiata, SP Setia, Dayang, IJM) to dashboard + server)
 
 
 @app.on_event("startup")
@@ -267,5 +241,5 @@ async def startup_seed():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     _seed_trades_from_github()
-    print(f"Starting Shariah Trading Lab v3.0 on port {port}")
+    print(f"Starting Shariah Trading Lab v3.6 on port {port}")
     uvicorn.run(app, host="0.0.0.0", port=port)
