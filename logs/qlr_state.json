@@ -1,21 +1,21 @@
 {
   "agent": "qlr",
-  "position_open": true,
-  "entry_price": 3.72,
-  "qty": 100,
-  "order_id": "SIMULATE",
-  "entry_time": "2026-06-29T09:01:16.641262",
-  "last_updated": "2026-07-02T12:30:50.082461",
+  "position_open": false,
+  "entry_price": 0.0,
+  "qty": 0,
+  "order_id": null,
+  "entry_time": null,
+  "last_updated": "2026-07-02T15:01:24.955972",
   "latest_entry": {
-    "position_open": true,
-    "price": 3.77,
+    "position_open": false,
+    "price": 3.78,
     "rsi14": null,
     "vol_ratio": null,
     "reason": "exit_check",
-    "entry_price": 3.72,
-    "qty": 100,
-    "tp": 3.7758,
-    "sl": 3.6828
+    "entry_price": 0.0,
+    "qty": 0,
+    "tp": null,
+    "sl": null
   },
   "latest_exit": {},
   "exits": []
