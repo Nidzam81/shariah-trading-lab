@@ -1,14 +1,3 @@
-{"type": "position_monitor", "entry": 2.06, "current": 2.08, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 0.97, "ts": "2026-07-03T12:30:04.818096"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T13:00:06.247576"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T14:07:29.913502"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T14:30:16.458069"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T15:00:18.541366"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.08, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 0.97, "ts": "2026-07-03T15:30:22.395783"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T16:00:24.199118"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.08, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 0.97, "ts": "2026-07-03T16:30:28.802355"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T17:00:30.107720"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.1, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.94, "ts": "2026-07-03T17:30:28.324102"}
-{"type": "position_monitor", "entry": 2.06, "current": 2.1, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.94, "ts": "2026-07-06T09:00:35.874554"}
 {"type": "exit_signal", "reason": "TP", "entry": 2.06, "current": 2.11, "msg": "Axiata TP! Entry=2.06 -> 2.11 (+2.43%)", "ts": "2026-07-06T09:30:21.250717"}
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-06T09:30:21.256240"}
 {"type": "position_monitor", "entry": 2.06, "current": 2.08, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 0.97, "ts": "2026-07-03T11:31:01.505086"}
@@ -198,3 +187,14 @@
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-06T09:30:21.256240"}
 {"type": "buy_signal", "rsi": 35.71, "bb_lower": 2.0736036334464, "low": 2.06, "price": 2.07, "msg": "Axiata BUY! Low=2.06 <= BB_lower=2.07 RSI=35.71 < 40", "ts": "2026-07-07T10:30:29.843735"}
 {"type": "order_filled", "side": "BUY", "price": 2.07, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Axiata @ 2.07 order=SIMULATE TP=2.11 SL=2.04", "ts": "2026-07-07T10:30:29.847085"}
+{"type": "position_monitor", "entry": 2.06, "current": 2.08, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 0.97, "ts": "2026-07-03T15:30:22.395783"}
+{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T16:00:24.199118"}
+{"type": "position_monitor", "entry": 2.06, "current": 2.08, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 0.97, "ts": "2026-07-03T16:30:28.802355"}
+{"type": "position_monitor", "entry": 2.06, "current": 2.09, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.46, "ts": "2026-07-03T17:00:30.107720"}
+{"type": "position_monitor", "entry": 2.06, "current": 2.1, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.94, "ts": "2026-07-03T17:30:28.324102"}
+{"type": "position_monitor", "entry": 2.06, "current": 2.1, "tp": 2.1012, "sl": 2.0291, "pnl_pct": 1.94, "ts": "2026-07-06T09:00:35.874554"}
+{"type": "exit_signal", "reason": "TP", "entry": 2.06, "current": 2.11, "msg": "Axiata TP! Entry=2.06 -> 2.11 (+2.43%)", "ts": "2026-07-06T09:30:21.250717"}
+{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-06T09:30:21.256240"}
+{"type": "buy_signal", "rsi": 35.71, "bb_lower": 2.0736036334464, "low": 2.06, "price": 2.07, "msg": "Axiata BUY! Low=2.06 <= BB_lower=2.07 RSI=35.71 < 40", "ts": "2026-07-07T10:30:29.843735"}
+{"type": "order_filled", "side": "BUY", "price": 2.07, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Axiata @ 2.07 order=SIMULATE TP=2.11 SL=2.04", "ts": "2026-07-07T10:30:29.847085"}
+{"type": "position_monitor", "entry": 2.07, "current": 2.1, "tp": 2.1114, "sl": 2.0389, "pnl_pct": 1.45, "ts": "2026-07-07T11:00:26.130497"}
