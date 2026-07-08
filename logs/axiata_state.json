@@ -1,21 +1,21 @@
 {
   "agent": "axiata",
-  "position_open": true,
-  "entry_price": 2.07,
-  "qty": 100,
-  "order_id": "SIMULATE",
-  "entry_time": "2026-07-07T10:30:29.844818",
-  "last_updated": "2026-07-07T17:30:50.353369",
+  "position_open": false,
+  "entry_price": 0.0,
+  "qty": 0,
+  "order_id": null,
+  "entry_time": null,
+  "last_updated": "2026-07-08T09:30:56.743990",
   "latest_entry": {
-    "position_open": true,
-    "price": 2.09,
+    "position_open": false,
+    "price": 2.13,
     "rsi14": null,
     "bb_lower": null,
     "reason": "exit_check",
-    "entry_price": 2.07,
-    "qty": 100,
-    "tp": 2.1114,
-    "sl": 2.0389
+    "entry_price": 0.0,
+    "qty": 0,
+    "tp": null,
+    "sl": null
   },
   "latest_exit": {},
   "exits": []
