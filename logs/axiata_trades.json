@@ -29,8 +29,18 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-07-07T10:30:30.799135"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 2.13,
+      "qty": 100,
+      "reason": "TP",
+      "entry_price": 2.07,
+      "pnl": 6.0,
+      "timestamp": "2026-07-08T09:30:53.486708"
     }
   ],
-  "last_updated": "2026-07-07T10:30:31.513695",
+  "last_updated": "2026-07-08T09:30:54.362297",
   "agent": "axiata"
 }
