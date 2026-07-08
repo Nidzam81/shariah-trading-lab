@@ -109,8 +109,18 @@
       "entry_price": 0,
       "pnl": 0,
       "timestamp": "2026-07-08T10:30:59.276554"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 4.53,
+      "qty": 100,
+      "reason": "TP",
+      "entry_price": 4.44,
+      "pnl": 9.0,
+      "timestamp": "2026-07-08T15:00:27.410864"
     }
   ],
-  "last_updated": "2026-07-08T10:31:00.071405",
+  "last_updated": "2026-07-08T15:00:28.308020",
   "agent": "unisem"
 }
