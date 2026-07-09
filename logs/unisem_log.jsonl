@@ -1,27 +1,3 @@
-{"type": "position_monitor", "entry": 4.51, "current": 4.51, "tp": 4.6002, "sl": 4.4423, "pnl_pct": 0.0, "ts": "2026-07-07T09:30:37.274828"}
-{"type": "exit_signal", "reason": "TP", "entry": 4.51, "current": 4.62, "msg": "Unisem TP! Entry=4.51 -> 4.62 (+2.44%)", "ts": "2026-07-07T10:00:23.419811"}
-{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-07T10:00:23.423827"}
-{"type": "buy_signal", "rsi": 39.53, "bb_lower": 4.466843257687023, "low": 4.42, "price": 4.44, "msg": "Unisem BUY! Low=4.42 <= BB_lower=4.47 RSI=39.53 < 40", "ts": "2026-07-08T10:30:58.257451"}
-{"type": "order_filled", "side": "BUY", "price": 4.44, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.44 order=SIMULATE TP=4.53 SL=4.37", "ts": "2026-07-08T10:30:58.261450"}
-{"type": "position_monitor", "entry": 4.44, "current": 4.51, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.58, "ts": "2026-07-08T11:00:53.315992"}
-{"type": "position_monitor", "entry": 4.44, "current": 4.48, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 0.9, "ts": "2026-07-08T11:30:58.281590"}
-{"type": "buy_signal", "rsi": 23.33, "bb_lower": 4.493724465170011, "low": 4.49, "price": 4.51, "msg": "Unisem BUY! Low=4.49 <= BB_lower=4.49 RSI=23.33 < 40", "ts": "2026-07-07T09:00:41.120607"}
-{"type": "order_filled", "side": "BUY", "price": 4.51, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.51 order=SIMULATE TP=4.60 SL=4.44", "ts": "2026-07-07T09:00:41.123601"}
-{"type": "position_monitor", "entry": 4.51, "current": 4.51, "tp": 4.6002, "sl": 4.4423, "pnl_pct": 0.0, "ts": "2026-07-07T09:30:37.274828"}
-{"type": "exit_signal", "reason": "TP", "entry": 4.51, "current": 4.62, "msg": "Unisem TP! Entry=4.51 -> 4.62 (+2.44%)", "ts": "2026-07-07T10:00:23.419811"}
-{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-07T10:00:23.423827"}
-{"type": "buy_signal", "rsi": 39.53, "bb_lower": 4.466843257687023, "low": 4.42, "price": 4.44, "msg": "Unisem BUY! Low=4.42 <= BB_lower=4.47 RSI=39.53 < 40", "ts": "2026-07-08T10:30:58.257451"}
-{"type": "order_filled", "side": "BUY", "price": 4.44, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.44 order=SIMULATE TP=4.53 SL=4.37", "ts": "2026-07-08T10:30:58.261450"}
-{"type": "position_monitor", "entry": 4.44, "current": 4.51, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.58, "ts": "2026-07-08T11:00:53.315992"}
-{"type": "position_monitor", "entry": 4.44, "current": 4.48, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 0.9, "ts": "2026-07-08T11:30:58.281590"}
-{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T12:01:01.282633"}
-{"type": "buy_signal", "rsi": 23.33, "bb_lower": 4.493724465170011, "low": 4.49, "price": 4.51, "msg": "Unisem BUY! Low=4.49 <= BB_lower=4.49 RSI=23.33 < 40", "ts": "2026-07-07T09:00:41.120607"}
-{"type": "order_filled", "side": "BUY", "price": 4.51, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.51 order=SIMULATE TP=4.60 SL=4.44", "ts": "2026-07-07T09:00:41.123601"}
-{"type": "position_monitor", "entry": 4.51, "current": 4.51, "tp": 4.6002, "sl": 4.4423, "pnl_pct": 0.0, "ts": "2026-07-07T09:30:37.274828"}
-{"type": "exit_signal", "reason": "TP", "entry": 4.51, "current": 4.62, "msg": "Unisem TP! Entry=4.51 -> 4.62 (+2.44%)", "ts": "2026-07-07T10:00:23.419811"}
-{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-07T10:00:23.423827"}
-{"type": "buy_signal", "rsi": 39.53, "bb_lower": 4.466843257687023, "low": 4.42, "price": 4.44, "msg": "Unisem BUY! Low=4.42 <= BB_lower=4.47 RSI=39.53 < 40", "ts": "2026-07-08T10:30:58.257451"}
-{"type": "order_filled", "side": "BUY", "price": 4.44, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.44 order=SIMULATE TP=4.53 SL=4.37", "ts": "2026-07-08T10:30:58.261450"}
 {"type": "position_monitor", "entry": 4.44, "current": 4.51, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.58, "ts": "2026-07-08T11:00:53.315992"}
 {"type": "position_monitor", "entry": 4.44, "current": 4.48, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 0.9, "ts": "2026-07-08T11:30:58.281590"}
 {"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T12:01:01.282633"}
@@ -90,6 +66,30 @@
 {"type": "exit_signal", "reason": "TP", "entry": 4.44, "current": 4.53, "msg": "Unisem TP! Entry=4.44 -> 4.53 (+2.03%)", "ts": "2026-07-08T15:00:21.166982"}
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-08T15:00:21.172583"}
 {"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-07T10:00:23.423827"}
+{"type": "buy_signal", "rsi": 39.53, "bb_lower": 4.466843257687023, "low": 4.42, "price": 4.44, "msg": "Unisem BUY! Low=4.42 <= BB_lower=4.47 RSI=39.53 < 40", "ts": "2026-07-08T10:30:58.257451"}
+{"type": "order_filled", "side": "BUY", "price": 4.44, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.44 order=SIMULATE TP=4.53 SL=4.37", "ts": "2026-07-08T10:30:58.261450"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.51, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.58, "ts": "2026-07-08T11:00:53.315992"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.48, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 0.9, "ts": "2026-07-08T11:30:58.281590"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T12:01:01.282633"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T12:31:04.518776"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T13:00:08.217132"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T13:30:30.883199"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T14:00:15.486017"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T14:30:37.045141"}
+{"type": "exit_signal", "reason": "TP", "entry": 4.44, "current": 4.53, "msg": "Unisem TP! Entry=4.44 -> 4.53 (+2.03%)", "ts": "2026-07-08T15:00:21.166982"}
+{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-08T15:00:21.172583"}
+{"type": "buy_signal", "rsi": 39.53, "bb_lower": 4.466843257687023, "low": 4.42, "price": 4.44, "msg": "Unisem BUY! Low=4.42 <= BB_lower=4.47 RSI=39.53 < 40", "ts": "2026-07-08T10:30:58.257451"}
+{"type": "order_filled", "side": "BUY", "price": 4.44, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.44 order=SIMULATE TP=4.53 SL=4.37", "ts": "2026-07-08T10:30:58.261450"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.51, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.58, "ts": "2026-07-08T11:00:53.315992"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.48, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 0.9, "ts": "2026-07-08T11:30:58.281590"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T12:01:01.282633"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T12:31:04.518776"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T13:00:08.217132"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T13:30:30.883199"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T14:00:15.486017"}
+{"type": "position_monitor", "entry": 4.44, "current": 4.52, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.8, "ts": "2026-07-08T14:30:37.045141"}
+{"type": "exit_signal", "reason": "TP", "entry": 4.44, "current": 4.53, "msg": "Unisem TP! Entry=4.44 -> 4.53 (+2.03%)", "ts": "2026-07-08T15:00:21.166982"}
+{"type": "order_filled", "side": "SELL", "reason": "TP", "order_id": "SIMULATE", "ts": "2026-07-08T15:00:21.172583"}
 {"type": "buy_signal", "rsi": 39.53, "bb_lower": 4.466843257687023, "low": 4.42, "price": 4.44, "msg": "Unisem BUY! Low=4.42 <= BB_lower=4.47 RSI=39.53 < 40", "ts": "2026-07-08T10:30:58.257451"}
 {"type": "order_filled", "side": "BUY", "price": 4.44, "qty": 100, "order_id": "SIMULATE", "msg": "BUY 100 Unisem @ 4.44 order=SIMULATE TP=4.53 SL=4.37", "ts": "2026-07-08T10:30:58.261450"}
 {"type": "position_monitor", "entry": 4.44, "current": 4.51, "tp": 4.5288, "sl": 4.3734, "pnl_pct": 1.58, "ts": "2026-07-08T11:00:53.315992"}
