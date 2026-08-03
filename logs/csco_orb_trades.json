@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 115.38,
+      "qty": 2,
+      "reason": "ORB_PULLBACK",
+      "entry_price": 115.38,
+      "pnl": 0,
+      "timestamp": "2026-08-03T22:44:56.153116"
+    }
+  ],
+  "last_updated": "2026-08-03T22:44:56.806437",
+  "agent": "csco_orb"
+}
