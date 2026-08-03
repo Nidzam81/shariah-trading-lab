@@ -98,3 +98,6 @@
 {"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.52", "ts": "2026-08-03T23:58:36.887090"}
 {"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.34", "ts": "2026-08-04T00:01:00.508291"}
 {"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.40", "ts": "2026-08-04T00:04:12.072437"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.52", "ts": "2026-08-03T23:58:36.887090"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.34", "ts": "2026-08-04T00:01:00.508291"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.40", "ts": "2026-08-04T00:04:12.072437"}
