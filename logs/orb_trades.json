@@ -9,8 +9,18 @@
       "entry_price": 199.83,
       "pnl": 0,
       "timestamp": "2026-08-03T22:14:16.060982"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 205.79000000000005,
+      "qty": 2,
+      "reason": "TAKE_PROFIT",
+      "entry_price": 199.83,
+      "pnl": 11.92,
+      "timestamp": "2026-08-03T22:41:10.246629"
     }
   ],
-  "last_updated": "2026-08-03T22:14:16.763855",
+  "last_updated": "2026-08-03T22:41:10.552970",
   "agent": "orb"
 }
