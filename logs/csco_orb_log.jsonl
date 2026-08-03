@@ -54,3 +54,14 @@
 {"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.52", "ts": "2026-08-03T23:58:36.887090"}
 {"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.34", "ts": "2026-08-04T00:01:00.508291"}
 {"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.40", "ts": "2026-08-04T00:04:12.072437"}
+{"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$115.38 L=$113.85\nCurrent: $115.39 (+0.0% above entry)\nPullback Entry: $115.38\nTP: $118.44 | SL: $114.61\nQty: 2 shares", "ts": "2026-08-03T22:44:54.509508"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.52", "ts": "2026-08-03T23:58:36.887090"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.34", "ts": "2026-08-04T00:01:00.508291"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.40", "ts": "2026-08-04T00:04:12.072437"}
+{"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$115.38 L=$113.85\nCurrent: $115.39 (+0.0% above entry)\nPullback Entry: $115.38\nTP: $118.44 | SL: $114.61\nQty: 2 shares", "ts": "2026-08-03T22:44:54.509508"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.52", "ts": "2026-08-03T23:58:36.887090"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.34", "ts": "2026-08-04T00:01:00.508291"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.40", "ts": "2026-08-04T00:04:12.072437"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.52", "ts": "2026-08-03T23:58:36.887090"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.34", "ts": "2026-08-04T00:01:00.508291"}
+{"type": "position_monitor", "msg": "Position: 2 @ $115.38, PnL: $-0.40", "ts": "2026-08-04T00:04:12.072437"}
