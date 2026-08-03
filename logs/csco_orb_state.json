@@ -5,10 +5,10 @@
   "qty": 2,
   "order_id": "FM1CECE22D07DAB000",
   "entry_time": "2026-08-03T22:44:56.044384",
-  "last_updated": "2026-08-04T00:01:00.600375",
+  "last_updated": "2026-08-04T00:04:12.155352",
   "latest_entry": {
     "position_open": true,
-    "price": 115.21,
+    "price": 115.18,
     "or_high": null,
     "or_low": null,
     "reason": "position_monitor",
