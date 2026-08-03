@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 199.83,
+      "qty": 2,
+      "reason": "ORB_BREAKOUT",
+      "entry_price": 199.83,
+      "pnl": 0,
+      "timestamp": "2026-08-03T22:14:16.060982"
+    }
+  ],
+  "last_updated": "2026-08-03T22:14:16.763855",
+  "agent": "orb"
+}
