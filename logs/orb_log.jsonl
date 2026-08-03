@@ -169,3 +169,4 @@
 {"type": "order_failed", "msg": "TP sell failed: Error: Limit order must specify --price | ", "ts": "2026-08-03T22:40:45.569509"}
 {"type": "exit_signal", "msg": "TP hit at $206.10 (TP=$205.79)", "ts": "2026-08-03T22:41:08.630704"}
 {"type": "order_filled", "msg": "TP SELL 2 @ $205.79, PnL: $+11.92", "ts": "2026-08-03T22:41:13.363913"}
+{"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$199.83 L=$196.85\nCurrent: $207.06 (+3.5% above entry)\nPullback Entry: $199.83\nTP: $205.79 | SL: $198.34\nQty: 2 shares\nRisk: $2.98", "ts": "2026-08-03T23:22:00.482903"}
