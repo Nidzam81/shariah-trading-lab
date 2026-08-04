@@ -79,8 +79,18 @@
       "entry_price": 178.14,
       "pnl": -6.38,
       "timestamp": "2026-06-23T00:30:36.374310"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 144.44,
+      "qty": 3,
+      "reason": "ORB_PULLBACK",
+      "entry_price": 144.44,
+      "pnl": 0,
+      "timestamp": "2026-08-05T00:59:53.569937"
     }
   ],
-  "last_updated": "2026-08-05T00:50:32.746975",
+  "last_updated": "2026-08-05T00:59:54.224754",
   "agent": "orcl"
 }
