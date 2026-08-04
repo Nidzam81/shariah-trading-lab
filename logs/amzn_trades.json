@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 411.22,
+      "qty": 3,
+      "reason": "ORB_PULLBACK",
+      "entry_price": 411.22,
+      "pnl": 0,
+      "timestamp": "2026-08-05T01:02:26.527502"
+    }
+  ],
+  "last_updated": "2026-08-05T01:02:26.807013",
+  "agent": "amzn"
+}
