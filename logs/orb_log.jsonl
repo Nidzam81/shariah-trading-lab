@@ -1,5 +1,3 @@
-{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.34, PnL: $+8.72", "ts": "2026-08-05T00:26:18.965242"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.39, PnL: $+8.85", "ts": "2026-08-05T00:27:21.519320"}
 {"type": "buy_signal", "msg": "US.ADBE ORB BREAKOUT DETECTED!\nOR Range: H=$253.15 L=$245.46\nCurrent: $253.34 (+0.1% above entry)\nPullback Entry: $253.15\nTP: $268.53 | SL: $249.31\nQty: 3 shares\nRisk: $11.53", "ts": "2026-08-04T23:45:31.520178"}
 {"type": "order_filled", "msg": "BUY 3 @ $253.15, order_id=FM1CEE39AA075FA000", "ts": "2026-08-04T23:45:37.647088"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.46, PnL: $+0.92", "ts": "2026-08-04T23:46:13.893623"}
@@ -196,5 +194,7 @@
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.71, PnL: $+1.68", "ts": "2026-08-05T00:45:33.009600"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.00, PnL: $+2.55", "ts": "2026-08-05T01:00:33.887041"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.10, PnL: $+2.85", "ts": "2026-08-05T01:15:34.790396"}
+{"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
+{"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
 {"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
 {"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
