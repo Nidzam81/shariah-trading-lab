@@ -1,0 +1,16 @@
+{
+  "trades": [
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 144.44,
+      "qty": 3,
+      "reason": "ORB_PULLBACK",
+      "entry_price": 144.44,
+      "pnl": 0,
+      "timestamp": "2026-08-04T23:45:33.425220"
+    }
+  ],
+  "last_updated": "2026-08-04T23:45:34.128437",
+  "agent": "orcl_orb"
+}
