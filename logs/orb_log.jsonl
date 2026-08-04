@@ -1,19 +1,3 @@
-{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.45, PnL: $+9.03", "ts": "2026-08-05T00:47:38.403494"}
-{"type": "buy_signal", "msg": "US.ORCL ORB BREAKOUT DETECTED!\nOR Range: H=$144.44 L=$141.03\nCurrent: $147.66 (+2.2% above entry)\nPullback Entry: $144.44\nTP: $151.26 | SL: $142.74\nQty: 3 shares\nRisk: $5.11", "ts": "2026-08-05T00:48:04.808138"}
-{"type": "order_filled", "msg": "BUY 3 @ $144.44, order_id=FM1CEE47FBB09AB000", "ts": "2026-08-05T00:48:10.805420"}
-{"type": "buy_signal", "msg": "US.ORCL ORB BREAKOUT DETECTED!\nOR Range: H=$144.44 L=$141.03\nCurrent: $148.05 (+2.4% above entry)\nPullback Entry: $144.44\nTP: $151.26 | SL: $142.74\nQty: 3 shares\nRisk: $5.11", "ts": "2026-08-05T00:59:51.853584"}
-{"type": "order_filled", "msg": "BUY 3 @ $144.44, order_id=FM1CEE4AAE239AB000", "ts": "2026-08-05T00:59:58.046062"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $148.06, PnL: $+10.85", "ts": "2026-08-05T01:00:33.892045"}
-{"type": "buy_signal", "msg": "US.ADBE ORB BREAKOUT DETECTED!\nOR Range: H=$253.15 L=$245.46\nCurrent: $253.34 (+0.1% above entry)\nPullback Entry: $253.15\nTP: $268.53 | SL: $249.31\nQty: 3 shares\nRisk: $11.53", "ts": "2026-08-04T23:45:31.520178"}
-{"type": "order_filled", "msg": "BUY 3 @ $253.15, order_id=FM1CEE39AA075FA000", "ts": "2026-08-04T23:45:37.647088"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.46, PnL: $+0.92", "ts": "2026-08-04T23:46:13.893623"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.47, PnL: $+0.96", "ts": "2026-08-04T23:50:29.599069"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.75, PnL: $+1.80", "ts": "2026-08-05T00:00:30.552382"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.66, PnL: $+1.53", "ts": "2026-08-05T00:15:31.483075"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.56, PnL: $+1.23", "ts": "2026-08-05T00:29:56.613871"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.89, PnL: $+2.22", "ts": "2026-08-05T00:30:32.257689"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.86, PnL: $+2.13", "ts": "2026-08-05T00:30:50.504506"}
-{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.63, PnL: $+1.44", "ts": "2026-08-05T00:31:52.285154"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.71, PnL: $+1.68", "ts": "2026-08-05T00:45:33.009600"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.00, PnL: $+2.55", "ts": "2026-08-05T01:00:33.887041"}
 {"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
@@ -198,3 +182,19 @@
 {"type": "order_filled", "msg": "BUY 3 @ $411.22, order_id=FM1CEE4B43859AB000", "ts": "2026-08-05T01:02:29.265637"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $411.22, current $416.76, PnL: $+16.62", "ts": "2026-08-05T01:02:59.053236"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $411.22, current $417.45, PnL: $+18.70", "ts": "2026-08-05T01:04:02.844366"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.47, PnL: $+0.96", "ts": "2026-08-04T23:50:29.599069"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.75, PnL: $+1.80", "ts": "2026-08-05T00:00:30.552382"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.66, PnL: $+1.53", "ts": "2026-08-05T00:15:31.483075"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.56, PnL: $+1.23", "ts": "2026-08-05T00:29:56.613871"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.89, PnL: $+2.22", "ts": "2026-08-05T00:30:32.257689"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.86, PnL: $+2.13", "ts": "2026-08-05T00:30:50.504506"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.63, PnL: $+1.44", "ts": "2026-08-05T00:31:52.285154"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.71, PnL: $+1.68", "ts": "2026-08-05T00:45:33.009600"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.00, PnL: $+2.55", "ts": "2026-08-05T01:00:33.887041"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.10, PnL: $+2.85", "ts": "2026-08-05T01:15:34.790396"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.79, PnL: $+1.92", "ts": "2026-08-05T01:30:36.029466"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.48, PnL: $+3.99", "ts": "2026-08-05T01:45:36.824781"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $254.67, PnL: $+4.56", "ts": "2026-08-05T02:00:37.556407"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $255.71, PnL: $+7.67", "ts": "2026-08-05T02:15:38.371790"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $255.56, PnL: $+7.24", "ts": "2026-08-05T02:30:39.284004"}
+{"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.16 (+0.1% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-05T02:30:41.408907"}
