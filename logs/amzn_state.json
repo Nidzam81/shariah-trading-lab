@@ -1,0 +1,23 @@
+{
+  "agent": "amzn",
+  "position_open": true,
+  "entry_price": 411.22,
+  "qty": 3,
+  "order_id": "FM1CEE4B43859AB000",
+  "entry_time": "2026-08-05T01:02:26.439387",
+  "last_updated": "2026-08-05T04:01:48.902825",
+  "latest_entry": {
+    "position_open": true,
+    "price": null,
+    "or_high": null,
+    "or_low": null,
+    "reason": "outside_window",
+    "entry_price": 411.22,
+    "qty": 3,
+    "tp": 432.30000000000007,
+    "sl": 405.95000000000005,
+    "pending_confirm": false
+  },
+  "latest_exit": {},
+  "exits": []
+}
