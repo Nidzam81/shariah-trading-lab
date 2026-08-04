@@ -1,5 +1,3 @@
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:04:09.369990"}
-{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-03T23:22:05.818459"}
 {"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$199.83 L=$196.85\nCurrent: $206.78 (+3.4% above entry)\nPullback Entry: $199.83\nTP: $205.79 | SL: $198.34\nQty: 2 shares\nRisk: $2.98", "ts": "2026-08-03T23:58:29.213807"}
 {"type": "order_filled", "msg": "BUY 2 @ $199.83, order_id=FM1CECF303715FA000", "ts": "2026-08-03T23:58:33.963654"}
 {"type": "exit_signal", "msg": "TP hit at $206.74 (TP=$205.79)", "ts": "2026-08-04T00:00:56.179859"}
@@ -198,3 +196,5 @@
 {"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.46, PnL: $+6.06", "ts": "2026-08-05T00:12:30.801091"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.69, PnL: $+6.76", "ts": "2026-08-05T00:15:21.249861"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.80, PnL: $+7.08", "ts": "2026-08-05T00:15:31.632710"}
+{"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
+{"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
