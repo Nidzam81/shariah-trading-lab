@@ -1,15 +1,3 @@
-{"type": "exit_signal", "msg": "TP hit at $206.87 (TP=$205.79)", "ts": "2026-08-04T00:04:07.712351"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:04:09.369990"}
-{"type": "exit_signal", "msg": "TP hit at $206.74 (TP=$205.79)", "ts": "2026-08-04T00:00:56.179859"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:00:57.590446"}
-{"type": "exit_signal", "msg": "TP hit at $206.73 (TP=$205.79)", "ts": "2026-08-04T00:01:55.916625"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:01:57.367698"}
-{"type": "exit_signal", "msg": "TP hit at $206.87 (TP=$205.79)", "ts": "2026-08-04T00:04:07.712351"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:04:09.369990"}
-{"type": "exit_signal", "msg": "TP hit at $206.73 (TP=$205.79)", "ts": "2026-08-04T00:01:55.916625"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:01:57.367698"}
-{"type": "exit_signal", "msg": "TP hit at $206.87 (TP=$205.79)", "ts": "2026-08-04T00:04:07.712351"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:04:09.369990"}
 {"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:01:57.367698"}
 {"type": "exit_signal", "msg": "TP hit at $206.87 (TP=$205.79)", "ts": "2026-08-04T00:04:07.712351"}
 {"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:04:09.369990"}
@@ -198,3 +186,15 @@
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.86, PnL: $+2.13", "ts": "2026-08-05T00:30:50.504506"}
 {"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
 {"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
+{"type": "buy_signal", "msg": "US.ORCL ORB BREAKOUT DETECTED!\nOR Range: H=$144.44 L=$141.03\nCurrent: $145.26 (+0.6% above entry)\nPullback Entry: $144.44\nTP: $151.26 | SL: $142.74\nQty: 3 shares\nRisk: $5.11", "ts": "2026-08-04T23:45:31.412113"}
+{"type": "order_filled", "msg": "BUY 3 @ $144.44, order_id=FM1CEE39AA9A5AB000", "ts": "2026-08-04T23:45:37.469219"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $145.18, PnL: $+2.21", "ts": "2026-08-04T23:46:31.139546"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $145.78, PnL: $+4.02", "ts": "2026-08-04T23:50:29.759798"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.31, PnL: $+5.60", "ts": "2026-08-05T00:00:30.552382"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.46, PnL: $+6.06", "ts": "2026-08-05T00:12:30.801091"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.69, PnL: $+6.76", "ts": "2026-08-05T00:15:21.249861"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $146.80, PnL: $+7.08", "ts": "2026-08-05T00:15:31.632710"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.34, PnL: $+8.72", "ts": "2026-08-05T00:26:18.965242"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.39, PnL: $+8.85", "ts": "2026-08-05T00:27:21.519320"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.51, PnL: $+9.21", "ts": "2026-08-05T00:30:32.326257"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.42, PnL: $+8.94", "ts": "2026-08-05T00:31:13.686704"}
