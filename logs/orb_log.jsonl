@@ -15,8 +15,6 @@
 {"type": "order_filled", "msg": "BUY 3 @ $121.03, order_id=FM1CEE1F78F21FA000", "ts": "2026-08-04T21:51:10.451339"}
 {"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.40 (+0.3% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-04T21:51:05.780258"}
 {"type": "order_filled", "msg": "BUY 3 @ $121.03, order_id=FM1CEE1F78F21FA000", "ts": "2026-08-04T21:51:10.451339"}
-{"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.40 (+0.3% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-04T21:51:05.780258"}
-{"type": "order_filled", "msg": "BUY 3 @ $121.03, order_id=FM1CEE1F78F21FA000", "ts": "2026-08-04T21:51:10.451339"}
 {"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
 {"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
 {"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.40 (+0.3% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-04T21:51:05.780258"}
@@ -198,3 +196,5 @@
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.89, PnL: $+2.22", "ts": "2026-08-05T00:30:32.257689"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.86, PnL: $+2.13", "ts": "2026-08-05T00:30:50.504506"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $253.15, current $253.63, PnL: $+1.44", "ts": "2026-08-05T00:31:52.285154"}
+{"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
+{"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
