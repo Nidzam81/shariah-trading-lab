@@ -19,8 +19,18 @@
       "entry_price": 121.025,
       "pnl": 0,
       "timestamp": "2026-08-04T21:51:07.297341"
+    },
+    {
+      "type": "sell_filled",
+      "side": "SELL",
+      "price": 119.8775,
+      "qty": 3,
+      "reason": "STOP_LOSS",
+      "entry_price": 121.025,
+      "pnl": -3.44,
+      "timestamp": "2026-08-04T22:45:27.385366"
     }
   ],
-  "last_updated": "2026-08-04T21:51:07.580723",
+  "last_updated": "2026-08-04T22:45:27.691432",
   "agent": "csco_orb"
 }
