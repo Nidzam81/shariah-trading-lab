@@ -1,0 +1,23 @@
+{
+  "agent": "adbe",
+  "position_open": true,
+  "entry_price": 253.15,
+  "qty": 3,
+  "order_id": "FM1CEE39AA075FA000",
+  "entry_time": "2026-08-04T23:45:33.416672",
+  "last_updated": "2026-08-05T00:30:32.399917",
+  "latest_entry": {
+    "position_open": true,
+    "price": 253.89,
+    "or_high": null,
+    "or_low": null,
+    "reason": "position_monitor",
+    "entry_price": 253.15,
+    "qty": 3,
+    "tp": 268.53,
+    "sl": 249.305,
+    "pending_confirm": false
+  },
+  "latest_exit": {},
+  "exits": []
+}
