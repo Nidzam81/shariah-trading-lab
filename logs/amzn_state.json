@@ -1,22 +1,22 @@
 {
   "agent": "amzn",
   "position_open": false,
-  "entry_price": 0.0,
+  "entry_price": 0,
   "qty": 0,
   "order_id": null,
   "entry_time": null,
-  "last_updated": "2026-08-03T22:30:26.160742",
+  "last_updated": "2026-08-05T00:30:34.378450",
   "latest_entry": {
     "position_open": false,
-    "price": null,
-    "rsi14": null,
-    "sma200": null,
-    "trend": null,
-    "reason": "exit_check",
-    "entry_price": 0.0,
+    "price": 278.425,
+    "or_high": 279.99,
+    "or_low": 275.9,
+    "reason": "no_breakout",
+    "entry_price": 0,
     "qty": 0,
-    "tp": null,
-    "sl": null
+    "tp": 0,
+    "sl": 0,
+    "pending_confirm": false
   },
   "latest_exit": {},
   "exits": []
