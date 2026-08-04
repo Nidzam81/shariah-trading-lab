@@ -5,18 +5,18 @@
   "qty": 0,
   "order_id": null,
   "entry_time": "2026-08-04T21:51:07.218684",
-  "last_updated": "2026-08-05T02:45:43.542963",
+  "last_updated": "2026-08-05T04:15:56.224507",
   "latest_entry": {
     "position_open": false,
-    "price": 121.055,
-    "or_high": 121.025,
-    "or_low": 118.73,
-    "reason": "pending_confirm",
+    "price": null,
+    "or_high": null,
+    "or_low": null,
+    "reason": "outside_window",
     "entry_price": 0,
     "qty": 0,
     "tp": 125.61500000000001,
     "sl": 119.8775,
-    "pending_confirm": true
+    "pending_confirm": false
   },
   "latest_exit": {},
   "exits": []
