@@ -1,5 +1,3 @@
-{"type": "exit_signal", "msg": "TP hit at $206.87 (TP=$205.79)", "ts": "2026-08-04T00:04:07.712351"}
-{"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:04:09.369990"}
 {"type": "order_filled", "msg": "BUY 2 @ $199.83, order_id=FM1CECF303715FA000", "ts": "2026-08-03T23:58:33.963654"}
 {"type": "exit_signal", "msg": "TP hit at $206.74 (TP=$205.79)", "ts": "2026-08-04T00:00:56.179859"}
 {"type": "order_failed", "msg": "TP sell failed: You already have a long order, cannot add short orders", "ts": "2026-08-04T00:00:57.590446"}
@@ -198,3 +196,5 @@
 {"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.34, PnL: $+8.72", "ts": "2026-08-05T00:26:18.965242"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.39, PnL: $+8.85", "ts": "2026-08-05T00:27:21.519320"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $144.44, current $147.51, PnL: $+9.21", "ts": "2026-08-05T00:30:32.326257"}
+{"type": "exit_signal", "msg": "SL hit at $119.56 (SL=$119.88)", "ts": "2026-08-04T22:45:25.938652"}
+{"type": "order_filled", "msg": "SL SELL 3 @ $119.88, PnL: $-3.44", "ts": "2026-08-04T22:45:30.693241"}
