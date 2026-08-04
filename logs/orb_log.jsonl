@@ -1,7 +1,3 @@
-{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T02:30:48.238482"}
-{"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.06 (+0.0% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-05T02:45:42.214984"}
-{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T02:45:48.771781"}
-{"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.04 (+0.0% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-05T03:00:43.044014"}
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:00:49.918134"}
 {"type": "buy_signal", "msg": "US.CSCO ORB BREAKOUT DETECTED!\nOR Range: H=$121.03 L=$118.73\nCurrent: $121.13 (+0.1% above entry)\nPullback Entry: $121.03\nTP: $125.62 | SL: $119.88\nQty: 3 shares\nRisk: $3.44", "ts": "2026-08-05T03:15:43.926865"}
 {"type": "buy_signal", "msg": "US.ORCL ORB BREAKOUT DETECTED!\nOR Range: H=$144.44 L=$141.03\nCurrent: $148.54 (+2.8% above entry)\nPullback Entry: $144.44\nTP: $151.26 | SL: $142.74\nQty: 3 shares\nRisk: $5.11", "ts": "2026-08-05T01:30:37.942827"}
@@ -194,6 +190,10 @@
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:15:50.544365"}
 {"type": "buy_signal", "msg": "US.ORCL ORB BREAKOUT DETECTED!\nOR Range: H=$144.44 L=$141.03\nCurrent: $146.11 (+1.1% above entry)\nPullback Entry: $144.44\nTP: $151.26 | SL: $142.74\nQty: 3 shares\nRisk: $5.11", "ts": "2026-08-05T03:30:44.657889"}
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:30:51.633231"}
+{"type": "buy_signal", "msg": "US.AVGO ORB BREAKOUT DETECTED!\nOR Range: H=$411.22 L=$400.68\nCurrent: $417.00 (+1.4% above entry)\nPullback Entry: $411.22\nTP: $432.30 | SL: $405.95\nQty: 3 shares\nRisk: $15.81", "ts": "2026-08-05T01:02:25.196391"}
+{"type": "order_filled", "msg": "BUY 3 @ $411.22, order_id=FM1CEE4B43859AB000", "ts": "2026-08-05T01:02:29.265637"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $411.22, current $416.76, PnL: $+16.62", "ts": "2026-08-05T01:02:59.053236"}
+{"type": "position_monitor", "msg": "Position open: 3 @ $411.22, current $417.45, PnL: $+18.70", "ts": "2026-08-05T01:04:02.844366"}
 {"type": "buy_signal", "msg": "US.AVGO ORB BREAKOUT DETECTED!\nOR Range: H=$411.22 L=$400.68\nCurrent: $417.00 (+1.4% above entry)\nPullback Entry: $411.22\nTP: $432.30 | SL: $405.95\nQty: 3 shares\nRisk: $15.81", "ts": "2026-08-05T01:02:25.196391"}
 {"type": "order_filled", "msg": "BUY 3 @ $411.22, order_id=FM1CEE4B43859AB000", "ts": "2026-08-05T01:02:29.265637"}
 {"type": "position_monitor", "msg": "Position open: 3 @ $411.22, current $416.76, PnL: $+16.62", "ts": "2026-08-05T01:02:59.053236"}
