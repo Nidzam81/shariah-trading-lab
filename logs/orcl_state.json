@@ -1,14 +1,23 @@
 {
-  "position_open": false,
-  "entry_price": 0,
-  "qty": 0,
-  "order_id": null,
-  "entry_time": null,
-  "tp_price": 0,
-  "sl_price": 0,
-  "or_high": null,
-  "or_low": null,
-  "pending_confirm": false,
-  "pending_entry": null,
-  "last_updated": "2026-08-05T00:49:09.326986"
+  "agent": "orcl",
+  "position_open": true,
+  "entry_price": 144.44,
+  "qty": 3,
+  "order_id": "FM1CEE4AAE239AB000",
+  "entry_time": "2026-08-05T00:59:53.465652",
+  "last_updated": "2026-08-05T01:00:34.004681",
+  "latest_entry": {
+    "position_open": true,
+    "price": 148.055,
+    "or_high": null,
+    "or_low": null,
+    "reason": "position_monitor",
+    "entry_price": 144.44,
+    "qty": 3,
+    "tp": 151.26,
+    "sl": 142.735,
+    "pending_confirm": false
+  },
+  "latest_exit": {},
+  "exits": []
 }
