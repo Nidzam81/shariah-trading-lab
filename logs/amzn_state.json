@@ -1,14 +1,23 @@
 {
-  "position_open": false,
-  "entry_price": 0,
-  "qty": 0,
-  "order_id": null,
-  "entry_time": null,
-  "tp_price": 0,
-  "sl_price": 0,
-  "or_high": null,
-  "or_low": null,
-  "pending_confirm": false,
-  "pending_entry": null,
-  "last_updated": "2026-08-05T01:30:00.000000"
+  "agent": "amzn",
+  "position_open": true,
+  "entry_price": 411.22,
+  "qty": 3,
+  "order_id": "FM1CEE4B43859AB000",
+  "entry_time": "2026-08-05T01:02:26.439387",
+  "last_updated": "2026-08-05T01:30:34.301165",
+  "latest_entry": {
+    "position_open": true,
+    "price": null,
+    "or_high": null,
+    "or_low": null,
+    "reason": "price_fetch_failed",
+    "entry_price": 411.22,
+    "qty": 3,
+    "tp": 432.30000000000007,
+    "sl": 405.95000000000005,
+    "pending_confirm": false
+  },
+  "latest_exit": {},
+  "exits": []
 }
