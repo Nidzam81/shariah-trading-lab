@@ -1,0 +1,23 @@
+{
+  "agent": "csco",
+  "position_open": false,
+  "entry_price": 0,
+  "qty": 0,
+  "order_id": null,
+  "entry_time": "2026-08-04T21:51:07.218684",
+  "last_updated": "2026-08-05T00:30:59.472040",
+  "latest_entry": {
+    "position_open": false,
+    "price": 120.83,
+    "or_high": 121.025,
+    "or_low": 118.73,
+    "reason": "no_breakout",
+    "entry_price": 0,
+    "qty": 0,
+    "tp": 125.61500000000001,
+    "sl": 119.8775,
+    "pending_confirm": false
+  },
+  "latest_exit": {},
+  "exits": []
+}
