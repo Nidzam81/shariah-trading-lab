@@ -9,8 +9,18 @@
       "entry_price": 115.38,
       "pnl": 0,
       "timestamp": "2026-08-03T22:44:56.153116"
+    },
+    {
+      "type": "buy_filled",
+      "side": "BUY",
+      "price": 121.025,
+      "qty": 3,
+      "reason": "ORB_PULLBACK",
+      "entry_price": 121.025,
+      "pnl": 0,
+      "timestamp": "2026-08-04T21:51:07.297341"
     }
   ],
-  "last_updated": "2026-08-03T22:44:56.806437",
+  "last_updated": "2026-08-04T21:51:07.580723",
   "agent": "csco_orb"
 }
