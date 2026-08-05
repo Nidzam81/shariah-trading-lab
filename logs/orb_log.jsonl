@@ -1,6 +1,3 @@
-{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:30:51.723415"}
-{"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.63 (+0.2% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T02:30:41.353069"}
-{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T02:30:48.309914"}
 {"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.47 (+0.1% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T02:45:42.223001"}
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T02:45:48.699334"}
 {"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.93 (+0.4% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T03:00:43.044014"}
@@ -192,6 +189,9 @@
 {"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.40 (+0.1% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T03:30:44.716046"}
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:30:51.339510"}
 {"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.69 (+0.2% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T03:15:43.944493"}
+{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:15:50.393794"}
+{"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.40 (+0.1% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T03:30:44.716046"}
+{"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:30:51.339510"}
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:15:50.393794"}
 {"type": "buy_signal", "msg": "US.NVDA ORB BREAKOUT DETECTED!\nOR Range: H=$212.17 L=$210.35\nCurrent: $212.40 (+0.1% above entry)\nPullback Entry: $212.17\nTP: $215.81 | SL: $211.26\nQty: 3 shares\nRisk: $2.73", "ts": "2026-08-05T03:30:44.716046"}
 {"type": "pending_confirm", "msg": "Waiting for confirmation: Pending confirmation", "ts": "2026-08-05T03:30:51.339510"}
